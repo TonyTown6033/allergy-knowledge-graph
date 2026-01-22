@@ -2,57 +2,352 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>过敏知识图谱 3D 可视化</title>
+    <title>过敏知识图谱 2D 专业版</title>
     <style>
-        body { margin: 0; font-family: Sans-Serif; overflow: hidden; }
-        #graph-container { width: 100vw; height: 100vh; }
-        #info-panel {
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; overflow: hidden; background-color: #f5f7fa; }
+        
+        /* 布局容器 */
+        #layout-container {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        #graph-wrapper {
+            flex: 1;
+            position: relative;
+            height: 100%;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        #graph-container { 
+            width: 100%; 
+            height: 100%; 
+        }
+        
+        /* 侧边面板 (搜索结果 + 详情) */
+        #side-panel {
+            width: 0;
+            background: white;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            border-left: 1px solid #eee;
+            z-index: 100;
+        }
+
+        #side-panel.active {
+            width: 400px;
+        }
+
+        /* 面板内容区域 */
+        .panel-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            min-width: 400px;
+        }
+
+        /* 顶部工具栏 */
+        #toolbar {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 300px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
+            top: 20px;
+            left: 20px;
+            background: white;
             padding: 15px;
             border-radius: 8px;
-            display: none;
-            max-height: 90vh;
-            overflow-y: auto;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            z-index: 90;
         }
-        .legend {
+
+        .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .search-box input {
+            padding: 8px 36px 8px 12px; /* 右侧留出按钮空间 */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 250px;
+            outline: none;
+            font-size: 14px;
+        }
+        .search-box input:focus {
+            border-color: #4444ff;
+            box-shadow: 0 0 0 2px rgba(68, 68, 255, 0.1);
+        }
+        .search-box input:disabled {
+            background-color: #f5f5f5;
+            cursor: not-allowed;
+        }
+        
+        .search-icon-btn {
             position: absolute;
-            bottom: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 12px;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #888;
+            font-size: 16px;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
         }
-        .legend-item { display: flex; align-items: center; margin: 5px 0; }
-        .dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
-        h3 { margin-top: 0; border-bottom: 1px solid #555; padding-bottom: 5px; }
-        .prop { margin-bottom: 8px; }
-        .prop-label { color: #aaa; font-size: 0.9em; }
-        .prop-value { color: #fff; }
+        .search-icon-btn:hover {
+            background-color: #f0f0f0;
+            color: #4444ff;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 10px;
+        }
+        .filter-btn {
+            padding: 6px 12px;
+            border-radius: 15px;
+            border: 1px solid #ddd;
+            background: #fff;
+            cursor: pointer;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s;
+        }
+        .filter-btn.active {
+            background: #eef2ff;
+            border-color: #4444ff;
+            color: #4444ff;
+            font-weight: 500;
+        }
+        .filter-btn .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        /* 搜索结果列表样式 */
+        .result-section {
+            margin-bottom: 25px;
+        }
+        .result-section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #888;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+        .result-item {
+            padding: 12px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #fff;
+        }
+        .result-item:hover {
+            border-color: #4444ff;
+            background: #f8f9ff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .result-item-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+        .result-item-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .result-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-right: 5px;
+            color: white;
+        }
+        .highlight-text {
+            background-color: rgba(255, 255, 0, 0.3);
+            font-weight: bold;
+            color: #000;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+
+        /* 详情视图样式 */
+        .detail-view {
+            display: none;
+        }
+        .detail-view.active {
+            display: block;
+        }
+        .back-btn {
+            margin-bottom: 15px;
+            cursor: pointer;
+            color: #4444ff;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 0;
+        }
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        .info-header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        .info-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .info-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+            line-height: 1.4;
+        }
+        .info-prop {
+            margin-bottom: 15px;
+        }
+        .info-prop label {
+            display: block;
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+        .info-prop div {
+            color: #333;
+            font-size: 14px;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+
+        /* 加载动画 */
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255,255,255,0.9);
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            font-size: 16px;
+            color: #666;
+            pointer-events: none;
+            z-index: 200;
+        }
+        
+        /* 空状态 */
+        .empty-state {
+            text-align: center;
+            color: #999;
+            margin-top: 50px;
+        }
+        
+        /* Toast 提示 */
+        #toast {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            display: none;
+            z-index: 300;
+            transition: opacity 0.3s;
+        }
     </style>
-    <script src="//unpkg.com/3d-force-graph"></script>
+    <!-- 显式引入 D3.js -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="//unpkg.com/force-graph"></script>
 </head>
 <body>
-    <div id="graph-container"></div>
+    <div id="loading">图谱加载中...</div>
+    <div id="toast"></div>
     
-    <div id="info-panel">
-        <h3 id="info-title">节点详情</h3>
-        <div id="info-content"></div>
-    </div>
+    <div id="layout-container">
+        <!-- 左侧图谱区域 -->
+        <div id="graph-wrapper">
+            <div id="graph-container"></div>
+            
+            <div id="toolbar">
+                <div class="search-box">
+                    <input type="text" id="search" placeholder="搜索 观点 / 文章 / 概念..." autocomplete="off" disabled>
+                    <button class="search-icon-btn" id="search-btn" title="搜索">🔍</button>
+                </div>
+                <div class="filter-group">
+                    <button class="filter-btn active" data-type="Article">
+                        <span class="dot" style="background: #ff4444;"></span>文章
+                    </button>
+                    <button class="filter-btn active" data-type="Claim">
+                        <span class="dot" style="background: #44ff44;"></span>观点
+                    </button>
+                    <button class="filter-btn active" data-type="Ontology">
+                        <span class="dot" style="background: #4444ff;"></span>概念
+                    </button>
+                    <button class="filter-btn active" data-type="Evidence">
+                        <span class="dot" style="background: #e6b800;"></span>证据
+                    </button>
+                </div>
+                <div style="border-left: 1px solid #ddd; padding-left: 15px; margin-left: 5px;">
+                    <button class="filter-btn" onclick="resetApp()">⟲ 重置</button>
+                </div>
+            </div>
+        </div>
 
-    <div class="legend">
-        <div class="legend-item"><div class="dot" style="background: #ff4444;"></div>Article (文章)</div>
-        <div class="legend-item"><div class="dot" style="background: #44ff44;"></div>Claim (观点)</div>
-        <div class="legend-item"><div class="dot" style="background: #4444ff;"></div>Ontology (概念)</div>
-        <div class="legend-item"><div class="dot" style="background: #ffff44;"></div>Evidence (证据)</div>
+        <!-- 右侧侧边栏 -->
+        <div id="side-panel">
+            <div class="panel-content">
+                <!-- 搜索结果列表视图 -->
+                <div id="results-view">
+                    <div id="results-container"></div>
+                </div>
+                
+                <!-- 节点详情视图 -->
+                <div id="detail-view" class="detail-view">
+                    <div class="back-btn" onclick="showResultsView()">← 返回搜索结果</div>
+                    <div id="detail-content"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -60,52 +355,422 @@
             'Article': '#ff4444',
             'Claim': '#44ff44',
             'Ontology': '#4444ff',
-            'Evidence': '#ffff44'
+            'Evidence': '#e6b800'
         };
 
-        const Graph = ForceGraph3D()
-            (document.getElementById('graph-container'))
-            .jsonUrl('./graph_data.json')
-            .nodeLabel('name')
-            .nodeColor(node => colorMap[node.group] || '#ffffff')
-            .nodeVal('val')
-            .linkDirectionalArrowLength(3.5)
-            .linkDirectionalArrowRelPos(1)
-            .onNodeClick(node => {
-                // Aim at node from outside it
-                const distance = 40;
-                const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
+        const labelMap = {
+            'Article': '文章',
+            'Claim': '观点',
+            'Ontology': '概念',
+            'Evidence': '证据'
+        };
 
-                Graph.cameraPosition(
-                    { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
-                    node, // lookAt ({ x, y, z })
-                    3000  // ms transition duration
-                );
+        let Graph;
+        let graphData = { nodes: [], links: [] };
+        let highlightNodes = new Set();
+        let highlightLinks = new Set();
+        let isPanelOpen = false;
+
+        // 初始化图谱
+        fetch('./graph_data.json')
+            .then(res => {
+                if (!res.ok) throw new Error('Network response was not ok');
+                return res.json();
+            })
+            .then(data => {
+                graphData = data;
+                document.getElementById('loading').style.display = 'none';
+                // 启用搜索框
+                const searchInput = document.getElementById('search');
+                searchInput.disabled = false;
+                searchInput.placeholder = `搜索 ${data.nodes.length} 个节点...`;
                 
-                showInfo(node);
+                initGraph(data);
+            })
+            .catch(err => {
+                document.getElementById('loading').innerText = '加载数据失败: ' + err.message;
+                console.error("Fetch error:", err);
             });
 
-        function showInfo(node) {
-            const panel = document.getElementById('info-panel');
-            const title = document.getElementById('info-title');
-            const content = document.getElementById('info-content');
+        function initGraph(data) {
+            const container = document.getElementById('graph-container');
             
-            panel.style.display = 'block';
-            title.textContent = node.group;
+            Graph = ForceGraph()(container)
+                .graphData(data)
+                .backgroundColor('#f5f7fa')
+                .nodeLabel('name')
+                .nodeColor(node => colorMap[node.group])
+                .nodeVal(node => (node.val || 1) * 3)
+                .nodeRelSize(4)
+                .nodeCanvasObject((node, ctx, globalScale) => {
+                    const label = node.name;
+                    const fontSize = 12/globalScale * (node.group === 'Ontology' || node.group === 'Article' ? 1.2 : 1); 
+                    ctx.font = `${fontSize}px Sans-Serif`;
+                    
+                    const isHighlight = highlightNodes.size === 0 || highlightNodes.has(node);
+                    const opacity = isHighlight ? 1 : 0.1;
+                    
+                    const r = Math.sqrt(node.val || 1) * 2;
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, r, 0, 2 * Math.PI, false);
+                    ctx.fillStyle = node.color || colorMap[node.group];
+                    ctx.globalAlpha = opacity;
+                    ctx.fill();
+                    
+                    const textWidth = ctx.measureText(label).width;
+                    const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.5);
+
+                    if (globalScale > 0.8 || highlightNodes.has(node) || node.group === 'Ontology') {
+                        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+                        if (!isHighlight) ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+                        
+                        ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2 - r - fontSize/2, bckgDimensions[0], bckgDimensions[1]);
+
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillStyle = '#333';
+                        if (!isHighlight) ctx.fillStyle = 'rgba(51, 51, 51, 0.2)';
+                        ctx.fillText(label, node.x, node.y - r - fontSize/2);
+                    }
+                    
+                    ctx.globalAlpha = 1;
+                })
+                .linkColor(link => '#cbd5e1')
+                .linkWidth(link => highlightLinks.has(link) ? 2 : 1)
+                .linkDirectionalArrowLength(3.5)
+                .linkDirectionalArrowRelPos(1)
+                .onNodeClick(handleNodeClick)
+                .onBackgroundClick(() => {
+                    highlightNodes.clear();
+                    highlightLinks.clear();
+                });
+                
+            // 移除所有 d3Force 配置，使用库的默认物理引擎参数
+            // 避免版本兼容性问题
+                
+            // 搜索逻辑绑定
+            setupSearch();
+
+            // 监听窗口大小变化
+            window.addEventListener('resize', () => {
+                Graph.width(document.getElementById('graph-wrapper').offsetWidth);
+                Graph.height(document.getElementById('graph-wrapper').offsetHeight);
+            });
             
-            let html = `<div class="prop"><div class="prop-label">Name</div><div class="prop-value">${node.name}</div></div>`;
-            
-            if (node.description) {
-                html += `<div class="prop"><div class="prop-label">Description</div><div class="prop-value">${node.description}</div></div>`;
+            // 筛选按钮
+            document.querySelectorAll('.filter-btn[data-type]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    btn.classList.toggle('active');
+                    updateVisibility();
+                });
+            });
+        }
+
+        // 防抖函数
+        function debounce(func, wait) {
+            let timeout;
+            return function() {
+                const context = this;
+                const args = arguments;
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(context, args), wait);
+            };
+        }
+
+        function setupSearch() {
+            const searchInput = document.getElementById('search');
+            const searchBtn = document.getElementById('search-btn');
+
+            // 统一的搜索入口
+            const triggerSearch = () => {
+                const val = searchInput.value.trim();
+                console.log('🔍 触发搜索:', val); // Debug Log
+                if (!val) {
+                    showToast("请输入搜索内容");
+                    return;
+                }
+                performSearch(val);
+            };
+
+            // 1. Enter 键监听 (最优先)
+            searchInput.addEventListener('keydown', (e) => {
+                // 兼容中文输入法：如果正在输入拼音，不要触发
+                if (e.key === 'Enter' && !isComposing) {
+                    console.log('⌨️ Enter 键被按下'); // Debug Log
+                    e.preventDefault();
+                    triggerSearch();
+                }
+            });
+
+            // 2. 按钮点击监听
+            searchBtn.addEventListener('click', () => {
+                console.log('🖱️ 搜索按钮被点击'); // Debug Log
+                triggerSearch();
+            });
+
+            // 3. 实时输入监听 (带防抖)
+            searchInput.addEventListener('input', debounce(() => {
+                if (isComposing) return;
+                const val = searchInput.value.trim();
+                console.log('⌨️ 实时输入:', val);
+                performSearch(val);
+            }, 500)); // 延长防抖时间到 500ms，减少闪烁
+        }
+
+        // 核心搜索逻辑
+        function performSearch(keyword) {
+            keyword = keyword ? keyword.toLowerCase() : '';
+
+            if (!keyword) {
+                closePanel();
+                highlightNodes.clear();
+                highlightLinks.clear();
+                return;
             }
-            if (node.content) {
-                html += `<div class="prop"><div class="prop-label">Content</div><div class="prop-value">${node.content}</div></div>`;
+
+            console.log("Searching for:", keyword);
+
+            if (!graphData.nodes || graphData.nodes.length === 0) {
+                showToast("数据尚未加载，请稍候");
+                return;
             }
+
+            // 1. 过滤数据
+            const matchedNodes = graphData.nodes.filter(n => 
+                (n.name && n.name.toLowerCase().includes(keyword)) ||
+                (n.content && n.content.toLowerCase().includes(keyword)) || 
+                (n.description && n.description.toLowerCase().includes(keyword))
+            );
+
+            console.log("Matched nodes:", matchedNodes.length);
+
+            // 2. 渲染侧边栏 (无论有无结果都渲染，没结果会显示"未找到")
+            renderSearchResults(matchedNodes, keyword);
+
+            // 3. 打开面板
+            if (!isPanelOpen) {
+                openPanel();
+            }
+
+            // 4. 聚焦节点
+            if (matchedNodes.length > 0) {
+                highlightNodes.clear();
+                highlightLinks.clear();
+                matchedNodes.forEach(n => highlightNodes.add(n));
+                
+                if (matchedNodes.length === 1) {
+                    const node = matchedNodes[0];
+                    Graph.centerAt(node.x, node.y, 1000);
+                    Graph.zoom(3, 2000);
+                } else {
+                    Graph.zoomToFit(1000, 100, node => matchedNodes.includes(node));
+                }
+            } else {
+                // 无结果时的提示
+                // showToast(`未找到 "${keyword}" 相关内容`);
+            }
+        }
+
+        function highlightText(text, keyword) {
+            if (!text || !keyword) return text || '';
+            const safeKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(`(${safeKeyword})`, 'gi');
+            return text.replace(regex, '<span class="highlight-text">$1</span>');
+        }
+
+        function renderSearchResults(nodes, keyword) {
+            const container = document.getElementById('results-container');
+            container.innerHTML = '';
+            showResultsView();
+
+            if (nodes.length === 0) {
+                container.innerHTML = `<div class="empty-state">未找到 "${keyword}" 相关内容</div>`;
+                return;
+            }
+
+            // 分组
+            const grouped = {
+                'Ontology': [],
+                'Claim': [],
+                'Evidence': [],
+                'Article': []
+            };
+            
+            nodes.forEach(n => {
+                if (grouped[n.group]) grouped[n.group].push(n);
+                else {
+                    if (!grouped['Other']) grouped['Other'] = [];
+                    grouped['Other'].push(n);
+                }
+            });
+
+            // 渲染顺序
+            const order = ['Ontology', 'Claim', 'Evidence', 'Article'];
+            if (grouped['Other']) order.push('Other');
+            
+            order.forEach(type => {
+                const items = grouped[type];
+                if (items && items.length > 0) {
+                    const section = document.createElement('div');
+                    section.className = 'result-section';
+                    
+                    const title = document.createElement('div');
+                    title.className = 'result-section-title';
+                    const typeLabel = labelMap[type] || type;
+                    title.textContent = `${typeLabel} (${items.length})`;
+                    section.appendChild(title);
+                    
+                    items.forEach(node => {
+                        const itemEl = document.createElement('div');
+                        itemEl.className = 'result-item';
+                        itemEl.onclick = () => handleResultClick(node);
+                        
+                        let contentPreview = node.content || node.description || '';
+                        
+                        const highlightedName = highlightText(node.name, keyword);
+                        const highlightedContent = highlightText(contentPreview, keyword);
+                        
+                        itemEl.innerHTML = `
+                            <div class="result-item-title">
+                                <span class="result-tag" style="background:${colorMap[node.group] || '#999'}">${typeLabel}</span>
+                                ${highlightedName}
+                            </div>
+                            ${contentPreview ? `<div class="result-item-desc">${highlightedContent}</div>` : ''}
+                        `;
+                        section.appendChild(itemEl);
+                    });
+                    
+                    container.appendChild(section);
+                }
+            });
+        }
+
+        function handleResultClick(node) {
+            handleNodeClick(node);
+            showDetailView(node);
+        }
+
+        function handleNodeClick(node) {
+            highlightNodes.clear();
+            highlightLinks.clear();
+            
+            if (node) {
+                highlightNodes.add(node);
+                const { links } = Graph.graphData();
+                links.forEach(link => {
+                    if (link.source.id === node.id) {
+                        highlightNodes.add(link.target);
+                        highlightLinks.add(link);
+                    } else if (link.target.id === node.id) {
+                        highlightNodes.add(link.source);
+                        highlightLinks.add(link);
+                    }
+                });
+
+                Graph.centerAt(node.x, node.y, 1000);
+                Graph.zoom(2.5, 1000);
+                
+                if (!isPanelOpen) {
+                    openPanel();
+                }
+                showDetailView(node);
+            }
+        }
+
+        function showDetailView(node) {
+            const detailView = document.getElementById('detail-view');
+            const resultsView = document.getElementById('results-view');
+            const content = document.getElementById('detail-content');
+            
+            resultsView.style.display = 'none';
+            detailView.classList.add('active');
+            
+            const hasSearch = document.getElementById('search').value.trim() !== '';
+            document.querySelector('.back-btn').style.display = hasSearch ? 'inline-flex' : 'none';
+
+            let html = `
+                <div class="info-header">
+                    <span class="info-badge" style="background: ${colorMap[node.group]}">${labelMap[node.group]}</span>
+                    <h2 class="info-title">${node.name}</h2>
+                </div>
+            `;
+            
+            if (node.description) html += propHtml('描述', node.description);
+            if (node.content) html += propHtml('详细内容', node.content);
             if (node.polarity) {
-                html += `<div class="prop"><div class="prop-label">Polarity</div><div class="prop-value">${node.polarity}</div></div>`;
+                const polarityColor = node.polarity === '支持' ? '#44ff44' : (node.polarity === '反驳' ? '#ff4444' : '#888');
+                html += propHtml('极性', `<span style="color:${polarityColor};font-weight:bold">${node.polarity}</span>`);
             }
             
             content.innerHTML = html;
+        }
+
+        function showResultsView() {
+            document.getElementById('detail-view').classList.remove('active');
+            document.getElementById('results-view').style.display = 'block';
+        }
+
+        function openPanel() {
+            const panel = document.getElementById('side-panel');
+            if (!panel.classList.contains('active')) {
+                panel.classList.add('active');
+                isPanelOpen = true;
+                setTimeout(() => {
+                    const wrapper = document.getElementById('graph-wrapper');
+                    Graph.width(wrapper.offsetWidth);
+                    Graph.height(wrapper.offsetHeight);
+                }, 300);
+            }
+        }
+
+        function closePanel() {
+            const panel = document.getElementById('side-panel');
+            if (panel.classList.contains('active')) {
+                panel.classList.remove('active');
+                isPanelOpen = false;
+                setTimeout(() => {
+                    const wrapper = document.getElementById('graph-wrapper');
+                    Graph.width(wrapper.offsetWidth);
+                    Graph.height(wrapper.offsetHeight);
+                }, 300);
+            }
+        }
+
+        function resetApp() {
+            document.getElementById('search').value = '';
+            closePanel();
+            highlightNodes.clear();
+            highlightLinks.clear();
+            Graph.zoomToFit(400);
+            updateVisibility();
+        }
+
+        function updateVisibility() {
+            const activeTypes = new Set(
+                Array.from(document.querySelectorAll('.filter-btn.active[data-type]'))
+                    .map(btn => btn.dataset.type)
+            );
+            const { nodes, links } = graphData;
+            const filteredNodes = nodes.filter(n => activeTypes.has(n.group));
+            const filteredNodeIds = new Set(filteredNodes.map(n => n.id));
+            const filteredLinks = links.filter(l => 
+                filteredNodeIds.has(l.source.id || l.source) && 
+                filteredNodeIds.has(l.target.id || l.target)
+            );
+            Graph.graphData({ nodes: filteredNodes, links: filteredLinks });
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.innerText = msg;
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+
+        function propHtml(label, value) {
+            return `<div class="info-prop"><label>${label}</label><div>${value}</div></div>`;
         }
     </script>
 </body>
