@@ -41,6 +41,17 @@ class Evidence:
     page_number: Optional[int] = None   # 页码（如果是PDF）
 
 
+@dataclass
+class Article:
+    """文章数据结构"""
+    title: str                          # 文章标题
+    content: str                        # 文章全文内容
+    file_path: str                      # 文件路径
+    file_md5: str                       # 文件 MD5
+    file_size: int                      # 文件大小（字节）
+    source_url: Optional[str] = None    # 来源URL
+
+
 class NotionDatabase:
     """Notion 数据库操作类"""
     
@@ -142,6 +153,124 @@ class NotionDatabase:
             parent={"database_id": db_id},
             properties=properties
         )
+    
+    def add_article(self, article: Article, database_id: Optional[str] = None) -> dict:
+        """
+        添加文章到 Notion 数据库
+        
+        Args:
+            article: 文章数据
+            database_id: 数据库ID，如果不提供则从配置读取
+            
+        Returns:
+            创建的页面信息
+        """
+        db_id = database_id or config.NOTION_ARTICLES_DB_ID
+        if not db_id:
+            raise ValueError("Articles 数据库ID未配置")
+        
+        properties = {
+            "Name": {
+                "title": [{"text": {"content": article.title}}]
+            },
+            "MD5": {
+                "rich_text": [{"text": {"content": article.file_md5}}]
+            },
+            "文件路径": {
+                "rich_text": [{"text": {"content": article.file_path}}]
+            },
+            "文件大小": {
+                "number": article.file_size
+            }
+        }
+        
+        if article.source_url:
+            properties["来源链接"] = {"url": article.source_url}
+        
+        # 创建页面
+        page = self.client.pages.create(
+            parent={"database_id": db_id},
+            properties=properties
+        )
+        
+        # 添加文章内容到页面 body
+        if article.content:
+            # 将内容分段（Notion 限制每个 block 最多 2000 字符）
+            content_chunks = self._split_text(article.content, 1900)
+            blocks = []
+            
+            for chunk in content_chunks:
+                blocks.append({
+                    "object": "block",
+                    "type": "paragraph",
+                    "paragraph": {
+                        "rich_text": [{"text": {"content": chunk}}]
+                    }
+                })
+            
+            # 批量添加内容块
+            if blocks:
+                self.client.blocks.children.append(
+                    block_id=page["id"],
+                    children=blocks[:100]  # Notion 限制一次最多100个块
+                )
+        
+        return page
+    
+    def query_article_by_md5(self, md5: str, database_id: Optional[str] = None) -> Optional[dict]:
+        """
+        通过 MD5 查询文章是否已存在
+        
+        Args:
+            md5: 文件 MD5 哈希值
+            database_id: 数据库ID
+            
+        Returns:
+            文章页面信息，如果不存在则返回 None
+        """
+        db_id = database_id or config.NOTION_ARTICLES_DB_ID
+        if not db_id:
+            return None
+        
+        try:
+            # 注意: Notion API 不支持直接按 rich_text 字段筛选
+            # 需要先查询所有，然后在客户端过滤
+            # 更好的方式是使用 Notion 的 filter API（如果支持）
+            results = self.client.databases.query(
+                database_id=db_id
+            )
+            
+            for page in results.get("results", []):
+                properties = page.get("properties", {})
+                md5_prop = properties.get("MD5", {})
+                
+                if md5_prop.get("type") == "rich_text":
+                    rich_texts = md5_prop.get("rich_text", [])
+                    if rich_texts and rich_texts[0].get("text", {}).get("content") == md5:
+                        return page
+            
+            return None
+            
+        except Exception as e:
+            print(f"查询失败: {e}")
+            return None
+    
+    @staticmethod
+    def _split_text(text: str, chunk_size: int = 1900) -> list[str]:
+        """
+        将长文本分割成小块
+        
+        Args:
+            text: 原文本
+            chunk_size: 每块最大字符数
+            
+        Returns:
+            文本块列表
+        """
+        chunks = []
+        for i in range(0, len(text), chunk_size):
+            chunks.append(text[i:i + chunk_size])
+        return chunks
     
     def query_claims(
         self, 

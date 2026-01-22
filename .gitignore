@@ -41,6 +41,7 @@ env/
 download/
 results.json
 *.json.bak
+.processed_files.json
 
 # Notion
 nohup.out

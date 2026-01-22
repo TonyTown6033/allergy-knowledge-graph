@@ -20,6 +20,7 @@ class Config:
     NOTION_CLAIMS_DB_ID: str = os.getenv("NOTION_CLAIMS_DB_ID", "")
     NOTION_EVIDENCE_DB_ID: str = os.getenv("NOTION_EVIDENCE_DB_ID", "")
     NOTION_ONTOLOGY_DB_ID: str = os.getenv("NOTION_ONTOLOGY_DB_ID", "")
+    NOTION_ARTICLES_DB_ID: str = os.getenv("NOTION_ARTICLES_DB_ID", "")
     
     # OpenAI 配置
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
