@@ -127,6 +127,14 @@ uv run python scripts/demo_evidence_workflow.py
 uv run python scripts/test_evidence.py
 ```
 
+### 3D 知识图谱可视化 ⭐
+
+```bash
+# 启动 3D 知识图谱
+cd knowledge_graph && ./start.sh
+# 访问 http://localhost:8001
+```
+
 ### 视频播放器
 
 ```bash
@@ -213,6 +221,13 @@ alergy/
 │   ├── 免费版用户指南.md
 │   └── ...
 │
+├── knowledge_graph/            # 3D 知识图谱可视化 ⭐⭐⭐
+│   ├── api_server.py           # API 服务器
+│   ├── index.html              # 3D 可视化页面
+│   ├── app.js                  # 前端逻辑
+│   ├── start.sh                # 快速启动脚本
+│   └── README.md               # 使用说明
+│
 ├── video_player/               # 视频播放器（附加功能）
 │   ├── server.py               # 视频服务器
 │   └── index.html              # 播放器页面
@@ -233,6 +248,7 @@ alergy/
 - **`docs/NOTION_SETUP.md`** - Notion 数据库配置
 - **`docs/手动初始化指南.md`** - 手动设置说明
 - **`docs/VIDEO_PLAYER_README.md`** - 视频播放器说明
+- **`knowledge_graph/README.md`** - 3D 知识图谱使用指南 ⭐
 
 ---
 

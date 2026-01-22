@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过敏知识图谱 - 3D 可视化</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        #container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        
+        #info-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-width: 350px;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        #info-panel h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        #stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .stat-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 12px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+        
+        #controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            min-width: 200px;
+        }
+        
+        #controls h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        
+        .control-group {
+            margin-bottom: 12px;
+        }
+        
+        .control-group label {
+            display: block;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+        
+        .control-group select,
+        .control-group button {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .control-group button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            font-weight: 500;
+        }
+        
+        .control-group button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        #detail-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+        }
+        
+        #detail-panel.show {
+            display: block;
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        #detail-panel h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        #detail-panel .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            line-height: 1;
+        }
+        
+        #detail-panel .close-btn:hover {
+            color: #333;
+        }
+        
+        .detail-field {
+            margin-bottom: 10px;
+        }
+        
+        .detail-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+        
+        .detail-value {
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 6px;
+        }
+        
+        .badge-support { background: #10b981; color: white; }
+        .badge-refute { background: #ef4444; color: white; }
+        .badge-neutral { background: #6b7280; color: white; }
+        
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 20px;
+            z-index: 200;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid white;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    
+    <div id="loading">
+        <div class="spinner"></div>
+        <div>加载知识图谱中...</div>
+    </div>
+    
+    <div id="info-panel">
+        <h1>
+            🧬 过敏知识图谱
+        </h1>
+        <p style="color: #666; font-size: 14px; line-height: 1.6;">
+            3D 可视化医学知识网络
+        </p>
+        <div id="stats">
+            <div class="stat-item">
+                <span class="stat-value" id="ontology-count">0</span>
+                <span class="stat-label">本体概念</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" id="claims-count">0</span>
+                <span class="stat-label">观点</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" id="edges-count">0</span>
+                <span class="stat-label">关联</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" id="evidence-count">0</span>
+                <span class="stat-label">证据</span>
+            </div>
+        </div>
+    </div>
+    
+    <div id="controls">
+        <h3>🎮 控制面板</h3>
+        
+        <div class="control-group">
+            <label>节点类型</label>
+            <select id="node-filter">
+                <option value="all">全部</option>
+                <option value="ontology">本体概念</option>
+                <option value="claim">观点</option>
+            </select>
+        </div>
+        
+        <div class="control-group">
+            <label>概念类别</label>
+            <select id="category-filter">
+                <option value="all">全部类别</option>
+                <option value="免疫球蛋白">免疫球蛋白</option>
+                <option value="过敏原">过敏原</option>
+                <option value="过敏性疾病">过敏性疾病</option>
+                <option value="症状">症状</option>
+                <option value="治疗方法">治疗方法</option>
+                <option value="诊断方法">诊断方法</option>
+                <option value="细胞">细胞</option>
+                <option value="介质">介质</option>
+            </select>
+        </div>
+        
+        <div class="control-group">
+            <button onclick="resetView()">🔄 重置视图</button>
+        </div>
+        
+        <div class="control-group">
+            <button onclick="toggleRotation()">⏸️ 暂停旋转</button>
+        </div>
+    </div>
+    
+    <div id="detail-panel">
+        <button class="close-btn" onclick="closeDetail()">×</button>
+        <div id="detail-content"></div>
+    </div>
+    
+    <!-- 使用 Three.js 和 Force-Graph -->
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://unpkg.com/3d-force-graph@1.73.3/dist/3d-force-graph.min.js"></script>
+    
+    <script src="app.js"></script>
+</body>
+</html>
