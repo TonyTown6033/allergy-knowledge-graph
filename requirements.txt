@@ -1,0 +1,27 @@
+# Allergy Knowledge Graph - Dependencies
+# Install with: pip install -r requirements.txt
+
+# Notion API (official client)
+notion-client>=2.0.0
+
+# OpenAI for claim extraction
+openai>=1.0.0
+
+# PDF processing
+PyPDF2>=3.0.0
+pdfplumber>=0.10.0
+
+# Data processing
+pandas>=2.0.0
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# HTTP requests
+requests>=2.31.0
+
+# Web scraping (optional)
+beautifulsoup4>=4.12.0
+
+# JSON handling
+pydantic>=2.0.0
