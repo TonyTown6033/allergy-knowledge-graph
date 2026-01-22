@@ -17,7 +17,7 @@ pandas>=2.0.0
 # Environment variables
 python-dotenv>=1.0.0
 
-# HTTP requests
+# HTTP requests (用于文件上传)
 requests>=2.31.0
 
 # Web scraping (optional)

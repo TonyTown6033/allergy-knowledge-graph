@@ -58,14 +58,14 @@ cp env.example.txt .env
 ```bash
 # 在 Notion 中创建一个页面，获取页面 ID
 # 然后运行：
-uv run python create_notion_databases.py YOUR_PAGE_ID
-uv run python create_articles_database.py YOUR_PAGE_ID
+uv run python tools/create_notion_databases.py YOUR_PAGE_ID
+uv run python tools/create_articles_database.py YOUR_PAGE_ID
 ```
 
 ### 4. 手动添加数据库列
 
 按照文档说明在 Notion 中为每个数据库添加必要的列：
-- 参考：`免费版用户指南.md`
+- 参考：`docs/免费版用户指南.md`
 
 ### 5. 开始使用
 
@@ -74,10 +74,10 @@ uv run python create_articles_database.py YOUR_PAGE_ID
 uv run python main.py ontology sync
 
 # 处理 PDF 文件（带去重）
-uv run python upload_complete.py your_file.pdf
+uv run python scripts/upload_auto.py your_file.pdf
 
 # 查看统计
-uv run python upload_complete.py --stats
+uv run python scripts/upload_complete.py --stats
 ```
 
 ---
@@ -100,27 +100,39 @@ uv run python main.py config
 ### 文献处理
 
 ```bash
-# 单个文件（带去重和文章上传）
-uv run python upload_complete.py file.pdf
+# 智能上传（推荐）
+uv run python scripts/upload_auto.py file.pdf          # PDF 格式（需手动拖拽）
+uv run python scripts/upload_auto.py file.pdf --text   # 纯文本（全自动）
 
-# 强制重新处理
-uv run python upload_complete.py file.pdf --force
+# 完整上传（带去重）
+uv run python scripts/upload_complete.py file.pdf --force
 
 # 批量处理（保存为 JSON）
 uv run python main.py batch directory/ -o results.json
 
 # 上传已提取的结果
-uv run python upload_results.py results.json
+uv run python scripts/upload_results.py results.json
+
+# 查看统计
+uv run python scripts/upload_complete.py --stats
 ```
 
 ### 测试和演示
 
 ```bash
 # Evidence 功能演示
-uv run python demo_evidence_workflow.py
+uv run python scripts/demo_evidence_workflow.py
 
 # 测试 Evidence 数据库
-uv run python test_evidence.py
+uv run python scripts/test_evidence.py
+```
+
+### 视频播放器
+
+```bash
+# 启动视频服务器
+cd video_player && python server.py
+# 访问 http://localhost:8000
 ```
 
 ---
@@ -165,23 +177,47 @@ uv run python test_evidence.py
 
 ```
 alergy/
-├── src/
-│   ├── __init__.py
-│   ├── config.py              # 配置管理
-│   ├── ontology.py            # 医学概念本体（27个节点）
-│   ├── extractor.py           # PDF 提取和 AI 处理
-│   ├── notion_client.py       # Notion API 集成
-│   └── file_tracker.py        # 文件追踪和去重
 ├── main.py                     # 主程序入口
-├── upload_complete.py          # 完整上传（带去重）⭐
-├── upload_with_evidence.py     # 观点+证据上传
-├── upload_results.py           # 批量结果上传
-├── demo_evidence_workflow.py   # 演示脚本
-├── test_evidence.py            # 测试脚本
-├── create_notion_databases.py  # 创建数据库
-├── create_articles_database.py # 创建 Articles 库
 ├── requirements.txt            # Python 依赖
-└── *.md                        # 各种文档
+├── env.example.txt             # 配置模板
+├── README.md                   # 项目说明
+│
+├── src/                        # 核心模块
+│   ├── config.py               # 配置管理
+│   ├── ontology.py             # 医学概念本体（27个节点）
+│   ├── extractor.py            # PDF 提取和 AI 处理
+│   ├── notion_client.py        # Notion API 集成
+│   └── file_tracker.py         # 文件追踪和去重
+│
+├── scripts/                    # 上传和处理脚本
+│   ├── upload_auto.py          # 智能上传（推荐）⭐
+│   ├── upload_complete.py      # 完整上传（带去重）
+│   ├── upload_with_evidence.py # 观点+证据上传
+│   ├── upload_results.py       # 批量结果上传
+│   ├── upload_with_pdf.py      # PDF 格式上传
+│   ├── demo_evidence_workflow.py # 演示脚本
+│   └── test_evidence.py        # 测试脚本
+│
+├── tools/                      # 数据库管理工具
+│   ├── create_notion_databases.py    # 创建主数据库
+│   ├── create_articles_database.py   # 创建 Articles 库
+│   ├── check_notion_schema.py        # 检查数据库结构
+│   ├── add_database_columns.py       # 添加数据库列
+│   └── ...                           # 其他工具
+│
+├── docs/                       # 文档
+│   ├── 文章上传和去重指南.md
+│   ├── EVIDENCE使用指南.md
+│   ├── PDF格式保留方案.md
+│   ├── 功能测试清单.md
+│   ├── 免费版用户指南.md
+│   └── ...
+│
+├── video_player/               # 视频播放器（附加功能）
+│   ├── server.py               # 视频服务器
+│   └── index.html              # 播放器页面
+│
+└── download/                   # 医学文献和视频（gitignore）
 ```
 
 ---
@@ -189,12 +225,14 @@ alergy/
 ## 📚 文档索引
 
 - **`README.md`** (本文档) - 项目总览
-- **`文章上传和去重指南.md`** - 文章上传和 MD5 去重功能 ⭐
-- **`EVIDENCE使用指南.md`** - Evidence 功能详解
-- **`功能测试清单.md`** - 所有功能和测试方法
-- **`免费版用户指南.md`** - Notion 免费版设置
-- **`NOTION_SETUP.md`** - Notion 数据库配置
-- **`手动初始化指南.md`** - 手动设置说明
+- **`docs/文章上传和去重指南.md`** - 文章上传和 MD5 去重功能 ⭐
+- **`docs/EVIDENCE使用指南.md`** - Evidence 功能详解
+- **`docs/PDF格式保留方案.md`** - PDF 格式保留方案
+- **`docs/功能测试清单.md`** - 所有功能和测试方法
+- **`docs/免费版用户指南.md`** - Notion 免费版设置
+- **`docs/NOTION_SETUP.md`** - Notion 数据库配置
+- **`docs/手动初始化指南.md`** - 手动设置说明
+- **`docs/VIDEO_PLAYER_README.md`** - 视频播放器说明
 
 ---
 

@@ -6,6 +6,8 @@ Notion API 交互模块
 from typing import Optional
 from dataclasses import dataclass
 from enum import Enum
+from pathlib import Path
+import requests
 
 from notion_client import Client
 
@@ -154,7 +156,7 @@ class NotionDatabase:
             properties=properties
         )
     
-    def add_article(self, article: Article, database_id: Optional[str] = None) -> dict:
+    def add_article(self, article: Article, database_id: Optional[str] = None, upload_file: bool = False) -> dict:
         """
         添加文章到 Notion 数据库
         
@@ -216,6 +218,86 @@ class NotionDatabase:
                 )
         
         return page
+    
+    def upload_pdf_to_page(self, page_id: str, pdf_path: str | Path) -> dict:
+        """
+        上传 PDF 文件到 Notion 页面
+        
+        Args:
+            page_id: Notion 页面 ID
+            pdf_path: PDF 文件路径
+            
+        Returns:
+            上传结果
+        """
+        pdf_path = Path(pdf_path)
+        file_size = pdf_path.stat().st_size
+        
+        # 检查文件大小限制（免费版 5MB）
+        max_size = 5 * 1024 * 1024  # 5 MB
+        if file_size > max_size:
+            raise ValueError(f"文件过大 ({file_size / 1024 / 1024:.2f} MB)，免费版限制 5 MB")
+        
+        # 步骤 1: 创建文件上传对象
+        headers = {
+            "Authorization": f"Bearer {self.token}",
+            "Notion-Version": "2022-06-28",
+        }
+        
+        # 获取上传 URL
+        upload_response = requests.post(
+            "https://api.notion.com/v1/file_uploads",
+            headers=headers,
+            json={
+                "name": pdf_path.name,
+                "file_size": file_size
+            }
+        )
+        
+        if upload_response.status_code != 200:
+            raise Exception(f"创建上传失败: {upload_response.text}")
+        
+        upload_data = upload_response.json()
+        upload_url = upload_data.get("upload_url")
+        file_id = upload_data.get("id")
+        
+        # 步骤 2: 上传文件内容到 upload_url（不需要 Authorization）
+        with open(pdf_path, 'rb') as f:
+            files = {
+                'file': (pdf_path.name, f, 'application/pdf')
+            }
+            
+            # 注意：上传到 upload_url 时不要带 Authorization header
+            upload_file_response = requests.post(
+                upload_url,
+                files=files
+            )
+            
+            if upload_file_response.status_code not in [200, 201, 204]:
+                raise Exception(f"上传文件失败 ({upload_file_response.status_code}): {upload_file_response.text[:200]}")
+        
+        # 步骤 3: 将文件添加到页面
+        self.client.blocks.children.append(
+            block_id=page_id,
+            children=[
+                {
+                    "object": "block",
+                    "type": "pdf",
+                    "pdf": {
+                        "type": "file",
+                        "file": {
+                            "file_id": file_id
+                        }
+                    }
+                }
+            ]
+        )
+        
+        return {
+            "file_id": file_id,
+            "file_name": pdf_path.name,
+            "file_size": file_size
+        }
     
     def query_article_by_md5(self, md5: str, database_id: Optional[str] = None) -> Optional[dict]:
         """
