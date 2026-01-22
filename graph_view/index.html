@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>过敏知识图谱 3D 可视化</title>
+    <style>
+        body { margin: 0; font-family: Sans-Serif; overflow: hidden; }
+        #graph-container { width: 100vw; height: 100vh; }
+        #info-panel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 300px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+            max-height: 90vh;
+            overflow-y: auto;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .legend {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+        .legend-item { display: flex; align-items: center; margin: 5px 0; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+        h3 { margin-top: 0; border-bottom: 1px solid #555; padding-bottom: 5px; }
+        .prop { margin-bottom: 8px; }
+        .prop-label { color: #aaa; font-size: 0.9em; }
+        .prop-value { color: #fff; }
+    </style>
+    <script src="//unpkg.com/3d-force-graph"></script>
+</head>
+<body>
+    <div id="graph-container"></div>
+    
+    <div id="info-panel">
+        <h3 id="info-title">节点详情</h3>
+        <div id="info-content"></div>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item"><div class="dot" style="background: #ff4444;"></div>Article (文章)</div>
+        <div class="legend-item"><div class="dot" style="background: #44ff44;"></div>Claim (观点)</div>
+        <div class="legend-item"><div class="dot" style="background: #4444ff;"></div>Ontology (概念)</div>
+        <div class="legend-item"><div class="dot" style="background: #ffff44;"></div>Evidence (证据)</div>
+    </div>
+
+    <script>
+        const colorMap = {
+            'Article': '#ff4444',
+            'Claim': '#44ff44',
+            'Ontology': '#4444ff',
+            'Evidence': '#ffff44'
+        };
+
+        const Graph = ForceGraph3D()
+            (document.getElementById('graph-container'))
+            .jsonUrl('./graph_data.json')
+            .nodeLabel('name')
+            .nodeColor(node => colorMap[node.group] || '#ffffff')
+            .nodeVal('val')
+            .linkDirectionalArrowLength(3.5)
+            .linkDirectionalArrowRelPos(1)
+            .onNodeClick(node => {
+                // Aim at node from outside it
+                const distance = 40;
+                const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
+
+                Graph.cameraPosition(
+                    { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
+                    node, // lookAt ({ x, y, z })
+                    3000  // ms transition duration
+                );
+                
+                showInfo(node);
+            });
+
+        function showInfo(node) {
+            const panel = document.getElementById('info-panel');
+            const title = document.getElementById('info-title');
+            const content = document.getElementById('info-content');
+            
+            panel.style.display = 'block';
+            title.textContent = node.group;
+            
+            let html = `<div class="prop"><div class="prop-label">Name</div><div class="prop-value">${node.name}</div></div>`;
+            
+            if (node.description) {
+                html += `<div class="prop"><div class="prop-label">Description</div><div class="prop-value">${node.description}</div></div>`;
+            }
+            if (node.content) {
+                html += `<div class="prop"><div class="prop-label">Content</div><div class="prop-value">${node.content}</div></div>`;
+            }
+            if (node.polarity) {
+                html += `<div class="prop"><div class="prop-label">Polarity</div><div class="prop-value">${node.polarity}</div></div>`;
+            }
+            
+            content.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

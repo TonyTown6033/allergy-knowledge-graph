@@ -62,7 +62,18 @@ uv run python tools/create_notion_databases.py YOUR_PAGE_ID
 uv run python tools/create_articles_database.py YOUR_PAGE_ID
 ```
 
-### 4. 手动添加数据库列
+### 4. 3D 知识图谱可视化
+
+```bash
+# 生成图谱数据（使用本地 results.json）
+uv run python scripts/export_graph_data.py --mode local
+
+# 启动可视化服务器
+uv run python graph_view/server.py
+# 浏览器访问 http://localhost:8000
+```
+
+### 5. 手动添加数据库列
 
 按照文档说明在 Notion 中为每个数据库添加必要的列：
 - 参考：`docs/免费版用户指南.md`
@@ -125,14 +136,6 @@ uv run python scripts/demo_evidence_workflow.py
 
 # 测试 Evidence 数据库
 uv run python scripts/test_evidence.py
-```
-
-### 3D 知识图谱可视化 ⭐
-
-```bash
-# 启动 3D 知识图谱
-cd knowledge_graph && ./start.sh
-# 访问 http://localhost:8001
 ```
 
 ### 视频播放器
@@ -221,13 +224,6 @@ alergy/
 │   ├── 免费版用户指南.md
 │   └── ...
 │
-├── knowledge_graph/            # 3D 知识图谱可视化 ⭐⭐⭐
-│   ├── api_server.py           # API 服务器
-│   ├── index.html              # 3D 可视化页面
-│   ├── app.js                  # 前端逻辑
-│   ├── start.sh                # 快速启动脚本
-│   └── README.md               # 使用说明
-│
 ├── video_player/               # 视频播放器（附加功能）
 │   ├── server.py               # 视频服务器
 │   └── index.html              # 播放器页面
@@ -248,7 +244,8 @@ alergy/
 - **`docs/NOTION_SETUP.md`** - Notion 数据库配置
 - **`docs/手动初始化指南.md`** - 手动设置说明
 - **`docs/VIDEO_PLAYER_README.md`** - 视频播放器说明
-- **`knowledge_graph/README.md`** - 3D 知识图谱使用指南 ⭐
+- **`docs/GRAPH_VIEW_README.md`** - 3D 知识图谱说明
+
 
 ---
 
