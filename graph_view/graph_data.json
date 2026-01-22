@@ -198,48 +198,48 @@
     {
       "id": "claim_c2fffb717805644a5dc57f86a5a1569d",
       "group": "Claim",
-      "name": "Intramuscular epinephrine is the first-line treatment for anaphylaxis",
-      "content": "The updated guidance emphasizes that intramuscular epinephrine (adrenaline) remains the primary and most effective treatment for anaphylaxis. Despite this, its use is still suboptimal in many clinical settings, highlighting the need for better education and accessibility.",
+      "name": "肾上腺素肌肉注射是治疗过敏性休克的一线疗法",
+      "content": "最新指南强调，肾上腺素（肾上腺素）肌肉注射仍然是治疗过敏性休克的主要且最有效的方法。尽管如此，其使用在许多临床环境中仍显不足，这凸显了更好的教育和可及性的重要性。",
       "polarity": "支持",
       "val": 5
     },
     {
       "id": "claim_26c640615ce343577205159a314d5121",
       "group": "Claim",
-      "name": "Anaphylaxis diagnostic criteria have been refined",
-      "content": "The guidance incorporates updated diagnostic criteria for anaphylaxis, addressing ambiguities in previous definitions. It highlights the need to recognize anaphylaxis even in cases without typical skin involvement or with isolated respiratory or cardiovascular symptoms.",
+      "name": "过敏性休克的诊断标准已被优化",
+      "content": "指南纳入了更新版的过敏性休克诊断标准，解决了之前定义中的模糊性。它强调即使在没有典型皮肤症状或仅伴有孤立性呼吸道或心血管症状的情况下，也需要识别过敏性休克。",
       "polarity": "支持",
       "val": 5
     },
     {
       "id": "claim_958762c8305834f23059abb0752e93fc",
       "group": "Claim",
-      "name": "Global incidence of anaphylaxis is increasing",
-      "content": "Recent studies indicate a rise in the global incidence of anaphylaxis, with variations depending on geographic regions and study methodologies. Despite this, the mortality rate remains low, particularly for food, drug, and venom-induced anaphylaxis.",
+      "name": "全球过敏性休克的发病率正在上升",
+      "content": "最近的研究表明全球过敏性休克的发病率有所增加，但根据地理区域和研究方法存在差异。尽管如此，特别是食物、药物和毒物诱发的过敏性休克，死亡率仍然很低。",
       "polarity": "支持",
       "val": 5
     },
     {
       "id": "claim_63db08179bf12b6f086b66d52f1d2565",
       "group": "Claim",
-      "name": "Limited availability and affordability of epinephrine auto-injectors is a global issue",
-      "content": "The guidance highlights the limited availability and high cost of epinephrine auto-injectors in many countries as a significant barrier to effective anaphylaxis management. This issue underscores the need for improved resource allocation and accessibility.",
+      "name": "肾上腺素自动注射器的有限供应和高成本是全球性问题",
+      "content": "指南强调了许多国家中肾上腺素自动注射器供应有限及高昂成本，这对有效管理过敏性休克造成重大障碍。此问题突出了改善资源分配和可及性的必要性。",
       "polarity": "支持",
       "val": 5
     },
     {
       "id": "claim_cc2f5444b3d22c6dc455fac91a8089e3",
       "group": "Claim",
-      "name": "Anaphylaxis recurrence rates are concerningly high",
-      "content": "Data show that recurrence of anaphylaxis occurs in 26.5–54.0% of patients during follow-up periods ranging from 1.5 to 25 years. This highlights the importance of prevention strategies and patient education to reduce recurrence risks.",
+      "name": "过敏性休克复发率令人担忧",
+      "content": "数据显示，在1.5至25年的随访期间，26.5%至54.0%的患者可能发生过敏性休克复发。这突显了制定预防策略和提高患者教育以降低复发风险的重要性。",
       "polarity": "支持",
       "val": 5
     },
     {
       "id": "claim_db07339cabd02ddfd00e61c6599a971c",
       "group": "Claim",
-      "name": "Anaphylaxis definitions and diagnostic challenges vary globally",
-      "content": "The guidance acknowledges that definitions of anaphylaxis differ across organizations and regions, leading to diagnostic challenges. This variability can result in underdiagnosis or mismanagement of cases, particularly for atypical presentations.",
+      "name": "过敏性休克的定义及诊断挑战因地域不同而不同",
+      "content": "指南指出，不同组织和地区的过敏性休克定义存在差异，从而导致诊断方面的挑战。这种差异可能导致病例的漏诊或错误处理，特别是针对非典型的表现形式。",
       "polarity": "支持",
       "val": 5
     },
@@ -252,56 +252,56 @@
     {
       "id": "claim_cc17666e6476c551f7233014f44f36d3",
       "group": "Claim",
-      "name": "Prompt use of intramuscular adrenaline is essential in anaphylaxis management",
-      "content": "The guideline strongly recommends the prompt use of intramuscular adrenaline as the first-line treatment for anaphylaxis. Adrenaline autoinjectors should also be made available to patients in the community to ensure timely intervention.",
+      "name": "及时使用肌肉注射肾上腺素对过敏性休克管理至关重要",
+      "content": "指南强烈建议及时使用肌肉注射肾上腺素作为过敏性休克的首选治疗方法。同时建议为社区内的患者提供肾上腺素自动注射器，以确保及时干预。",
       "polarity": "支持",
       "val": 5
     },
     {
       "id": "claim_028a019683ad982ffbff15f918fa3d20",
       "group": "Claim",
-      "name": "Structured training improves anaphylaxis management",
-      "content": "The guideline suggests that structured and comprehensive training for individuals at risk of anaphylaxis is crucial. Simulation training and visual prompts for healthcare professionals are also recommended to enhance the management of anaphylaxis.",
+      "name": "结构化培训可改善过敏性休克管理",
+      "content": "指南建议对有过敏性休克风险的人群进行结构化和全面的培训十分重要。同时还建议通过模拟培训和为医疗专业人员提供视觉提示，来提升过敏性休克的管理效果。",
       "polarity": "支持",
       "val": 5
     },
     {
       "id": "claim_44cd315e58b6de41cc689b439cafd563",
       "group": "Claim",
-      "name": "Clinical criteria and tryptase measurement aid in anaphylaxis diagnosis",
-      "content": "The guideline suggests using clinical criteria to identify anaphylaxis, supported by blood sampling for later measurement of tryptase levels. This approach helps in confirming the diagnosis and understanding the severity of the reaction.",
+      "name": "临床标准和曲普酶测量有助于诊断过敏性休克",
+      "content": "指南建议使用临床标准识别过敏性休克，并通过采集血样后测量曲普酶水平来确认诊断。这种方法有助于确认过敏性休克诊断并了解反应的严重程度。",
       "polarity": "支持",
       "val": 5
     },
     {
       "id": "claim_84eda5ce8efd3be493612ebabd2d086b",
       "group": "Claim",
-      "name": "School policies should align with anaphylaxis guidelines",
-      "content": "The guideline recommends that school policies be updated to reflect current anaphylaxis management guidelines. This ensures that children at risk are adequately protected in educational settings.",
+      "name": "学校政策应与过敏性休克指南保持一致",
+      "content": "指南建议学校政策应更新以反映当前的过敏性休克管理指南。这确保了处于风险中的儿童能够在教育环境中得到充分保护。",
       "polarity": "支持",
       "val": 5
     },
     {
       "id": "claim_680614d53b1652d63fc440d295887a07",
       "group": "Claim",
-      "name": "Evidence for anaphylaxis management is limited and requires further research",
-      "content": "The guideline highlights that the current evidence for anaphylaxis management is mostly of very low quality. There is a pressing need for clinical trials to improve the management and outcomes for patients at risk of anaphylaxis.",
+      "name": "关于过敏性休克管理的证据有限，需进一步研究",
+      "content": "指南指出目前关于过敏性休克管理的证据质量偏低。亟需临床试验以改善对于过敏性休克患者的管理及治疗效果。",
       "polarity": "支持",
       "val": 5
     },
     {
       "id": "claim_0d013801f6e7ae51dafe0bc75dd2a2b3",
       "group": "Claim",
-      "name": "Food, drugs, and venom are the primary causes of anaphylaxis",
-      "content": "The guideline identifies food, drugs, and Hymenoptera venom as the most common triggers of anaphylaxis. The prevalence of these causes varies by age and geographical region.",
+      "name": "食物、药物和毒液是过敏性休克的主要原因",
+      "content": "指南指出，食物、药物和膜翅目昆虫毒液是引发过敏性休克的最常见诱因。这些原因的普遍性因年龄和地理区域而有所不同。",
       "polarity": "支持",
       "val": 5
     },
     {
       "id": "claim_a3f05fd7d21d7872c60f78bfcde8ce3f",
       "group": "Claim",
-      "name": "Co-factors can aggravate anaphylaxis severity",
-      "content": "The guideline notes that factors such as exercise, stress, infection, non-steroidal anti-inflammatory drugs, and alcohol can exacerbate anaphylactic reactions. These co-factors should be considered during diagnosis and management.",
+      "name": "共因可能加重过敏性休克的严重程度",
+      "content": "指南指出，运动、压力、感染、非甾体抗炎药和酒精等因素可能会加剧过敏性反应。这些共因在诊断和管理过程中应予考虑。",
       "polarity": "支持",
       "val": 5
     },
@@ -672,40 +672,40 @@
     {
       "id": "claim_b96f9a46f4e9cc8e31562ae8f43e2f6f",
       "group": "Claim",
-      "name": "AIT has potential long-term preventive effects on asthma symptoms and medication use.",
-      "content": "Some trial data suggest that AIT may have a preventive effect on asthma symptoms and medication use beyond two years after treatment. However, more evidence is needed to confirm these long-term benefits.",
+      "name": "AIT可能对哮喘症状和药物使用具有长期预防效果。",
+      "content": "一些试验数据表明，AIT可能在治疗后两年以上对哮喘症状和药物使用具有预防效果。然而，需要更多证据来证实这些长期益处。",
       "polarity": "支持",
       "val": 5
     },
     {
       "id": "claim_208fa4b7e5764f34c66c96c828b0d810",
       "group": "Claim",
-      "name": "Evidence for AIT's preventive effects on house dust mite-induced AR and allergic sensitization is limited.",
-      "content": "While AIT shows promise as a preventive treatment, there is insufficient evidence regarding its effectiveness for AR triggered by house dust mites or for preventing allergic sensitization and other allergic co-morbidities. Further high-quality clinical trials are needed to address these gaps.",
+      "name": "AIT对尘螨诱发的变应性鼻炎和过敏性敏感的预防效果证据有限。",
+      "content": "尽管AIT作为预防治疗显示出一定的潜力，但关于其对尘螨诱发的变应性鼻炎或预防过敏性敏感及其他过敏共病的有效性方面的证据不足。需要进一步的高质量临床试验来填补这些空白。",
       "polarity": "中立",
       "val": 5
     },
     {
       "id": "claim_978ea35de131d0b9c410e506fbe28c8f",
       "group": "Claim",
-      "name": "Children with allergic rhinitis are at increased risk of developing asthma.",
-      "content": "Studies show that children with AR have a threefold increased risk of developing asthma. This highlights the importance of early intervention and preventive strategies, such as AIT, to reduce this risk.",
+      "name": "患有变应性鼻炎的儿童患哮喘的风险增加。",
+      "content": "研究显示，患有变应性鼻炎的儿童患哮喘的风险增加三倍。这凸显了早期干预和预防策略（如AIT）的重要性，以降低这一风险。",
       "polarity": "支持",
       "val": 5
     },
     {
       "id": "claim_27a988c25126b118f574d2153867c6d4",
       "group": "Claim",
-      "name": "AIT induces immunological changes that may lead to immune modification.",
-      "content": "AIT has the potential to induce immunological changes that result in immune modification, making it a promising preventive strategy for allergic diseases. These changes may contribute to its long-term disease-modifying effects.",
+      "name": "AIT诱导免疫学变化，可能导致免疫修改。",
+      "content": "AIT可能诱导免疫学变化，从而引起免疫修改，使其成为一种有前景的过敏性疾病预防策略。这些变化可能有助于其长期的疾病修改效果。",
       "polarity": "支持",
       "val": 5
     },
     {
       "id": "claim_1585705c1a3f8fc281bba06ecec8a2ef",
       "group": "Claim",
-      "name": "More high-quality clinical trials are needed to confirm AIT's preventive potential.",
-      "content": "Although evidence exists for AIT's preventive potential, there is an urgent need for more high-quality clinical trials to better understand its effectiveness in preventing allergic sensitization, first allergic diseases, and allergic co-morbidities.",
+      "name": "需要更多高质量临床试验来确认AIT的预防潜力。",
+      "content": "尽管存在AIT的预防潜力的证据，但迫切需要更多高质量临床试验，以更好地了解其在预防过敏性敏感、初发过敏性疾病及过敏共病方面的有效性。",
       "polarity": "支持",
       "val": 5
     },
