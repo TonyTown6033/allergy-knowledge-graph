@@ -108,8 +108,9 @@ def fetch_all_pages(client, database_id):
     start_cursor = None
 
     while has_more:
-        response = client.databases.query(
-            database_id=database_id,
+        # Note: 新版 Notion API (2025+) 使用 data_sources.query 而不是 databases.query
+        response = client.data_sources.query(
+            data_source_id=database_id,
             start_cursor=start_cursor
         )
         results.extend(response.get("results", []))

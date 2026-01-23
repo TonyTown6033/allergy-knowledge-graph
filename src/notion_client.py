@@ -317,9 +317,9 @@ class NotionDatabase:
         try:
             # 注意: Notion API 不支持直接按 rich_text 字段筛选
             # 需要先查询所有，然后在客户端过滤
-            # 更好的方式是使用 Notion 的 filter API（如果支持）
-            results = self.client.databases.query(
-                database_id=db_id
+            # 新版 API (2025+) 使用 data_sources.query
+            results = self.client.data_sources.query(
+                data_source_id=db_id
             )
             
             for page in results.get("results", []):
@@ -392,7 +392,7 @@ class NotionDatabase:
             })
         
         query_params = {
-            "database_id": db_id,
+            "data_source_id": db_id,
             "page_size": min(limit, 100)
         }
         
@@ -402,7 +402,8 @@ class NotionDatabase:
             else:
                 query_params["filter"] = {"and": filters}
         
-        return self.client.databases.query(**query_params).get("results", [])
+        # 新版 API (2025+) 使用 data_sources.query
+        return self.client.data_sources.query(**query_params).get("results", [])
     
     def sync_ontology(self, database_id: Optional[str] = None) -> list[dict]:
         """
