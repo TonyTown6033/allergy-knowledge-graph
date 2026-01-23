@@ -201,6 +201,8 @@ def generate_notion_graph(output_path="graph_view/graph_data.json"):
     # 2. Fetch Articles
     print("Fetching Articles...")
     articles = fetch_all_pages(db.client, config.NOTION_ARTICLES_DB_ID)
+    article_title_to_id = {}  # 用于后续匹配
+    
     for page in articles:
         page_id = page["id"]
         title = get_property_value(page, "Name")
@@ -213,16 +215,22 @@ def generate_notion_graph(output_path="graph_view/graph_data.json"):
                 "val": 20
             })
             existing_nodes.add(page_id)
+            # 保存标题映射（用于匹配 Claim/Evidence）
+            if title:
+                article_title_to_id[title] = page_id
 
     # 3. Fetch Claims
     print("Fetching Claims...")
     claims = fetch_all_pages(db.client, config.NOTION_CLAIMS_DB_ID)
+    claim_sources = {}  # 记录 claim 的来源，用于建立 Article 链接
+    
     for page in claims:
         page_id = page["id"]
         title = get_property_value(page, "Name")
         content = get_property_value(page, "内容")
         polarity = get_property_value(page, "极性")
         mapped_nodes = get_property_value(page, "关联概念") # These are names from multi-select
+        source_title = get_property_value(page, "来源标题")  # 获取来源标题用于匹配
         
         if page_id not in existing_nodes:
             nodes.append({
@@ -234,6 +242,10 @@ def generate_notion_graph(output_path="graph_view/graph_data.json"):
                 "val": 5
             })
             existing_nodes.add(page_id)
+        
+        # 记录来源标题
+        if source_title:
+            claim_sources[page_id] = source_title
 
         # Link Claim -> Ontology
         if mapped_nodes:
@@ -248,10 +260,13 @@ def generate_notion_graph(output_path="graph_view/graph_data.json"):
     # 4. Fetch Evidence
     print("Fetching Evidence...")
     evidence_list = fetch_all_pages(db.client, config.NOTION_EVIDENCE_DB_ID)
+    evidence_sources = {}  # 记录 evidence 的来源
+    
     for page in evidence_list:
         page_id = page["id"]
         title = get_property_value(page, "Name")
         content = get_property_value(page, "内容")
+        source_title = get_property_value(page, "来源标题")
         
         if page_id not in existing_nodes:
             nodes.append({
@@ -263,6 +278,55 @@ def generate_notion_graph(output_path="graph_view/graph_data.json"):
             })
             existing_nodes.add(page_id)
         
+        if source_title:
+            evidence_sources[page_id] = source_title
+    
+    # 5. 建立 Article -> Claim/Evidence 的链接关系
+    print("Building Article links...")
+    links_created = 0
+    
+    # 方法1: 基于来源标题精确匹配
+    for claim_id, source_title in claim_sources.items():
+        if source_title in article_title_to_id:
+            links.append({
+                "source": article_title_to_id[source_title],
+                "target": claim_id,
+                "type": "contains"
+            })
+            links_created += 1
+        # 方法2: 模糊匹配（如果精确匹配失败）
+        elif source_title:
+            for article_title, article_id in article_title_to_id.items():
+                if source_title in article_title or article_title in source_title:
+                    links.append({
+                        "source": article_id,
+                        "target": claim_id,
+                        "type": "contains"
+                    })
+                    links_created += 1
+                    break
+    
+    for evidence_id, source_title in evidence_sources.items():
+        if source_title in article_title_to_id:
+            links.append({
+                "source": article_title_to_id[source_title],
+                "target": evidence_id,
+                "type": "supports"
+            })
+            links_created += 1
+        elif source_title:
+            for article_title, article_id in article_title_to_id.items():
+                if source_title in article_title or article_title in source_title:
+                    links.append({
+                        "source": article_id,
+                        "target": evidence_id,
+                        "type": "supports"
+                    })
+                    links_created += 1
+                    break
+    
+    print(f"  Created {links_created} article links")
+    
     save_graph(nodes, links, output_path)
 
 
