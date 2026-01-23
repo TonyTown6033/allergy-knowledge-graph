@@ -102,15 +102,38 @@ def generate_local_graph(results_path="results.json", output_path="graph_view/gr
     save_graph(nodes, links, output_path)
 
 def fetch_all_pages(client, database_id):
-    """Helper to fetch all pages from a database with pagination"""
+    """
+    Helper to fetch all pages from a database with pagination
+    
+    Note: Notion API 2025-09-03 引入了 data source 概念
+    一个 database 可以包含多个 data sources
+    需要先从 database 获取 data_source_id，然后使用 data_sources.query
+    """
     results = []
+    
+    # Step 1: 从 database 获取 data_source_id
+    try:
+        db_info = client.databases.retrieve(database_id=database_id)
+        data_sources = db_info.get("data_sources", [])
+        
+        if not data_sources:
+            raise ValueError(f"Database {database_id} has no data sources")
+        
+        # 通常一个数据库只有一个 data source
+        # 如果有多个，我们查询第一个（也可以遍历所有）
+        data_source_id = data_sources[0]["id"]
+        
+    except Exception as e:
+        print(f"Error: Could not retrieve database info: {e}")
+        raise
+
+    # Step 2: 使用 data_source_id 查询所有页面（带分页）
     has_more = True
     start_cursor = None
-
+    
     while has_more:
-        # Note: 新版 Notion API (2025+) 使用 data_sources.query 而不是 databases.query
         response = client.data_sources.query(
-            data_source_id=database_id,
+            data_source_id=data_source_id,
             start_cursor=start_cursor
         )
         results.extend(response.get("results", []))

@@ -72,17 +72,27 @@ def test_fetch_articles():
     try:
         db = NotionDatabase()
         
-        # 测试新版 API: data_sources.query
+        # 新版 API: 先获取 data_source_id
         print(f"  Database ID: {config.NOTION_ARTICLES_DB_ID[:8]}...")
+        db_info = db.client.databases.retrieve(database_id=config.NOTION_ARTICLES_DB_ID)
+        data_sources = db_info.get("data_sources", [])
+        
+        if not data_sources:
+            print("✗ Database has no data sources")
+            return False
+        
+        data_source_id = data_sources[0]["id"]
+        print(f"  Data Source ID: {data_source_id[:8]}...")
+        
+        # 使用 data_source_id 查询
         response = db.client.data_sources.query(
-            data_source_id=config.NOTION_ARTICLES_DB_ID,
+            data_source_id=data_source_id,
             page_size=1  # 只获取一条测试
         )
         
         results = response.get("results", [])
         print(f"✓ 成功获取 Articles 数据")
         print(f"  返回记录数: {len(results)}")
-        print(f"  总记录数: {len(results)} (测试只取1条)")
         
         if results:
             page = results[0]
@@ -111,8 +121,15 @@ def test_fetch_claims():
     
     try:
         db = NotionDatabase()
+        db_info = db.client.databases.retrieve(database_id=config.NOTION_CLAIMS_DB_ID)
+        data_source_id = db_info.get("data_sources", [{}])[0].get("id")
+        
+        if not data_source_id:
+            print("✗ No data source found")
+            return False
+        
         response = db.client.data_sources.query(
-            data_source_id=config.NOTION_CLAIMS_DB_ID,
+            data_source_id=data_source_id,
             page_size=1
         )
         
@@ -139,8 +156,15 @@ def test_fetch_evidence():
     
     try:
         db = NotionDatabase()
+        db_info = db.client.databases.retrieve(database_id=config.NOTION_EVIDENCE_DB_ID)
+        data_source_id = db_info.get("data_sources", [{}])[0].get("id")
+        
+        if not data_source_id:
+            print("✗ No data source found")
+            return False
+        
         response = db.client.data_sources.query(
-            data_source_id=config.NOTION_EVIDENCE_DB_ID,
+            data_source_id=data_source_id,
             page_size=1
         )
         
@@ -174,9 +198,17 @@ def test_pagination():
         start_cursor = None
         page_count = 0
         
+        # 获取 data_source_id
+        db_info = db.client.databases.retrieve(database_id=config.NOTION_CLAIMS_DB_ID)
+        data_source_id = db_info.get("data_sources", [{}])[0].get("id")
+        
+        if not data_source_id:
+            print("✗ No data source found")
+            return False
+        
         while has_more and page_count < 3:  # 最多测试3页
             response = db.client.data_sources.query(
-                data_source_id=config.NOTION_CLAIMS_DB_ID,
+                data_source_id=data_source_id,
                 start_cursor=start_cursor,
                 page_size=10
             )

@@ -315,11 +315,19 @@ class NotionDatabase:
             return None
         
         try:
+            # 新版 API (2025-09-03): 需要先获取 data_source_id
+            db_info = self.client.databases.retrieve(database_id=db_id)
+            data_sources = db_info.get("data_sources", [])
+            
+            if not data_sources:
+                return None
+            
+            data_source_id = data_sources[0]["id"]
+            
             # 注意: Notion API 不支持直接按 rich_text 字段筛选
             # 需要先查询所有，然后在客户端过滤
-            # 新版 API (2025+) 使用 data_sources.query
             results = self.client.data_sources.query(
-                data_source_id=db_id
+                data_source_id=data_source_id
             )
             
             for page in results.get("results", []):
@@ -377,6 +385,15 @@ class NotionDatabase:
         if not db_id:
             raise ValueError("Claims 数据库ID未配置")
         
+        # 新版 API (2025-09-03): 获取 data_source_id
+        db_info = self.client.databases.retrieve(database_id=db_id)
+        data_sources = db_info.get("data_sources", [])
+        
+        if not data_sources:
+            raise ValueError(f"Database {db_id} has no data sources")
+        
+        data_source_id = data_sources[0]["id"]
+        
         filters = []
         
         if polarity:
@@ -392,7 +409,7 @@ class NotionDatabase:
             })
         
         query_params = {
-            "data_source_id": db_id,
+            "data_source_id": data_source_id,
             "page_size": min(limit, 100)
         }
         
@@ -402,7 +419,7 @@ class NotionDatabase:
             else:
                 query_params["filter"] = {"and": filters}
         
-        # 新版 API (2025+) 使用 data_sources.query
+        # 新版 API (2025-09-03) 使用 data_sources.query
         return self.client.data_sources.query(**query_params).get("results", [])
     
     def sync_ontology(self, database_id: Optional[str] = None) -> list[dict]:

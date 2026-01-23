@@ -175,6 +175,34 @@
             flex-direction: column;
         }
 
+        /* 嵌入式图例 */
+        .graph-legend {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #666;
+            display: flex;
+            gap: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
         /* AI 总结卡片 */
         .ai-summary-card {
             background: white;
@@ -267,6 +295,7 @@
         #mini-graph {
             flex: 1;
             background: #f8f9fa;
+            position: relative;
         }
 
         /* 加载中状态 */
@@ -347,7 +376,15 @@
                 <span>🕸️ 知识关联图谱</span>
                 <span class="graph-label">可视化证据链</span>
             </div>
-            <div id="mini-graph"></div>
+            <div id="mini-graph">
+                <!-- 动态图例 -->
+                <div class="graph-legend">
+                    <div class="legend-item"><div class="legend-dot" style="background: #4444ff;"></div>概念</div>
+                    <div class="legend-item"><div class="legend-dot" style="background: #44ff44;"></div>观点</div>
+                    <div class="legend-item"><div class="legend-dot" style="background: #ff4444;"></div>文章</div>
+                    <div class="legend-item"><div class="legend-dot" style="background: #e6b800;"></div>证据</div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -482,24 +519,55 @@
                 return;
             }
 
-            // 构建子图：包含匹配节点 + 它们的一度邻居
-            const nodeIds = new Set(nodes.map(n => n.id));
+            // --- 核心修改：只显示最相关的节点，避免全部显示 ---
+            
+            // 1. 确定核心节点：只取前 5 个最相关的
+            // 这里的 nodes 已经是 filtered 过的了
+            const coreNodes = nodes.slice(0, 5); 
+            
+            const nodeIds = new Set(coreNodes.map(n => n.id));
             const subLinks = [];
-            const subNodes = new Set(nodes); 
+            const subNodes = new Set(coreNodes); 
 
-            // 从本地全量数据中查找关系 (因为后端只返回了匹配的节点，没返回关系)
+            // 2. 查找一度邻居（但要限制数量，避免爆炸）
+            // 遍历所有连线，找到与核心节点相连的边
             if (allGraphData.links) {
+                // 用于记录每个核心节点已添加的邻居数量，防止某个超级节点把图撑爆
+                const neighborCount = {};
+                
                 allGraphData.links.forEach(link => {
                     const sourceId = link.source.id || link.source;
                     const targetId = link.target.id || link.target;
                     
-                    if (nodeIds.has(sourceId) || nodeIds.has(targetId)) {
+                    let neighborId = null;
+                    let coreId = null;
+
+                    if (nodeIds.has(sourceId) && !nodeIds.has(targetId)) {
+                        coreId = sourceId;
+                        neighborId = targetId;
+                    } else if (nodeIds.has(targetId) && !nodeIds.has(sourceId)) {
+                        coreId = targetId;
+                        neighborId = sourceId;
+                    } else if (nodeIds.has(sourceId) && nodeIds.has(targetId)) {
+                        // 两个核心节点之间的连线，必须保留
                         subLinks.push(link);
-                        // 补充邻居节点
-                        const sourceNode = allGraphData.nodes.find(n => n.id === sourceId);
-                        const targetNode = allGraphData.nodes.find(n => n.id === targetId);
-                        if (sourceNode) subNodes.add(sourceNode);
-                        if (targetNode) subNodes.add(targetNode);
+                        return; 
+                    }
+
+                    // 如果是核心节点连接外部节点
+                    if (coreId && neighborId) {
+                        neighborCount[coreId] = (neighborCount[coreId] || 0);
+                        
+                        // 限制：每个核心节点最多只展示 3 个邻居
+                        if (neighborCount[coreId] < 3) {
+                            // 找到这个邻居节点对象
+                            const neighborNode = allGraphData.nodes.find(n => n.id === neighborId);
+                            if (neighborNode) {
+                                subNodes.add(neighborNode);
+                                subLinks.push(link);
+                                neighborCount[coreId]++;
+                            }
+                        }
                     }
                 });
             }
@@ -529,7 +597,35 @@
                     .nodeRelSize(4)
                     .linkColor(() => '#ddd')
                     .linkWidth(1)
-                    .d3Force('charge', d3.forceManyBody().strength(-50))
+                    // 自定义节点绘制：显示文字标签
+                    .nodeCanvasObject((node, ctx, globalScale) => {
+                        const label = node.name;
+                        const fontSize = 12/globalScale;
+                        ctx.font = `${fontSize}px Sans-Serif`;
+                        
+                        // 绘制节点圆点
+                        const r = Math.sqrt(node.val || 1) * 4; 
+                        ctx.beginPath();
+                        ctx.arc(node.x, node.y, r, 0, 2 * Math.PI, false);
+                        ctx.fillStyle = node.color || colorMap[node.group] || '#999';
+                        ctx.fill();
+
+                        // 绘制文字背景 (只在 label 有内容时绘制)
+                        if (label) {
+                            const textWidth = ctx.measureText(label).width;
+                            const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.2);
+                            
+                            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                            ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2 + r + 4, bckgDimensions[0], bckgDimensions[1]);
+
+                            // 绘制文字 (在节点下方)
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillStyle = '#333';
+                            ctx.fillText(label, node.x, node.y + r + 4 + fontSize/2);
+                        }
+                    })
+                    .d3Force('charge', d3.forceManyBody().strength(-100))
                     .d3Force('center', d3.forceCenter(container.offsetWidth / 2, container.offsetHeight / 2))
                     .onNodeClick(node => {
                         miniGraph.centerAt(node.x, node.y, 1000);
@@ -544,8 +640,6 @@
 
         function highlightNodeInGraph(node) {
             if (!miniGraph) return;
-            // 简单处理：尝试聚焦，如果是新节点可能不在当前视图，理想情况是重新触发子图构建
-            // 这里假设节点已经在子图中
             miniGraph.centerAt(node.x, node.y, 1000);
             miniGraph.zoom(3, 2000);
         }

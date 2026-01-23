@@ -25,25 +25,42 @@ response = client.databases.query(
 )
 ```
 
-#### 新版 API (2025+)
+#### 新版 API (2025-09-03)
 ```python
-# ✅ 正确方式
+# ✅ 正确方式 - 需要两步
+# Step 1: 从 database 获取 data_source_id
+db_info = client.databases.retrieve(database_id=database_id)
+data_sources = db_info.get("data_sources", [])
+data_source_id = data_sources[0]["id"]  # 通常一个数据库只有一个 data source
+
+# Step 2: 使用 data_source_id 查询
 response = client.data_sources.query(
-    data_source_id=database_id,  # 参数名也改了
+    data_source_id=data_source_id,
     start_cursor=start_cursor
 )
 ```
+
+#### 关键变化
+- `databases.query()` 方法已被完全移除
+- 一个 database 可以包含多个 data sources（多源数据库）
+- **database_id ≠ data_source_id** - 必须先获取 data_source_id
+- `data_sources` 是一个数组，包含所有 data source 的信息
 
 ### 修复的文件
 
 1. **`scripts/export_graph_data.py`**
    - 修改 `fetch_all_pages()` 函数
-   - 使用 `client.data_sources.query()` 替代 `client.databases.query()`
+   - 添加 database → data_source 的转换逻辑
+   - 使用 `client.data_sources.query()` 查询页面
 
 2. **`src/notion_client.py`**
-   - 修改 `query_article_by_md5()` 方法 (第 321 行)
-   - 修改 `query_claims()` 方法 (第 405 行)
-   - 统一使用新版 API
+   - 修改 `query_article_by_md5()` 方法
+   - 修改 `query_claims()` 方法
+   - 所有查询方法都先获取 data_source_id，再查询
+
+3. **`scripts/test_notion_export.py`**
+   - 更新所有测试用例使用正确的两步查询流程
+   - 验证 database → data_source 转换
 
 ### 测试验证
 
@@ -85,10 +102,60 @@ uv run python scripts/test_notion_export.py
 uv run python scripts/export_graph_data.py --mode notion
 ```
 
+### 完整示例
+
+```python
+from notion_client import Client
+from src.config import config
+
+client = Client(auth=config.NOTION_TOKEN)
+
+# 方法 1: 完整的两步流程
+def fetch_pages(database_id):
+    # 获取 data_source_id
+    db_info = client.databases.retrieve(database_id=database_id)
+    data_sources = db_info.get("data_sources", [])
+    
+    if not data_sources:
+        raise ValueError(f"Database {database_id} has no data sources")
+    
+    data_source_id = data_sources[0]["id"]
+    
+    # 查询页面
+    response = client.data_sources.query(
+        data_source_id=data_source_id,
+        page_size=100
+    )
+    
+    return response.get("results", [])
+
+# 方法 2: 带分页的完整实现
+def fetch_all_pages(database_id):
+    db_info = client.databases.retrieve(database_id=database_id)
+    data_source_id = db_info.get("data_sources", [{}])[0].get("id")
+    
+    all_results = []
+    has_more = True
+    start_cursor = None
+    
+    while has_more:
+        response = client.data_sources.query(
+            data_source_id=data_source_id,
+            start_cursor=start_cursor
+        )
+        all_results.extend(response.get("results", []))
+        has_more = response.get("has_more", False)
+        start_cursor = response.get("next_cursor")
+    
+    return all_results
+```
+
 ### 参考资料
 
 - [Notion API Reference - Query a data source](https://developers.notion.com/reference/query-a-data-source)
 - [Notion API Changelog - 2025-09-03](https://developers.notion.com/reference/changes-by-version)
+- [Upgrading to Version 2025-09-03](https://developers.notion.com/docs/upgrade-guide-2025-09-03)
+- [FAQs: Version 2025-09-03](https://developers.notion.com/docs/upgrade-faqs-2025-09-03)
 
 ### 时间线
 
