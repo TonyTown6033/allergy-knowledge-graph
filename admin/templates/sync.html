@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}数据同步 - 过敏知识图谱管理{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h2>🔄 数据同步</h2>
+    <p>同步数据到 Notion 和生成图谱</p>
+</div>
+<div class="card">
+    <div class="card-header"><h3 class="card-title">📤 批量上传到 Notion</h3></div>
+    <div style="margin-bottom: 20px;">
+        <p style="color: #666; margin-bottom: 15px;">将本地 results.json 中的所有文章批量上传到 Notion 数据库</p>
+        <button class="btn btn-primary" onclick="batchUpload()" id="batch-upload-btn">🚀 开始批量上传</button>
+    </div>
+    <div id="upload-progress" style="display: none;">
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+            <div style="font-weight: 600; margin-bottom: 10px;">上传进度</div>
+            <div style="background: white; height: 10px; border-radius: 5px; overflow: hidden;"><div id="upload-progress-bar" style="background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; width: 0%; transition: width 0.3s;"></div></div>
+            <div id="upload-status" style="margin-top: 10px; font-size: 13px; color: #666;"></div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header"><h3 class="card-title">🗺️ 生成图谱数据</h3></div>
+    <div style="margin-bottom: 20px;">
+        <p style="color: #666; margin-bottom: 15px;">从数据源生成可视化图谱数据</p>
+        <div style="display: flex; gap: 15px;">
+            <button class="btn btn-primary" onclick="exportGraph('local')">💾 从本地生成</button>
+            <button class="btn btn-success" onclick="exportGraph('notion')">☁️ 从 Notion 生成</button>
+        </div>
+    </div>
+    <div id="export-result" style="display: none; background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 20px;">
+        <div style="font-weight: 600; margin-bottom: 10px;">生成结果</div>
+        <pre id="export-output" style="background: white; padding: 15px; border-radius: 4px; font-size: 12px; overflow-x: auto; max-height: 300px;"></pre>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header"><h3 class="card-title">📊 同步状态</h3></div>
+    <table>
+        <tr><td style="font-weight: 600;">本地文章数</td><td id="sync-local-articles">-</td></tr>
+        <tr><td style="font-weight: 600;">已上传文章数</td><td id="sync-uploaded-articles">-</td></tr>
+        <tr><td style="font-weight: 600;">图谱节点数</td><td id="sync-graph-nodes">-</td></tr>
+        <tr><td style="font-weight: 600;">上传进度</td><td id="sync-progress">-</td></tr>
+    </table>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+async function batchUpload() {
+    const btn = document.getElementById('batch-upload-btn');
+    const progress = document.getElementById('upload-progress');
+    const status = document.getElementById('upload-status');
+    if (!confirm('确定要批量上传所有文章吗？')) return;
+    btn.disabled = true; btn.textContent = '⏳ 上传中...';
+    progress.style.display = 'block'; status.textContent = '正在处理...';
+    try {
+        const data = await apiCall('/api/sync/upload-batch', { method: 'POST' });
+        btn.textContent = '✅ 上传完成'; status.textContent = '上传成功！';
+        showToast('批量上传完成'); loadSyncStatus();
+    } catch (error) {
+        btn.disabled = false; btn.textContent = '🚀 开始批量上传';
+        progress.style.display = 'none'; showToast('上传失败: ' + error.message, 'error');
+    }
+}
+async function exportGraph(mode) {
+    const resultDiv = document.getElementById('export-result');
+    const outputPre = document.getElementById('export-output');
+    resultDiv.style.display = 'block'; outputPre.textContent = '正在生成图谱数据...';
+    try {
+        const data = await apiCall('/api/sync/export-graph', { method: 'POST', body: JSON.stringify({ mode }) });
+        outputPre.textContent = data.output || '生成成功！'; showToast('图谱数据生成成功'); loadSyncStatus();
+    } catch (error) {
+        outputPre.textContent = '错误: ' + error.message; showToast('生成失败: ' + error.message, 'error');
+    }
+}
+async function loadSyncStatus() {
+    try {
+        const data = await apiCall('/api/dashboard/stats');
+        const stats = data.data;
+        document.getElementById('sync-local-articles').textContent = stats.local_articles;
+        document.getElementById('sync-uploaded-articles').textContent = stats.uploaded_articles;
+        document.getElementById('sync-graph-nodes').textContent = stats.graph_nodes;
+        const progress = stats.local_articles > 0 ? Math.round((stats.uploaded_articles / stats.local_articles) * 100) : 0;
+        document.getElementById('sync-progress').innerHTML = `<div style="display: flex; align-items: center; gap: 10px;"><div style="flex: 1; background: #f0f0f0; height: 8px; border-radius: 4px; overflow: hidden;"><div style="background: linear-gradient(90deg, #51cf66, #40c057); height: 100%; width: ${progress}%;"></div></div><span style="font-weight: 600;">${progress}%</span></div>`;
+    } catch (error) { console.error('加载同步状态失败:', error); }
+}
+loadSyncStatus();
+</script>
+{% endblock %}

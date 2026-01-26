@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}过敏知识图谱 - 后台管理{% endblock %}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f5f7fa; color: #333; }
+        .sidebar { position: fixed; left: 0; top: 0; width: 250px; height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px 0; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
+        .sidebar-header { padding: 0 20px 30px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+        .sidebar-header h1 { font-size: 20px; font-weight: 700; margin-bottom: 5px; }
+        .sidebar-header p { font-size: 12px; opacity: 0.8; }
+        .nav-menu { list-style: none; padding: 20px 0; }
+        .nav-menu li { margin: 5px 0; }
+        .nav-menu a { display: flex; align-items: center; padding: 12px 20px; color: white; text-decoration: none; transition: background 0.2s; }
+        .nav-menu a:hover, .nav-menu a.active { background: rgba(255,255,255,0.15); border-left: 3px solid white; }
+        .nav-menu .icon { margin-right: 10px; font-size: 18px; }
+        .main-content { margin-left: 250px; padding: 30px; min-height: 100vh; }
+        .page-header { background: white; padding: 25px 30px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .page-header h2 { font-size: 28px; color: #333; margin-bottom: 8px; }
+        .page-header p { color: #666; font-size: 14px; }
+        .card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .card-title { font-size: 18px; font-weight: 600; color: #333; }
+        .btn { padding: 10px 20px; border: none; border-radius: 6px; font-size: 14px; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block; }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4); }
+        .btn-secondary { background: #f0f0f0; color: #333; }
+        .btn-danger { background: #ff6b6b; color: white; }
+        .btn-success { background: #51cf66; color: white; }
+        table { width: 100%; border-collapse: collapse; }
+        table th { background: #f8f9fa; padding: 12px; text-align: left; font-weight: 600; color: #666; font-size: 13px; border-bottom: 2px solid #e9ecef; }
+        table td { padding: 15px 12px; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+        .badge { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .badge-success { background: #d3f9d8; color: #2b8a3e; }
+        .badge-warning { background: #fff3bf; color: #e67700; }
+        .badge-danger { background: #ffe3e3; color: #e03131; }
+        .badge-info { background: #d0ebff; color: #1971c2; }
+        .loading { text-align: center; padding: 40px; color: #999; }
+        .empty-state { text-align: center; padding: 60px 20px; color: #999; }
+    </style>
+    {% block extra_styles %}{% endblock %}
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>🏥 过敏知识图谱</h1>
+            <p>后台管理系统</p>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/" class="{% if request.path == '/' %}active{% endif %}"><span class="icon">📊</span><span>仪表板</span></a></li>
+            <li><a href="/articles" class="{% if request.path == '/articles' %}active{% endif %}"><span class="icon">📄</span><span>文章管理</span></a></li>
+            <li><a href="/claims" class="{% if request.path == '/claims' %}active{% endif %}"><span class="icon">💬</span><span>观点管理</span></a></li>
+            <li><a href="/ontology" class="{% if request.path == '/ontology' %}active{% endif %}"><span class="icon">🧬</span><span>本体管理</span></a></li>
+            <li><a href="/sync" class="{% if request.path == '/sync' %}active{% endif %}"><span class="icon">🔄</span><span>数据同步</span></a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- 基础脚本定义在 block 之前 -->
+    <script>
+        async function apiCall(url, options = {}) {
+            try {
+                const response = await fetch(url, {
+                    ...options,
+                    headers: { 'Content-Type': 'application/json', ...options.headers }
+                });
+                const data = await response.json();
+                if (!data.success) throw new Error(data.error || '请求失败');
+                return data;
+            } catch (error) {
+                console.error('API Error:', error);
+                throw error;
+            }
+        }
+        function showToast(message, type = 'success') {
+            alert(message);
+        }
+    </script>
+    
+    <!-- 子页面脚本 -->
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

@@ -1390,6 +1390,60 @@
       "content": "特异性IgG和IgG4的检测结果可能仅反映正常免疫反应，其水平升高并不代表免疫治疗成功或过敏性疾病的诊断。国际上不建议使用特异性IgG和IgG4筛查诊断食物过敏或不耐受。",
       "polarity": "支持",
       "val": 5
+    },
+    {
+      "id": "6362d29d26c9dd4dfd8215911ec1f594",
+      "group": "Article",
+      "name": "IgE-",
+      "val": 20
+    },
+    {
+      "id": "claim_61d4af7edffc6b24f5b361bb26267cdf",
+      "group": "Claim",
+      "name": "过敏原特异性IgE抗体检测对过敏性疾病诊断具有重要价值",
+      "content": "过敏原特异性IgE抗体检测在过敏性疾病的诊断、治疗和预防中具有重要作用。它可以通过检测患者血清中的特异性IgE抗体，结合病史和临床症状，帮助明确过敏原种类，并评估疾病的严重程度和治疗效果。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_3022890dfb9c5a42389caa4fb41d4b79",
+      "group": "Claim",
+      "name": "过敏原特异性IgE抗体检测方法存在多样性和标准化不足",
+      "content": "目前，过敏原特异性IgE抗体检测方法多样，包括FEIA、ELISA、CLIA等，但各方法的敏感性、特异性和定量准确性存在差异。由于缺乏统一的标准化体系，不同实验室间的检测结果难以互认。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_b13711942123b2963a75acfe480806fe",
+      "group": "Claim",
+      "name": "体外检测方法在安全性和适用性上优于体内试验",
+      "content": "体外检测方法如过敏原sIgE检测具有更高的安全性，可检测的过敏原范围更广，且不受药物治疗的干扰。相比之下，体内试验如皮肤点刺试验存在操作复杂、患者耐受性差和引发严重过敏反应的风险。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_5f7e47c183b091172980901148ab5c01",
+      "group": "Claim",
+      "name": "过敏原sIgE检测存在假阴性和假阳性问题",
+      "content": "过敏原sIgE检测可能因生物学、标本或方法学因素导致假阴性或假阳性结果。这些问题可能导致过敏性疾病的误诊或漏诊，需要通过质量控制和标准化检测流程加以解决。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_5e1244713a9612d61474cf1854f52eff",
+      "group": "Claim",
+      "name": "CRD技术有助于提高过敏原检测的准确性",
+      "content": "组分解析诊断（CRD）通过识别引起变态反应的特定致敏蛋白组分，可以避免过敏原粗提物中非致敏组分的干扰，从而提高检测的准确性。CRD技术还能够区分过敏原的交叉反应，减少假阳性结果。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_30fe9ae52957fd305376a3bfec01fa71",
+      "group": "Claim",
+      "name": "过敏原sIgE检测亟需标准化和参考物质支持",
+      "content": "由于缺乏针对特定过敏原sIgE的参考物质，各检测方法和实验室间的检测结果缺乏可比性。研发可溯源的高质量参考物质是实现过敏原sIgE检测标准化的关键。",
+      "polarity": "支持",
+      "val": 5
     }
   ],
   "links": [
@@ -3076,6 +3130,96 @@
     {
       "source": "claim_be75c40e91cc477d1aa6adeecbe31d96",
       "target": "igg",
+      "type": "relates_to"
+    },
+    {
+      "source": "6362d29d26c9dd4dfd8215911ec1f594",
+      "target": "claim_61d4af7edffc6b24f5b361bb26267cdf",
+      "type": "contains"
+    },
+    {
+      "source": "claim_61d4af7edffc6b24f5b361bb26267cdf",
+      "target": "ige",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_61d4af7edffc6b24f5b361bb26267cdf",
+      "target": "sige",
+      "type": "relates_to"
+    },
+    {
+      "source": "6362d29d26c9dd4dfd8215911ec1f594",
+      "target": "claim_3022890dfb9c5a42389caa4fb41d4b79",
+      "type": "contains"
+    },
+    {
+      "source": "claim_3022890dfb9c5a42389caa4fb41d4b79",
+      "target": "ige",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_3022890dfb9c5a42389caa4fb41d4b79",
+      "target": "sige",
+      "type": "relates_to"
+    },
+    {
+      "source": "6362d29d26c9dd4dfd8215911ec1f594",
+      "target": "claim_b13711942123b2963a75acfe480806fe",
+      "type": "contains"
+    },
+    {
+      "source": "claim_b13711942123b2963a75acfe480806fe",
+      "target": "serum_sige",
+      "type": "relates_to"
+    },
+    {
+      "source": "6362d29d26c9dd4dfd8215911ec1f594",
+      "target": "claim_5f7e47c183b091172980901148ab5c01",
+      "type": "contains"
+    },
+    {
+      "source": "claim_5f7e47c183b091172980901148ab5c01",
+      "target": "ige",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_5f7e47c183b091172980901148ab5c01",
+      "target": "serum_sige",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_5f7e47c183b091172980901148ab5c01",
+      "target": "sige",
+      "type": "relates_to"
+    },
+    {
+      "source": "6362d29d26c9dd4dfd8215911ec1f594",
+      "target": "claim_5e1244713a9612d61474cf1854f52eff",
+      "type": "contains"
+    },
+    {
+      "source": "claim_5e1244713a9612d61474cf1854f52eff",
+      "target": "component_resolved_diagnosis",
+      "type": "relates_to"
+    },
+    {
+      "source": "6362d29d26c9dd4dfd8215911ec1f594",
+      "target": "claim_30fe9ae52957fd305376a3bfec01fa71",
+      "type": "contains"
+    },
+    {
+      "source": "claim_30fe9ae52957fd305376a3bfec01fa71",
+      "target": "ige",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_30fe9ae52957fd305376a3bfec01fa71",
+      "target": "serum_sige",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_30fe9ae52957fd305376a3bfec01fa71",
+      "target": "sige",
       "type": "relates_to"
     }
   ]

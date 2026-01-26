@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}仪表板 - 过敏知识图谱管理{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h2>📊 仪表板</h2>
+    <p>项目数据概览和快速操作</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px;">
+    <div class="card" style="padding: 30px; text-align: center;">
+        <div style="font-size: 42px; font-weight: 700; color: #667eea; margin-bottom: 10px;" id="stat-local-articles">-</div>
+        <div style="color: #666; font-size: 14px;">本地文章数</div>
+    </div>
+    <div class="card" style="padding: 30px; text-align: center;">
+        <div style="font-size: 42px; font-weight: 700; color: #51cf66; margin-bottom: 10px;" id="stat-uploaded-articles">-</div>
+        <div style="color: #666; font-size: 14px;">已上传文章</div>
+    </div>
+    <div class="card" style="padding: 30px; text-align: center;">
+        <div style="font-size: 42px; font-weight: 700; color: #ff6b6b; margin-bottom: 10px;" id="stat-claims">-</div>
+        <div style="color: #666; font-size: 14px;">观点数量</div>
+    </div>
+    <div class="card" style="padding: 30px; text-align: center;">
+        <div style="font-size: 42px; font-weight: 700; color: #ffa94d; margin-bottom: 10px;" id="stat-nodes">-</div>
+        <div style="color: #666; font-size: 14px;">图谱节点</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header"><h3 class="card-title">⚡ 快速操作</h3></div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <button class="btn btn-primary" onclick="location.href='/articles'">📄 管理文章</button>
+        <button class="btn btn-primary" onclick="location.href='/claims'">💬 管理观点</button>
+        <button class="btn btn-primary" onclick="location.href='/sync'">🔄 数据同步</button>
+        <button class="btn btn-secondary" onclick="window.open('http://localhost:8000', '_blank')">🌐 查看前台</button>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">🔧 系统状态</h3>
+        <button class="btn btn-secondary" onclick="loadStats()">🔄 刷新</button>
+    </div>
+    <table>
+        <tr><td style="font-weight: 600;">本地数据</td><td><span class="badge badge-success">✓ 正常</span></td></tr>
+        <tr><td style="font-weight: 600;">图谱数据</td><td><span id="graph-status" class="badge badge-info">加载中...</span></td></tr>
+        <tr><td style="font-weight: 600;">Notion 连接</td><td><span class="badge badge-success">✓ 已配置</span></td></tr>
+        <tr><td style="font-weight: 600;">OpenAI API</td><td><span class="badge badge-success">✓ 已配置</span></td></tr>
+    </table>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+async function loadStats() {
+    try {
+        const data = await apiCall('/api/dashboard/stats');
+        const stats = data.data;
+        document.getElementById('stat-local-articles').textContent = stats.local_articles;
+        document.getElementById('stat-uploaded-articles').textContent = stats.uploaded_articles;
+        document.getElementById('stat-claims').textContent = stats.local_claims;
+        document.getElementById('stat-nodes').textContent = stats.graph_nodes;
+        const graphStatus = document.getElementById('graph-status');
+        if (stats.graph_nodes > 0) {
+            graphStatus.className = 'badge badge-success';
+            graphStatus.textContent = `✓ ${stats.graph_nodes} 节点`;
+        } else {
+            graphStatus.className = 'badge badge-warning';
+            graphStatus.textContent = '⚠ 待生成';
+        }
+    } catch (error) {
+        console.error('加载统计失败:', error);
+    }
+}
+loadStats();
+</script>
+{% endblock %}

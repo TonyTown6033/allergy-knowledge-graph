@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}本体管理 - 过敏知识图谱管理{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h2>🧬 本体管理</h2>
+    <p>管理过敏医学概念本体</p>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">本体节点列表</h3>
+        <div>
+            <select id="category-filter" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; margin-right: 10px;">
+                <option value="">全部类别</option>
+                <option value="过敏原">过敏原</option>
+                <option value="疾病">疾病</option>
+                <option value="免疫分子">免疫分子</option>
+                <option value="治疗">治疗</option>
+                <option value="检测">检测</option>
+            </select>
+            <button class="btn btn-secondary" onclick="loadOntology()">🔄 刷新</button>
+        </div>
+    </div>
+    <div id="ontology-loading" class="loading">加载中...</div>
+    <div id="ontology-container" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 10%">ID</th>
+                    <th style="width: 20%">中文名</th>
+                    <th style="width: 20%">英文名</th>
+                    <th style="width: 15%">类别</th>
+                    <th style="width: 35%">描述</th>
+                </tr>
+            </thead>
+            <tbody id="ontology-tbody"></tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+(function() {
+    let allNodes = [];
+    window.loadOntology = async function() {
+        const loading = document.getElementById('ontology-loading');
+        const container = document.getElementById('ontology-container');
+        loading.style.display = 'block';
+        container.style.display = 'none';
+        try {
+            const data = await apiCall('/api/ontology/list');
+            allNodes = data.data;
+            loading.style.display = 'none';
+            renderOntology(allNodes);
+        } catch (error) {
+            loading.style.display = 'none';
+            showToast('加载失败: ' + error.message, 'error');
+        }
+    };
+    function renderOntology(nodes) {
+        const container = document.getElementById('ontology-container');
+        const tbody = document.getElementById('ontology-tbody');
+        container.style.display = 'block';
+        tbody.innerHTML = nodes.map(node => `<tr><td><code>${node.id}</code></td><td><strong>${node.name_zh}</strong></td><td style="color: #666;">${node.name_en || '-'}</td><td><span class="badge badge-info">${node.category}</span></td><td style="font-size: 13px; color: #666;">${node.description || '-'}</td></tr>`).join('');
+    }
+    document.getElementById('category-filter').addEventListener('change', (e) => {
+        const category = e.target.value;
+        const filtered = category ? allNodes.filter(node => node.category === category) : allNodes;
+        renderOntology(filtered);
+    });
+    loadOntology();
+})();
+</script>
+{% endblock %}
