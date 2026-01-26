@@ -78,6 +78,20 @@ function uploadArticle() {
     input.onchange = async (e) => {
         const file = e.target.files[0];
         if (!file) return;
+        const maxFilenameBytes = 255;
+        const encoder = new TextEncoder();
+        if (file.name !== file.name.split('/').pop()) {
+            showToast('文件名不合法，请重新选择文件', 'error');
+            return;
+        }
+        if (encoder.encode(file.name).length > maxFilenameBytes) {
+            showToast('文件名过长，请缩短后再上传', 'error');
+            return;
+        }
+        if (!file.name.toLowerCase().endsWith('.pdf')) {
+            showToast('只支持 PDF 文件', 'error');
+            return;
+        }
         const formData = new FormData();
         formData.append('file', file);
         const loading = document.getElementById('articles-loading');

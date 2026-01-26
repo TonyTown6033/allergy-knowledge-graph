@@ -9,7 +9,6 @@ import json
 from pathlib import Path
 from datetime import datetime
 from flask import Flask, render_template, request, jsonify, send_from_directory
-from werkzeug.utils import secure_filename
 
 # 添加项目根目录到 path
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -24,6 +23,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'allergy-admin-secret-key'
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB max file size
+app.config['MAX_FILENAME_BYTES'] = 255  # filesystem-friendly limit
 
 # 确保上传目录存在
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
@@ -165,11 +165,16 @@ def api_articles_upload():
         if file.filename == '':
             return jsonify({'success': False, 'error': '文件名为空'}), 400
         
-        if not file.filename.endswith('.pdf'):
+        if not file.filename.lower().endswith('.pdf'):
             return jsonify({'success': False, 'error': '只支持 PDF 文件'}), 400
         
         # 1. 保存文件到 download 目录（与主系统保持一致）
-        filename = secure_filename(file.filename)
+        filename = file.filename
+        # 不自动处理长文件名：直接校验并报错
+        if filename != os.path.basename(filename):
+            return jsonify({'success': False, 'error': '文件名不合法'}), 400
+        if len(filename.encode('utf-8')) > app.config['MAX_FILENAME_BYTES']:
+            return jsonify({'success': False, 'error': '文件名过长，请缩短后再上传'}), 400
         download_dir = PROJECT_ROOT / 'download' / 'uploads'
         os.makedirs(download_dir, exist_ok=True)
         file_path = download_dir / filename

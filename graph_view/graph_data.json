@@ -1444,6 +1444,60 @@
       "content": "由于缺乏针对特定过敏原sIgE的参考物质，各检测方法和实验室间的检测结果缺乏可比性。研发可溯源的高质量参考物质是实现过敏原sIgE检测标准化的关键。",
       "polarity": "支持",
       "val": 5
+    },
+    {
+      "id": "4d0eff64e327f8a1f5db930aed228bfc",
+      "group": "Article",
+      "name": "过敏原特异性IgE抗体检测及其临床规范化应用-韩彦熙",
+      "val": 20
+    },
+    {
+      "id": "claim_f78f6ed5507e4b1586b8789caa9e13a9",
+      "group": "Claim",
+      "name": "过敏原特异性IgE抗体检测对过敏性疾病诊断具有重要价值",
+      "content": "过敏原特异性IgE抗体检测是诊断、治疗和预防过敏性疾病的重要工具。结合患者病史和临床症状，sIgE检测可以进行病因诊断，并评估疾病严重程度和治疗效果。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_1d737a546616ee7b61da5772033835bd",
+      "group": "Claim",
+      "name": "体外检测方法比体内试验更安全且适用范围更广",
+      "content": "体外检测方法如sIgE检测具有更高的安全性，可检测的过敏原种类更广，且不受药物治疗的干扰。相比之下，体内试验操作复杂，患者耐受性差，存在引发严重过敏反应的风险。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_b30bdc5ba17b10a26a9fbff325ece345",
+      "group": "Claim",
+      "name": "过敏原sIgE抗体检测方法尚未标准化",
+      "content": "目前，过敏原sIgE抗体检测方法多样，不同检测体系的敏感性、特异性和定量准确性存在差异，导致实验室间检测结果难以互认。这种现状限制了检测结果的可比性和应用价值。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_11402be475ffe6f2bb01bd52cb01cd8b",
+      "group": "Claim",
+      "name": "交叉反应和标本异常是sIgE检测假阳性和假阴性的重要原因",
+      "content": "交叉反应性糖类决定簇（CCD）和标本异常（如溶血、脂血）等因素可能导致sIgE检测的假阳性或假阴性结果。这些干扰因素需要通过组分解析诊断（CRD）等方法加以解决。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_c3ed1aac9d0184ffea5959970376d900",
+      "group": "Claim",
+      "name": "过敏原sIgE抗体检测亟需标准化和参考物质支持",
+      "content": "由于缺乏针对特定过敏原sIgE的参考物质，目前的检测结果在不同实验室间缺乏可比性。研发高质量的参考物质和标准化检测方法是未来发展的关键。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_bef12c21a28f9f1e03b6e0d6bc3037e6",
+      "group": "Claim",
+      "name": "CRD技术是过敏原检测的重要发展方向",
+      "content": "组分解析诊断（CRD）通过识别特定致敏蛋白组分，能够避免交叉反应干扰，实现精准诊断。未来，CRD技术将在过敏性疾病的诊疗中发挥更大作用。",
+      "polarity": "支持",
+      "val": 5
     }
   ],
   "links": [
@@ -3220,6 +3274,81 @@
     {
       "source": "claim_30fe9ae52957fd305376a3bfec01fa71",
       "target": "sige",
+      "type": "relates_to"
+    },
+    {
+      "source": "4d0eff64e327f8a1f5db930aed228bfc",
+      "target": "claim_f78f6ed5507e4b1586b8789caa9e13a9",
+      "type": "contains"
+    },
+    {
+      "source": "claim_f78f6ed5507e4b1586b8789caa9e13a9",
+      "target": "ige",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_f78f6ed5507e4b1586b8789caa9e13a9",
+      "target": "sige",
+      "type": "relates_to"
+    },
+    {
+      "source": "4d0eff64e327f8a1f5db930aed228bfc",
+      "target": "claim_1d737a546616ee7b61da5772033835bd",
+      "type": "contains"
+    },
+    {
+      "source": "claim_1d737a546616ee7b61da5772033835bd",
+      "target": "serum_sige",
+      "type": "relates_to"
+    },
+    {
+      "source": "4d0eff64e327f8a1f5db930aed228bfc",
+      "target": "claim_b30bdc5ba17b10a26a9fbff325ece345",
+      "type": "contains"
+    },
+    {
+      "source": "claim_b30bdc5ba17b10a26a9fbff325ece345",
+      "target": "ige",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_b30bdc5ba17b10a26a9fbff325ece345",
+      "target": "sige",
+      "type": "relates_to"
+    },
+    {
+      "source": "4d0eff64e327f8a1f5db930aed228bfc",
+      "target": "claim_11402be475ffe6f2bb01bd52cb01cd8b",
+      "type": "contains"
+    },
+    {
+      "source": "claim_11402be475ffe6f2bb01bd52cb01cd8b",
+      "target": "component_resolved_diagnosis",
+      "type": "relates_to"
+    },
+    {
+      "source": "4d0eff64e327f8a1f5db930aed228bfc",
+      "target": "claim_c3ed1aac9d0184ffea5959970376d900",
+      "type": "contains"
+    },
+    {
+      "source": "claim_c3ed1aac9d0184ffea5959970376d900",
+      "target": "ige",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_c3ed1aac9d0184ffea5959970376d900",
+      "target": "sige",
+      "type": "relates_to"
+    },
+    {
+      "source": "4d0eff64e327f8a1f5db930aed228bfc",
+      "target": "claim_bef12c21a28f9f1e03b6e0d6bc3037e6",
+      "type": "contains"
+    },
+    {
+      "source": "claim_bef12c21a28f9f1e03b6e0d6bc3037e6",
+      "target": "component_resolved_diagnosis",
       "type": "relates_to"
     }
   ]
