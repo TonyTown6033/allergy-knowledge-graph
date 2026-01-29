@@ -492,7 +492,13 @@
 
                     const card = document.createElement('div');
                     card.className = 'source-card';
-                    card.onclick = () => highlightNodeInGraph(node);
+                    card.onclick = () => {
+                        if (node.group === 'Article' && node.url) {
+                            window.open(node.url, '_blank', 'noopener');
+                            return;
+                        }
+                        highlightNodeInGraph(node);
+                    };
                     
                     const typeLabel = labelMap[node.group] || node.group;
                     const content = node.content || node.description || '点击查看详情';

@@ -9,6 +9,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 
 from src.ontology import ALLERGY_ONTOLOGY
+from src.file_tracker import FileTracker
 from src.notion_client import NotionDatabase
 from src.config import config
 
@@ -47,11 +48,20 @@ def generate_local_graph(results_path="results.json", output_path="graph_view/gr
                     "type": "is_a"
                 })
 
+    tracker = FileTracker()
     # Process Articles and Claims
     for article in data:
         # Create Article Node
-        # Use file path hash as ID if no other ID exists
-        article_id = hashlib.md5(article.get("file", "").encode()).hexdigest()
+        # Prefer file content MD5 as ID for stable file-based preview
+        file_path = article.get("file", "")
+        article_id = ""
+        if file_path:
+            try:
+                article_id = tracker.calculate_md5(file_path)
+            except FileNotFoundError:
+                article_id = ""
+        if not article_id:
+            article_id = hashlib.md5(file_path.encode()).hexdigest()
         article_title = article.get("title", "Unknown Article")
         
         if article_id not in existing_nodes:

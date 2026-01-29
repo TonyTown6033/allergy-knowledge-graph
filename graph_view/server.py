@@ -4,8 +4,10 @@ import webbrowser
 import os
 import json
 import sys
+import re
+import hashlib
 from pathlib import Path
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, quote
 
 # 添加项目根目录到 path 以便导入 src
 sys.path.append(str(Path(__file__).parent.parent))
@@ -16,12 +18,91 @@ from openai import OpenAI
 PORT = 8000
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 DATA_FILE = os.path.join(DIRECTORY, "graph_data.json")
+PROJECT_ROOT = Path(__file__).parent.parent
+RESULTS_FILE = PROJECT_ROOT / "results.json"
+TRACKER_FILE = PROJECT_ROOT / ".processed_files.json"
 
 # 加载图谱数据
 GRAPH_DATA = {"nodes": [], "links": []}
 if os.path.exists(DATA_FILE):
     with open(DATA_FILE, 'r', encoding='utf-8') as f:
         GRAPH_DATA = json.load(f)
+
+# Build quick lookup indexes for graph data
+NODES_BY_ID = {node.get("id"): node for node in GRAPH_DATA.get("nodes", []) if node.get("id")}
+ARTICLE_IDS = {node_id for node_id, node in NODES_BY_ID.items() if node.get("group") == "Article"}
+LINKS_BY_SOURCE = {}
+LINKS_BY_TARGET = {}
+
+def _normalize_link_id(value):
+    if isinstance(value, dict):
+        return value.get("id")
+    return value
+
+for link in GRAPH_DATA.get("links", []):
+    source_id = _normalize_link_id(link.get("source"))
+    target_id = _normalize_link_id(link.get("target"))
+    if not source_id or not target_id:
+        continue
+    LINKS_BY_SOURCE.setdefault(source_id, []).append(target_id)
+    LINKS_BY_TARGET.setdefault(target_id, []).append(source_id)
+
+def _build_article_file_index():
+    index = {}
+
+    # Prefer tracker data (content md5) if available
+    if TRACKER_FILE.exists():
+        try:
+            with TRACKER_FILE.open("r", encoding="utf-8") as f:
+                tracker = json.load(f)
+            for record in tracker.values():
+                md5 = record.get("md5")
+                file_path = record.get("file_path")
+                if md5 and file_path:
+                    index[md5] = file_path
+        except Exception:
+            pass
+
+    if not RESULTS_FILE.exists():
+        return index
+    try:
+        with RESULTS_FILE.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception:
+        return index
+
+    for entry in data:
+        file_path = entry.get("file")
+        if not file_path:
+            continue
+        try:
+            md5 = hashlib.md5(Path(file_path).read_bytes()).hexdigest()
+        except Exception:
+            md5 = hashlib.md5(str(file_path).encode("utf-8")).hexdigest()
+        index[md5] = file_path
+    return index
+
+ARTICLE_FILE_INDEX = _build_article_file_index()
+PROJECT_ROOT_RESOLVED = PROJECT_ROOT.resolve()
+
+def _is_within_root(path: Path) -> bool:
+    try:
+        return path.resolve().is_relative_to(PROJECT_ROOT_RESOLVED)
+    except AttributeError:
+        return str(path.resolve()).startswith(str(PROJECT_ROOT_RESOLVED))
+
+def _resolve_article_path(article_id: str):
+    file_path = ARTICLE_FILE_INDEX.get(article_id)
+    if not file_path:
+        return None
+    path = Path(file_path)
+    if not path.is_absolute():
+        path = PROJECT_ROOT / path
+    if not _is_within_root(path):
+        return None
+    if not path.exists() or not path.is_file():
+        return None
+    return path
 
 # 初始化 OpenAI 客户端
 client = None
@@ -31,6 +112,23 @@ if config.OPENAI_API_KEY:
         base_url=config.OPENAI_BASE_URL
     )
 
+def _article_url(node_id):
+    if not node_id:
+        return None
+    if node_id in ARTICLE_FILE_INDEX:
+        return f"/files/{node_id}"
+    return None
+
+def _with_article_url(node):
+    if node.get("group") != "Article":
+        return node
+    url = _article_url(node.get("id"))
+    if not url:
+        return node
+    enriched = dict(node)
+    enriched["url"] = url
+    return enriched
+
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
@@ -39,6 +137,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         # API 处理: 搜索
         if self.path.startswith('/api/search'):
             self.handle_search()
+            return
+        if self.path.startswith('/files/'):
+            self.handle_file_preview()
             return
 
         # 默认重定向到问答首页
@@ -101,6 +202,55 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             else:
                 # 本地有结果，简单生成一个统计摘要
                 # (实际生产中这里也可以用 AI 来基于 matched_nodes 生成摘要)
+                related_article_ids = set()
+                matched_ids = {node.get("id") for node in matched_nodes if node.get("id")}
+
+                for node in matched_nodes:
+                    node_id = node.get("id")
+                    if not node_id:
+                        continue
+
+                    if node_id in ARTICLE_IDS:
+                        related_article_ids.add(node_id)
+
+                    # Direct neighbors that are articles
+                    for neighbor_id in LINKS_BY_SOURCE.get(node_id, []):
+                        if neighbor_id in ARTICLE_IDS:
+                            related_article_ids.add(neighbor_id)
+                    for neighbor_id in LINKS_BY_TARGET.get(node_id, []):
+                        if neighbor_id in ARTICLE_IDS:
+                            related_article_ids.add(neighbor_id)
+
+                    # Ontology -> Claim/Evidence -> Article
+                    if node.get("group") == "Ontology":
+                        for claim_id in LINKS_BY_TARGET.get(node_id, []):
+                            claim_node = NODES_BY_ID.get(claim_id)
+                            if not claim_node:
+                                continue
+                            if claim_node.get("group") not in {"Claim", "Evidence"}:
+                                continue
+                            for article_id in LINKS_BY_TARGET.get(claim_id, []):
+                                if article_id in ARTICLE_IDS:
+                                    related_article_ids.add(article_id)
+                            for article_id in LINKS_BY_SOURCE.get(claim_id, []):
+                                if article_id in ARTICLE_IDS:
+                                    related_article_ids.add(article_id)
+
+                # Append related articles after matched nodes
+                related_article_nodes = []
+                for article_id in related_article_ids:
+                    if article_id in matched_ids:
+                        continue
+                    article_node = NODES_BY_ID.get(article_id)
+                    if article_node:
+                        related_article_nodes.append(article_node)
+
+                response_data["nodes"] = [
+                    _with_article_url(node) for node in matched_nodes
+                ] + [
+                    _with_article_url(node) for node in related_article_nodes
+                ]
+
                 top_claim = next((n for n in matched_nodes if n.get("group") == "Claim"), None)
                 if top_claim:
                     response_data["summary"] = f"为您找到相关观点：{top_claim.get('content') or top_claim.get('name')}"
@@ -112,6 +262,28 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         except Exception as e:
             print(f"Server Error: {e}")
             self.send_json({"error": str(e)}, status=500)
+
+    def handle_file_preview(self):
+        article_id = self.path.split("/files/", 1)[-1].strip().split("?")[0]
+        if not article_id:
+            self.send_error(404, "File not found")
+            return
+        file_path = _resolve_article_path(article_id)
+        if not file_path:
+            self.send_error(404, "File not found")
+            return
+        try:
+            self.send_response(200)
+            self.send_header("Content-Type", "application/pdf")
+            safe_name = quote(file_path.name)
+            self.send_header("Content-Disposition", f"inline; filename*=UTF-8''{safe_name}")
+            self.send_header("Content-Length", str(file_path.stat().st_size))
+            self.end_headers()
+            with open(file_path, "rb") as f:
+                self.copyfile(f, self.wfile)
+        except Exception as e:
+            print(f"File preview error: {e}")
+            self.send_error(500, "Failed to open file")
 
     def call_ai_search(self, keyword):
         """调用 LLM 进行通用搜索"""

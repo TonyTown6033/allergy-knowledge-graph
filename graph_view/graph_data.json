@@ -190,13 +190,223 @@
       "val": 10
     },
     {
-      "id": "043c086bdee579bbea96e406857b2100",
+      "id": "nutrient",
+      "group": "Ontology",
+      "name": "营养素",
+      "description": "维持人体正常生理功能所需的基本成分",
+      "val": 10
+    },
+    {
+      "id": "vitamin_d",
+      "group": "Ontology",
+      "name": "维生素D",
+      "description": "脂溶性维生素，参与免疫调节与钙磷代谢",
+      "val": 10
+    },
+    {
+      "id": "vitamin_a",
+      "group": "Ontology",
+      "name": "维生素A",
+      "description": "脂溶性维生素，维持上皮屏障与免疫功能",
+      "val": 10
+    },
+    {
+      "id": "vitamin_c",
+      "group": "Ontology",
+      "name": "维生素C",
+      "description": "水溶性维生素，参与抗氧化与免疫反应",
+      "val": 10
+    },
+    {
+      "id": "omega_3",
+      "group": "Ontology",
+      "name": "Omega-3脂肪酸",
+      "description": "多不饱和脂肪酸，具有抗炎作用",
+      "val": 10
+    },
+    {
+      "id": "zinc",
+      "group": "Ontology",
+      "name": "锌",
+      "description": "必需微量元素，参与免疫细胞功能",
+      "val": 10
+    },
+    {
+      "id": "selenium",
+      "group": "Ontology",
+      "name": "硒",
+      "description": "必需微量元素，参与抗氧化与免疫调节",
+      "val": 10
+    },
+    {
+      "id": "dietary_fiber",
+      "group": "Ontology",
+      "name": "膳食纤维",
+      "description": "不可消化的碳水化合物，支持肠道菌群",
+      "val": 10
+    },
+    {
+      "id": "probiotic",
+      "group": "Ontology",
+      "name": "益生菌",
+      "description": "适量摄入对宿主有益的活微生物",
+      "val": 10
+    },
+    {
+      "id": "lactobacillus_rhamnosus",
+      "group": "Ontology",
+      "name": "鼠李糖乳酪杆菌",
+      "description": "常见益生菌种，包含多种研究菌株",
+      "val": 10
+    },
+    {
+      "id": "lactobacillus_paracasei",
+      "group": "Ontology",
+      "name": "副干酪乳杆菌",
+      "description": "常见益生菌种，具有免疫调节作用",
+      "val": 10
+    },
+    {
+      "id": "lactobacillus_reuteri",
+      "group": "Ontology",
+      "name": "罗伊氏乳杆菌",
+      "description": "报道可缓解过敏相关症状并调节肠道菌群与免疫反应",
+      "val": 10
+    },
+    {
+      "id": "bifidobacterium_animalis_lactis",
+      "group": "Ontology",
+      "name": "动物双歧杆菌乳亚种",
+      "description": "常见益生菌亚种，常用于功能食品",
+      "val": 10
+    },
+    {
+      "id": "bifidobacterium_breve",
+      "group": "Ontology",
+      "name": "短双歧杆菌",
+      "description": "婴幼儿肠道常见双歧杆菌种",
+      "val": 10
+    },
+    {
+      "id": "bifidobacterium_longum",
+      "group": "Ontology",
+      "name": "长双歧杆菌",
+      "description": "常见双歧杆菌种，部分菌株用于过敏相关研究",
+      "val": 10
+    },
+    {
+      "id": "bifidobacterium_infantis",
+      "group": "Ontology",
+      "name": "婴儿双歧杆菌",
+      "description": "婴幼儿肠道优势菌群，擅长利用母乳低聚糖",
+      "val": 10
+    },
+    {
+      "id": "lactobacillus",
+      "group": "Ontology",
+      "name": "乳酸杆菌",
+      "description": "常见益生菌属，参与维持肠道生态",
+      "val": 10
+    },
+    {
+      "id": "bifidobacterium",
+      "group": "Ontology",
+      "name": "双歧杆菌",
+      "description": "常见益生菌属，改善肠道屏障功能",
+      "val": 10
+    },
+    {
+      "id": "saccharomyces_boulardii",
+      "group": "Ontology",
+      "name": "布拉氏酵母菌",
+      "description": "常见益生菌酵母，耐酸耐胆汁",
+      "val": 10
+    },
+    {
+      "id": "l_rhamnosus_lgg",
+      "group": "Ontology",
+      "name": "鼠李糖乳酪杆菌GG",
+      "description": "经典益生菌菌株，常用于过敏相关研究",
+      "val": 10
+    },
+    {
+      "id": "l_rhamnosus_hn001",
+      "group": "Ontology",
+      "name": "鼠李糖乳酪杆菌HN001",
+      "description": "报道用于孕产妇及婴幼儿过敏相关研究的菌株",
+      "val": 10
+    },
+    {
+      "id": "l_rhamnosus_hn019",
+      "group": "Ontology",
+      "name": "鼠李糖乳酪杆菌HN019",
+      "description": "过敏相关研究中常对比使用的菌株",
+      "val": 10
+    },
+    {
+      "id": "l_paracasei_lc_zhang",
+      "group": "Ontology",
+      "name": "副干酪乳杆菌Zhang",
+      "description": "报道可降低IgE水平并改善过敏症状的菌株",
+      "val": 10
+    },
+    {
+      "id": "b_animalis_lactis_probio_m8",
+      "group": "Ontology",
+      "name": "动物双歧杆菌乳亚种Probio-M8",
+      "description": "报道可调节免疫并缓解食物过敏反应的菌株",
+      "val": 10
+    },
+    {
+      "id": "l_paracasei_probio_37",
+      "group": "Ontology",
+      "name": "副干酪乳杆菌Probio-37",
+      "description": "报道可改善过敏性鼻炎症状的菌株",
+      "val": 10
+    },
+    {
+      "id": "l_rhamnosus_r7041",
+      "group": "Ontology",
+      "name": "鼠李糖乳酪杆菌R7041",
+      "description": "报道可降低皮肤过敏症状并调节相关细胞因子的菌株",
+      "val": 10
+    },
+    {
+      "id": "l_rhamnosus_mp108",
+      "group": "Ontology",
+      "name": "鼠李糖乳酪杆菌MP108",
+      "description": "报道可改善儿童特应性皮炎与过敏症状的菌株",
+      "val": 10
+    },
+    {
+      "id": "b_breve_m16v",
+      "group": "Ontology",
+      "name": "短双歧杆菌M-16V",
+      "description": "报道可降低婴幼儿过敏风险的菌株",
+      "val": 10
+    },
+    {
+      "id": "b_longum_bb536",
+      "group": "Ontology",
+      "name": "长双歧杆菌BB536",
+      "description": "报道可缓解过敏性鼻炎与湿疹等症状的菌株",
+      "val": 10
+    },
+    {
+      "id": "b_infantis_m63",
+      "group": "Ontology",
+      "name": "婴儿双歧杆菌M-63",
+      "description": "报道可改善婴幼儿肠道菌群并缓解过敏症状的菌株",
+      "val": 10
+    },
+    {
+      "id": "0fabfe003f4ce27c8cab181d4289fec6",
       "group": "Article",
       "name": "World Allergy Organization Anaphylaxis Guidance 2020（世界变态反应组织过敏性休克指南）",
       "val": 20
     },
     {
-      "id": "claim_c2fffb717805644a5dc57f86a5a1569d",
+      "id": "claim_0d3d4d93d1d55a2e85497bd613deb51f",
       "group": "Claim",
       "name": "Intramuscular epinephrine is the first-line treatment for anaphylaxis",
       "content": "The updated guidance emphasizes that intramuscular epinephrine (adrenaline) remains the primary and most effective treatment for anaphylaxis. Despite this, its use is still suboptimal in many clinical settings, highlighting the need for better education and accessibility.",
@@ -204,7 +414,7 @@
       "val": 5
     },
     {
-      "id": "claim_26c640615ce343577205159a314d5121",
+      "id": "claim_fe5ada18fbb797e19b18a370afc8238c",
       "group": "Claim",
       "name": "Anaphylaxis diagnostic criteria have been refined",
       "content": "The guidance incorporates updated diagnostic criteria for anaphylaxis, addressing ambiguities in previous definitions. It highlights the need to recognize anaphylaxis even in cases without typical skin involvement or with isolated respiratory or cardiovascular symptoms.",
@@ -212,7 +422,7 @@
       "val": 5
     },
     {
-      "id": "claim_958762c8305834f23059abb0752e93fc",
+      "id": "claim_4646bcdfde86a4c7431d4df5a1d91503",
       "group": "Claim",
       "name": "Global incidence of anaphylaxis is increasing",
       "content": "Recent studies indicate a rise in the global incidence of anaphylaxis, with variations depending on geographic regions and study methodologies. Despite this, the mortality rate remains low, particularly for food, drug, and venom-induced anaphylaxis.",
@@ -220,7 +430,7 @@
       "val": 5
     },
     {
-      "id": "claim_63db08179bf12b6f086b66d52f1d2565",
+      "id": "claim_61cad1c2f51c3ce4faf8ddda8475ea2d",
       "group": "Claim",
       "name": "Limited availability and affordability of epinephrine auto-injectors is a global issue",
       "content": "The guidance highlights the limited availability and high cost of epinephrine auto-injectors in many countries as a significant barrier to effective anaphylaxis management. This issue underscores the need for improved resource allocation and accessibility.",
@@ -228,7 +438,7 @@
       "val": 5
     },
     {
-      "id": "claim_cc2f5444b3d22c6dc455fac91a8089e3",
+      "id": "claim_c547a5a5205890cf8e3205713bd59e82",
       "group": "Claim",
       "name": "Anaphylaxis recurrence rates are concerningly high",
       "content": "Data show that recurrence of anaphylaxis occurs in 26.5–54.0% of patients during follow-up periods ranging from 1.5 to 25 years. This highlights the importance of prevention strategies and patient education to reduce recurrence risks.",
@@ -236,7 +446,7 @@
       "val": 5
     },
     {
-      "id": "claim_db07339cabd02ddfd00e61c6599a971c",
+      "id": "claim_496c8bb016edfb465182035a52065b7a",
       "group": "Claim",
       "name": "Anaphylaxis definitions and diagnostic challenges vary globally",
       "content": "The guidance acknowledges that definitions of anaphylaxis differ across organizations and regions, leading to diagnostic challenges. This variability can result in underdiagnosis or mismanagement of cases, particularly for atypical presentations.",
@@ -244,13 +454,13 @@
       "val": 5
     },
     {
-      "id": "f665774b31373efa24904cfdd44fb136",
+      "id": "3e0d0bdf7e45b8584891d731df9a36ec",
       "group": "Article",
       "name": "EAACI guidelines：Anaphylaxis (2021 update)(EAACI 指南：过敏反应（2021 年更新）)",
       "val": 20
     },
     {
-      "id": "claim_cc17666e6476c551f7233014f44f36d3",
+      "id": "claim_54fed2910ea808b8a068feeb94698d21",
       "group": "Claim",
       "name": "Prompt use of intramuscular adrenaline is essential in anaphylaxis management",
       "content": "The guideline strongly recommends the prompt use of intramuscular adrenaline as the first-line treatment for anaphylaxis. Adrenaline autoinjectors should also be made available to patients in the community to ensure timely intervention.",
@@ -258,7 +468,7 @@
       "val": 5
     },
     {
-      "id": "claim_028a019683ad982ffbff15f918fa3d20",
+      "id": "claim_267989ef020f91e53ceb25f78cd2a9ce",
       "group": "Claim",
       "name": "Structured training improves anaphylaxis management",
       "content": "The guideline suggests that structured and comprehensive training for individuals at risk of anaphylaxis is crucial. Simulation training and visual prompts for healthcare professionals are also recommended to enhance the management of anaphylaxis.",
@@ -266,7 +476,7 @@
       "val": 5
     },
     {
-      "id": "claim_44cd315e58b6de41cc689b439cafd563",
+      "id": "claim_dc3ab92a9b70c43d0437276fd5118021",
       "group": "Claim",
       "name": "Clinical criteria and tryptase measurement aid in anaphylaxis diagnosis",
       "content": "The guideline suggests using clinical criteria to identify anaphylaxis, supported by blood sampling for later measurement of tryptase levels. This approach helps in confirming the diagnosis and understanding the severity of the reaction.",
@@ -274,7 +484,7 @@
       "val": 5
     },
     {
-      "id": "claim_84eda5ce8efd3be493612ebabd2d086b",
+      "id": "claim_d35d1c3296000fa310bfa31bd84bb250",
       "group": "Claim",
       "name": "School policies should align with anaphylaxis guidelines",
       "content": "The guideline recommends that school policies be updated to reflect current anaphylaxis management guidelines. This ensures that children at risk are adequately protected in educational settings.",
@@ -282,7 +492,7 @@
       "val": 5
     },
     {
-      "id": "claim_680614d53b1652d63fc440d295887a07",
+      "id": "claim_c07ca9d8aeeb1f9ba7401c14aa56b25d",
       "group": "Claim",
       "name": "Evidence for anaphylaxis management is limited and requires further research",
       "content": "The guideline highlights that the current evidence for anaphylaxis management is mostly of very low quality. There is a pressing need for clinical trials to improve the management and outcomes for patients at risk of anaphylaxis.",
@@ -290,7 +500,7 @@
       "val": 5
     },
     {
-      "id": "claim_0d013801f6e7ae51dafe0bc75dd2a2b3",
+      "id": "claim_8ffae1da7e4b781fd855de28c5eff9a7",
       "group": "Claim",
       "name": "Food, drugs, and venom are the primary causes of anaphylaxis",
       "content": "The guideline identifies food, drugs, and Hymenoptera venom as the most common triggers of anaphylaxis. The prevalence of these causes varies by age and geographical region.",
@@ -298,7 +508,7 @@
       "val": 5
     },
     {
-      "id": "claim_a3f05fd7d21d7872c60f78bfcde8ce3f",
+      "id": "claim_9541e0a06cfe7d6373b8c3720495d450",
       "group": "Claim",
       "name": "Co-factors can aggravate anaphylaxis severity",
       "content": "The guideline notes that factors such as exercise, stress, infection, non-steroidal anti-inflammatory drugs, and alcohol can exacerbate anaphylactic reactions. These co-factors should be considered during diagnosis and management.",
@@ -306,13 +516,13 @@
       "val": 5
     },
     {
-      "id": "bb14e7cde018d745b8add0943467b26c",
+      "id": "0634099e18f48f9602c9303612f6ed60",
       "group": "Article",
       "name": "过敏性疾病药物治疗研究现状及进展-孙星",
       "val": 20
     },
     {
-      "id": "claim_65749545d38e12ec1f155a5b2a536250",
+      "id": "claim_632a08f1bf3a085bc4947976e958acb9",
       "group": "Claim",
       "name": "过敏性疾病的发病率显著上升并影响生活质量",
       "content": "在过去的几十年中，过敏性疾病的发病率显著上升，已成为全球关注的公共卫生问题。根据世界变态反应组织的调查，全球约22%的人口患有IgE介导的过敏性疾病，这些疾病严重影响儿童和成人的生活质量，甚至危及生命。",
@@ -320,7 +530,7 @@
       "val": 5
     },
     {
-      "id": "claim_0a559be49fdd5e48e079497e47edbbde",
+      "id": "claim_7e71a36c050adcfdc922e804dc9308ce",
       "group": "Claim",
       "name": "IgE是I型变态反应的关键介质",
       "content": "IgE是I型变态反应的主要介质，其通过与高亲和力受体FcεRI结合，使机体处于致敏状态。在接触过敏原后，IgE与肥大细胞表面的受体结合，触发一系列生化反应，导致过敏反应的发生。",
@@ -328,7 +538,7 @@
       "val": 5
     },
     {
-      "id": "claim_b705b18d5dc043c60e3b3f4c2862d85b",
+      "id": "claim_1319b0362380cf57e034c18fd18d18c4",
       "group": "Claim",
       "name": "肥大细胞在过敏性疾病中起重要作用",
       "content": "肥大细胞是IgE介导的速发型过敏反应中的关键细胞，其释放的组胺和白三烯等介质引发急性过敏反应。肥大细胞的激活还与延迟相和慢性期的过敏性炎症有关。",
@@ -336,7 +546,7 @@
       "val": 5
     },
     {
-      "id": "claim_31544c8c83bf417e5ea34f5b55ffcff9",
+      "id": "claim_c985a7798955fc3d12b5134672e4c739",
       "group": "Claim",
       "name": "抗组胺药物是过敏性疾病的重要治疗手段",
       "content": "抗组胺药物通过拮抗组胺H1受体，抑制组胺的生物学效应，从而缓解过敏症状。第二代抗组胺药物在减少中枢镇静作用的同时，也存在心血管毒性等潜在风险。",
@@ -344,7 +554,7 @@
       "val": 5
     },
     {
-      "id": "claim_0e8466a0de803777550038e2457955bc",
+      "id": "claim_3c6eeed652d8d65d0b7d5fa3477b8397",
       "group": "Claim",
       "name": "IgE抗体治疗过敏性疾病的效果有限",
       "content": "尽管针对IgE抗体的治疗是当前研究的重点，但其治疗效果尚不理想。许多患者的症状未能得到有效控制，同时部分患者还出现了不良反应。",
@@ -352,7 +562,7 @@
       "val": 5
     },
     {
-      "id": "claim_0d54b6bb5b462b87477a4f6518d56a79",
+      "id": "claim_9938fe6ceb9c69443c13ce9438d1dcb1",
       "group": "Claim",
       "name": "新型抗过敏药物具有多重作用机制",
       "content": "新型抗过敏药物如卢帕他定，能够同时拮抗组胺H1受体和血小板活化因子（PAF）受体，从多个环节抑制过敏反应。这些药物在治疗过敏性鼻炎等疾病中表现出良好的疗效。",
@@ -360,13 +570,13 @@
       "val": 5
     },
     {
-      "id": "d178a38065f657d39ad80ea54a172d06",
+      "id": "9b83c4ea210f6e1655abcbdc6e9a9eea",
       "group": "Article",
       "name": "中国荨麻疹诊疗指南（2022版）",
       "val": 20
     },
     {
-      "id": "claim_dc9862f7fa6e1acdbc5fd1daa817f972",
+      "id": "claim_e4a8f0d11d37b5c11b44871bec62d594",
       "group": "Claim",
       "name": "荨麻疹的发病机制涉及免疫和非免疫途径",
       "content": "荨麻疹的发病机制主要由肥大细胞通过免疫和非免疫机制诱导活化。免疫机制包括IgE介导的I型变态反应、自身免疫反应（I型和IIb型），而非免疫机制则涉及直接的肥大细胞释放剂或药物作用等。肥大细胞脱颗粒释放组胺和其他炎症因子是荨麻疹发生的关键。",
@@ -374,7 +584,7 @@
       "val": 5
     },
     {
-      "id": "claim_94ea6503ece6b4c3c6fb95864e21d0fb",
+      "id": "claim_eb2383ba058a196e4b5440311625b35b",
       "group": "Claim",
       "name": "慢性荨麻疹的病因复杂且难以明确",
       "content": "慢性荨麻疹的病因或诱因通常较急性荨麻疹更难以明确，可能涉及慢性隐匿性感染、自身免疫反应、精神紧张等多种内外源性因素。其复杂性使得诊断和治疗具有挑战性。",
@@ -382,7 +592,7 @@
       "val": 5
     },
     {
-      "id": "claim_8964ae842df08fda48a67abc81edd682",
+      "id": "claim_2732966f9e7fef6a9f4ea6581f4a3266",
       "group": "Claim",
       "name": "第二代抗组胺药是慢性荨麻疹的一线治疗",
       "content": "慢性荨麻疹的首选治疗是标准剂量的第二代抗组胺药，这类药物疗效确切且副作用较少。若标准剂量无效，可逐步增加剂量或联合使用其他抗组胺药。",
@@ -390,7 +600,7 @@
       "val": 5
     },
     {
-      "id": "claim_61af7dece0102260b7cd033d7050afa7",
+      "id": "claim_fb744178d94be4cb42fb6d264446d261",
       "group": "Claim",
       "name": "奥马珠单抗可作为慢性荨麻疹的三线治疗",
       "content": "对于对抗组胺药无应答或不耐受的慢性荨麻疹患者，奥马珠单抗是一种推荐的三线治疗药物。其疗效已在临床中得到验证，通常在使用3-6个月后评估效果。",
@@ -398,7 +608,7 @@
       "val": 5
     },
     {
-      "id": "claim_e9a14c1b71e1596bccc1844af1dcd82f",
+      "id": "claim_cd80f760c3548f6f19668c3f100bffd6",
       "group": "Claim",
       "name": "荨麻疹分类有助于精准治疗",
       "content": "荨麻疹根据病程和诱因可分为自发性和诱导性两大类，自发性荨麻疹又可进一步分为急性和慢性类型。分类有助于制定更科学的治疗方案。",
@@ -406,7 +616,7 @@
       "val": 5
     },
     {
-      "id": "claim_332fd35565524edda15c321a9011430a",
+      "id": "claim_20effb84d8355a4196d5d0075514b72c",
       "group": "Claim",
       "name": "慢性荨麻疹需评估疾病活动度和生活质量",
       "content": "慢性荨麻疹的管理应包括对疾病活动度、生活质量和病情控制情况的评估。推荐使用UAS7、UCT等评分工具进行监测。",
@@ -414,7 +624,7 @@
       "val": 5
     },
     {
-      "id": "claim_96eb4c6771ef5f181482c64130440a33",
+      "id": "claim_9013250c5ea868e5fdbdd468c392d792",
       "group": "Claim",
       "name": "荨麻疹的治疗目标是完全控制症状",
       "content": "荨麻疹的治疗目标应为完全控制症状，同时需考虑用药安全性和患者生活质量。治疗方案需根据患者具体情况进行调整。",
@@ -422,13 +632,13 @@
       "val": 5
     },
     {
-      "id": "48108c2e4ca1f797ceea8fa750083455",
+      "id": "da49f4c18c7fa13ef3ff9801403779b3",
       "group": "Article",
       "name": "中国特应性皮炎诊疗指南（2020版）",
       "val": 20
     },
     {
-      "id": "claim_ea55fa3eae67c5afe3478352d2f6d561",
+      "id": "claim_f0cd425a3014d79b0418cab28185770a",
       "group": "Claim",
       "name": "特应性皮炎的发病率在中国显著增加",
       "content": "特应性皮炎（AD）是一种慢性、复发性、炎症性皮肤病，其患病率在过去十年中在中国显著增加，尤其是在儿童和青少年中。近年来，城市儿童的患病率已达到12.94%，而婴儿的患病率更高，达到30.48%。",
@@ -436,7 +646,7 @@
       "val": 5
     },
     {
-      "id": "claim_9b8708a2d6baceff516cf60ea9da4145",
+      "id": "claim_d98d6001964916e844ebf9990165fbc5",
       "group": "Claim",
       "name": "特应性皮炎的发病机制涉及遗传和环境因素",
       "content": "特应性皮炎的发病与遗传和环境因素密切相关。遗传因素主要影响皮肤屏障功能和免疫平衡，而环境因素如气候变化、生活方式改变、不正确的洗浴习惯和过敏原暴露也可能通过表观遗传修饰引发免疫系统和皮肤屏障异常。",
@@ -444,7 +654,7 @@
       "val": 5
     },
     {
-      "id": "claim_1495a80582769b6abe8eb3fc912783aa",
+      "id": "claim_27b7256de64061d8548f7785c0c2b9ae",
       "group": "Claim",
       "name": "Th2型炎症是特应性皮炎的主要免疫特征",
       "content": "特应性皮炎的发病机制中，Th2型炎症是其主要的免疫特征。Th2细胞、IL-4和IL-13等细胞因子在疾病的发生中起重要作用，同时皮肤屏障功能障碍和皮肤菌群紊乱进一步加重了炎症反应。",
@@ -452,7 +662,7 @@
       "val": 5
     },
     {
-      "id": "claim_e0cb62d2bd00eed987efb75727b3334b",
+      "id": "claim_4da10537d1ff7107bcf835aadde13b3a",
       "group": "Claim",
       "name": "特应性皮炎的诊断需要结合病史、临床表现和实验室检查",
       "content": "特应性皮炎的诊断需要综合考虑病史、家族史、临床表现以及实验室检查结果。常用的诊断标准包括Hanifin-Rajka标准和Williams标准，同时我国学者也提出了适用于中国患者的诊断标准。",
@@ -460,7 +670,7 @@
       "val": 5
     },
     {
-      "id": "claim_a20c2a66e77048268c7ebe1e65bc7a6c",
+      "id": "claim_b2c968e1e6e241f930c758e38b01b226",
       "group": "Claim",
       "name": "特应性皮炎的治疗目标是控制症状和预防复发",
       "content": "特应性皮炎的治疗旨在缓解或消除临床症状，减少和预防复发，提高患者的生活质量。治疗包括基础治疗（如保湿润肤剂）、外用药物（如糖皮质激素和钙调神经磷酸酶抑制剂）以及系统治疗（如免疫抑制剂和生物制剂）。",
@@ -468,7 +678,7 @@
       "val": 5
     },
     {
-      "id": "claim_9e9268867eef9528e5c153f376102642",
+      "id": "claim_6f41e69af135943c049bdde0d6ec8b1a",
       "group": "Claim",
       "name": "尘螨过敏原特异性免疫治疗对特应性皮炎有效",
       "content": "尘螨过敏原特异性免疫治疗可以改善特应性皮炎的病情，降低疾病严重度并减少复发次数。尤其对尘螨过敏且病情严重的患者，建议治疗周期大于3年。",
@@ -476,19 +686,19 @@
       "val": 5
     },
     {
-      "id": "1ef457f9edfc10a63f4c1bf1b78e9eb1",
+      "id": "d83b75edcd160d1330ae555b9444f232",
       "group": "Article",
       "name": "中国儿童食物过敏循证指南2022年",
       "val": 20
     },
     {
-      "id": "da131685291b5294691830597bfd681b",
+      "id": "ce1a41742e8539c84df504208b3b092d",
       "group": "Article",
       "name": "室内主要环境过敏原检测与处理专家共识2022",
       "val": 20
     },
     {
-      "id": "claim_4165e25849a5d8740b2d17fce5bdc1f0",
+      "id": "claim_11d5102c686c41cec799849d872ee629",
       "group": "Claim",
       "name": "室内过敏原是过敏性疾病的重要诱因",
       "content": "室内环境中的过敏原（如尘螨、真菌和花粉）是引发和加剧过敏性疾病（如哮喘、过敏性鼻炎和特应性皮炎）的主要因素。研究表明，90%以上的时间人们都在室内度过，因此室内过敏原的暴露对健康有显著影响。",
@@ -496,7 +706,7 @@
       "val": 5
     },
     {
-      "id": "claim_4f8eb56d703dcef0b511e93d0a7e78dc",
+      "id": "claim_731d2f3974af482fd7b36b647eadb7ac",
       "group": "Claim",
       "name": "尘螨是室内最主要的吸入性过敏原",
       "content": "尘螨是全球范围内最常见的吸入性过敏原之一，主要存在于床垫、沙发和地毯等易积灰的地方。尘螨过敏已成为全球性的健康问题，其浓度超过50只/克尘时可显著增加哮喘急性发作的风险。",
@@ -504,7 +714,7 @@
       "val": 5
     },
     {
-      "id": "claim_50486cd1b94a6130f2d4e150b9ff525a",
+      "id": "claim_5ed315bcf87dadbfd0b3e19583e7c036",
       "group": "Claim",
       "name": "真菌暴露与哮喘和过敏性疾病密切相关",
       "content": "真菌在潮湿、通风不良的环境中易生长，长期暴露于真菌环境会增加哮喘和过敏性鼻炎的风险。研究表明，室内可见的潮湿和真菌与哮喘的发生和加重有显著相关性。",
@@ -512,7 +722,7 @@
       "val": 5
     },
     {
-      "id": "claim_1e74604afbac9a20db34769de6172a2b",
+      "id": "claim_10d11499c1b2809091fcbaa65923505f",
       "group": "Claim",
       "name": "花粉是重要的室内过敏原",
       "content": "花粉是一类重要的过敏原，其浓度与患者的症状严重程度密切相关。室内花粉浓度可能因空气传播、室内种植花草等因素而升高，了解室内花粉水平有助于减少过敏反应。",
@@ -520,7 +730,7 @@
       "val": 5
     },
     {
-      "id": "claim_8c3d7cb39061bf774fab3eb246c1b874",
+      "id": "claim_7e9a21c5162c713289233dcd09988810",
       "group": "Claim",
       "name": "室内过敏原检测和处理方法亟待规范",
       "content": "尽管已有多种方法用于检测室内过敏原（如尘螨、真菌和花粉），但目前尚无统一的检测和处理标准。制定规范化的检测和处理方法对过敏性疾病的防治具有重要意义。",
@@ -528,7 +738,7 @@
       "val": 5
     },
     {
-      "id": "claim_af6d3cb2129b9c5e7380273bb8d586ad",
+      "id": "claim_c5c3382fce06e8a2868045c751b1b8ae",
       "group": "Claim",
       "name": "综合处理措施是控制室内过敏原的关键",
       "content": "单一的除螨或除菌措施难以有效控制室内过敏原。综合处理措施，包括降低湿度、定期清洁和使用高效空气过滤器等，是减少过敏原暴露的有效方法。",
@@ -536,7 +746,7 @@
       "val": 5
     },
     {
-      "id": "claim_d966fac5a0d554f1bc9ac0a797441f0c",
+      "id": "claim_e81d11264242d50a7357a8626e9d40fb",
       "group": "Claim",
       "name": "花粉计数是评估室内花粉浓度的有效方法",
       "content": "显微镜计数和自动花粉计数是常用的花粉分析方法，其中显微镜计数历史悠久且应用广泛。自动花粉计数技术则具有更高的效率和准确性。",
@@ -544,31 +754,31 @@
       "val": 5
     },
     {
-      "id": "d153334172b8c7e7899499732f5705b0",
+      "id": "bdef81275a4ad771fd024bdb727100a7",
       "group": "Article",
       "name": "食物过敏相关消化道疾病诊断与管理专家共识",
       "val": 20
     },
     {
-      "id": "60be2c68541e44b593ff8ab88edaf919",
+      "id": "5f0564d9e88d2bcb7f7d9bed61bff4f0",
       "group": "Article",
       "name": "过敏原特异性IgE检测结果临床解读中国专家共识2022",
       "val": 20
     },
     {
-      "id": "40d3cc28d2e539db4e413234a213f68b",
+      "id": "2df100277a694a5492aa74b4888b8672",
       "group": "Article",
       "name": "中国儿童严重过敏反应诊断与治疗建议2021",
       "val": 20
     },
     {
-      "id": "dc751fcfdedc8349e0764bc0a0b1d975",
+      "id": "5380cc86308c8f5b9a188c2fca6f9797",
       "group": "Article",
       "name": "中国儿童过敏原检测临床应用专家共识(2021版)",
       "val": 20
     },
     {
-      "id": "claim_39b2f1c97aa8091ea1178df17dee4d57",
+      "id": "claim_7b2cdc689f1b7c1e0ab8b2d0433651ad",
       "group": "Claim",
       "name": "儿童过敏性疾病发病率逐年上升",
       "content": "近年来，儿童过敏性疾病如哮喘、过敏性鼻炎和湿疹的发病率呈逐年上升趋势。这些疾病不仅降低了儿童的生活质量，还增加了家庭和社会的经济负担。",
@@ -576,7 +786,7 @@
       "val": 5
     },
     {
-      "id": "claim_8d26bc171072bc15dd95180d99b1a3e7",
+      "id": "claim_87fe1a41cde0dc310032d817d9dd28e0",
       "group": "Claim",
       "name": "过敏原检测是管理过敏性疾病的重要工具",
       "content": "过敏原检测能够明确致敏变应原，为个体化管理过敏性疾病提供依据。常用的检测方法包括过敏原皮肤点刺试验和血清特异性IgE检测。",
@@ -584,7 +794,7 @@
       "val": 5
     },
     {
-      "id": "claim_a4b22adeec3ceb75c02520f5937722c9",
+      "id": "claim_7c1cd3f130cabc9af938aa356d5854f4",
       "group": "Claim",
       "name": "儿童过敏原检测需要规范化",
       "content": "尽管过敏原检测在儿科临床中广泛应用，但仍存在检测不规范和结果判读不标准的问题。亟需通过多学科专家共识推动检测的规范化和标准化。",
@@ -592,7 +802,7 @@
       "val": 5
     },
     {
-      "id": "claim_c96d83085e0a8c7011acada05b5735e7",
+      "id": "claim_689cad71b38503ab248a0bb1d73bd380",
       "group": "Claim",
       "name": "过敏原检测的安全性保障措施至关重要",
       "content": "过敏原检测可能引发严重过敏反应（如过敏性休克），因此必须配备急救药品和设施，如肾上腺素注射器。医务人员需接受相关培训，确保能够及时处理突发情况。",
@@ -600,7 +810,7 @@
       "val": 5
     },
     {
-      "id": "claim_29756ae32a0315a92e36538e495f82f2",
+      "id": "claim_d9c5d1aef69ae99ba8e4a2f52138155b",
       "group": "Claim",
       "name": "非IgE介导的过敏不推荐常规过敏原检测",
       "content": "对于非IgE介导的过敏（如食物蛋白诱导的直肠结肠炎综合征），不推荐常规进行过敏原检测。只有在同时存在IgE介导的过敏症状时，才建议进行检测。",
@@ -608,7 +818,7 @@
       "val": 5
     },
     {
-      "id": "claim_5b0b673d669bf3b94d3436e1879e0417",
+      "id": "claim_86641b19a4096f27e8df3a8fa8679aa8",
       "group": "Claim",
       "name": "湿疹患儿不推荐常规过敏原检测",
       "content": "对于湿疹患儿，不推荐常规进行过敏原检测。只有在中度至重度湿疹且常规治疗无效时，才建议进行检测。",
@@ -616,7 +826,7 @@
       "val": 5
     },
     {
-      "id": "claim_c83e9430f6f786fa7b0cbd55c263ef0a",
+      "id": "claim_d73828c47f9af222698cb584ea5cc2db",
       "group": "Claim",
       "name": "过敏性鼻炎和哮喘患儿推荐进行过敏原检测",
       "content": "过敏性鼻炎和哮喘是儿童常见的慢性疾病，推荐专科医师对这些患儿进行过敏原检测，以指导具体治疗和过敏原回避。",
@@ -624,7 +834,7 @@
       "val": 5
     },
     {
-      "id": "claim_812b6d6bb3bd7b6b57159a7ea42b2e8f",
+      "id": "claim_e1d1521c3c67f8c1acd186827c89b33d",
       "group": "Claim",
       "name": "过敏原检测结果需结合临床表现解读",
       "content": "过敏原检测阳性结果仅提示致敏状态，并不等同于过敏性疾病的诊断。检测结果需结合临床表现进行解读。",
@@ -632,7 +842,7 @@
       "val": 5
     },
     {
-      "id": "claim_0631dda191623ebb3d302cc5d866ad3f",
+      "id": "claim_4311f2b606416627596ea47715d899c2",
       "group": "Claim",
       "name": "皮肤点刺试验和血清IgE检测各有优缺点",
       "content": "皮肤点刺试验和血清IgE检测在敏感性和特异性上相似，但前者成本较低且结果快速，而后者不受药物和皮肤状况的影响。",
@@ -640,7 +850,7 @@
       "val": 5
     },
     {
-      "id": "claim_c0ef49c044d759c66eedd170c9c994c5",
+      "id": "claim_9eace66491a578384822dfdc4631ff2a",
       "group": "Claim",
       "name": "儿童过敏原检测需关注心理舒适度",
       "content": "儿童在接受过敏原检测时可能感到焦虑，推荐通过提供玩具、书籍或电子屏幕等方式分散注意力，并耐心解释检测过程以减轻恐惧。",
@@ -648,13 +858,13 @@
       "val": 5
     },
     {
-      "id": "db71acd63f2c3e05cd607338a4a49b04",
+      "id": "61ff5e5880b6f4b2ed5ef74fd2fa8715",
       "group": "Article",
       "name": "EAACI guidelines on allergen immunotherapy：Prevention of allergy（EAACI 过敏原免疫疗法指南：过敏的预防）",
       "val": 20
     },
     {
-      "id": "claim_8bdf180217067d0d9fe5160a824cb648",
+      "id": "claim_6cf1eb3451dc5df50be3f590cd8d3758",
       "group": "Claim",
       "name": "Allergen immunotherapy (AIT) is a disease-modifying treatment for IgE-mediated allergic diseases.",
       "content": "AIT has been shown to provide therapeutic benefits beyond the cessation of treatment, including the potential for preventing the development of allergic conditions. It is particularly effective for allergic rhinitis (AR), allergic asthma, and venom allergy, with evidence supporting its role in reducing symptoms and medication requirements.",
@@ -662,7 +872,7 @@
       "val": 5
     },
     {
-      "id": "claim_4e6eecefea1961e5cb2ab806da04cbfb",
+      "id": "claim_a431315b97cddb2bfc00951443b89b86",
       "group": "Claim",
       "name": "AIT can prevent asthma in children and adolescents with allergic rhinitis triggered by grass or birch pollen.",
       "content": "A three-year course of subcutaneous or sublingual AIT is recommended for children and adolescents with moderate to severe AR caused by grass or birch pollen. This treatment can prevent asthma for up to two years post-AIT and has sustained effects on AR symptoms and medication use.",
@@ -670,7 +880,7 @@
       "val": 5
     },
     {
-      "id": "claim_b96f9a46f4e9cc8e31562ae8f43e2f6f",
+      "id": "claim_92036f7631f0dfadad5f42cf4e67448d",
       "group": "Claim",
       "name": "AIT has potential long-term preventive effects on asthma symptoms and medication use.",
       "content": "Some trial data suggest that AIT may have a preventive effect on asthma symptoms and medication use beyond two years after treatment. However, more evidence is needed to confirm these long-term benefits.",
@@ -678,7 +888,7 @@
       "val": 5
     },
     {
-      "id": "claim_208fa4b7e5764f34c66c96c828b0d810",
+      "id": "claim_a2dddbcb84e3f075be3c2781b7a360ba",
       "group": "Claim",
       "name": "Evidence for AIT's preventive effects on house dust mite-induced AR and allergic sensitization is limited.",
       "content": "While AIT shows promise as a preventive treatment, there is insufficient evidence regarding its effectiveness for AR triggered by house dust mites or for preventing allergic sensitization and other allergic co-morbidities. Further high-quality clinical trials are needed to address these gaps.",
@@ -686,7 +896,7 @@
       "val": 5
     },
     {
-      "id": "claim_978ea35de131d0b9c410e506fbe28c8f",
+      "id": "claim_ac169188f0442304864d85b315b4594f",
       "group": "Claim",
       "name": "Children with allergic rhinitis are at increased risk of developing asthma.",
       "content": "Studies show that children with AR have a threefold increased risk of developing asthma. This highlights the importance of early intervention and preventive strategies, such as AIT, to reduce this risk.",
@@ -694,7 +904,7 @@
       "val": 5
     },
     {
-      "id": "claim_27a988c25126b118f574d2153867c6d4",
+      "id": "claim_8b8bc70dfa0d29c0e99b733643102988",
       "group": "Claim",
       "name": "AIT induces immunological changes that may lead to immune modification.",
       "content": "AIT has the potential to induce immunological changes that result in immune modification, making it a promising preventive strategy for allergic diseases. These changes may contribute to its long-term disease-modifying effects.",
@@ -702,7 +912,7 @@
       "val": 5
     },
     {
-      "id": "claim_1585705c1a3f8fc281bba06ecec8a2ef",
+      "id": "claim_5af7184eb6efde11a7893d252af6a5f3",
       "group": "Claim",
       "name": "More high-quality clinical trials are needed to confirm AIT's preventive potential.",
       "content": "Although evidence exists for AIT's preventive potential, there is an urgent need for more high-quality clinical trials to better understand its effectiveness in preventing allergic sensitization, first allergic diseases, and allergic co-morbidities.",
@@ -710,13 +920,13 @@
       "val": 5
     },
     {
-      "id": "6b657636ab2634447f84602fc3dd90d9",
+      "id": "43348c3aa93562c060bc81b1dc2b4bc4",
       "group": "Article",
       "name": "中国变应性鼻炎诊断和治疗指南（2022年，修订版）",
       "val": 20
     },
     {
-      "id": "claim_460a5032555d01fd35ac42c808714653",
+      "id": "claim_f41bce942f1bd195cbb7318e8c6792b5",
       "group": "Claim",
       "name": "变应性鼻炎的发病率显著上升",
       "content": "近年来，变应性鼻炎（AR）的患病率在全球范围内显著上升，已成为主要的呼吸道慢性炎性疾病之一。中国的流行病学调查显示，成人AR的自报患病率从2005年的11.1%上升到2011年的17.6%。",
@@ -724,7 +934,7 @@
       "val": 5
     },
     {
-      "id": "claim_ae14bd72878f8b9a0b703c625c3d6755",
+      "id": "claim_03a0fb98944907dc2f4f28ab58ab6ea5",
       "group": "Claim",
       "name": "变应性鼻炎的发病机制以IgE介导为主",
       "content": "变应性鼻炎主要由IgE介导的鼻黏膜非感染性慢性炎性疾病。过敏原诱导特应性个体产生特异性IgE，与肥大细胞和嗜碱粒细胞表面的高亲和力IgE受体结合，形成致敏状态。",
@@ -732,7 +942,7 @@
       "val": 5
     },
     {
-      "id": "claim_0d6940ee89824b48cf9f1065f4d8143f",
+      "id": "claim_aa535a805d911700215bfd00f485a632",
       "group": "Claim",
       "name": "变应性鼻炎的诊断需要结合病史和过敏原检测",
       "content": "变应性鼻炎的诊断应根据患者的典型过敏病史、临床表现以及过敏原检测结果综合判断。常用的检测方法包括皮肤点刺试验（SPT）和血清特异性IgE检测。",
@@ -740,7 +950,7 @@
       "val": 5
     },
     {
-      "id": "claim_91b51eea55b7b5be443aa2bc0ea191db",
+      "id": "claim_993bfb4ac7dbf4bb2e95cf8ed469f77d",
       "group": "Claim",
       "name": "变应性鼻炎的治疗需综合多种方法",
       "content": "变应性鼻炎的治疗原则为“防治结合，四位一体”，包括环境控制、药物治疗、免疫治疗和健康教育。鼻用糖皮质激素是治疗的首选药物，可显著缓解症状并改善生活质量。",
@@ -748,7 +958,7 @@
       "val": 5
     },
     {
-      "id": "claim_50f40c7d6304a7f1e6148215f0fcafa2",
+      "id": "claim_56b8f01911fe962bbe7629c921c7cc3a",
       "group": "Claim",
       "name": "变应性鼻炎与哮喘密切相关",
       "content": "变应性鼻炎与哮喘被认为是“同一气道、同一疾病”，两者的炎性反应具有相似性并相互影响。约40%的AR患者合并哮喘。",
@@ -756,7 +966,7 @@
       "val": 5
     },
     {
-      "id": "claim_2dc722071917027f73e9855a30ad3f2c",
+      "id": "claim_36d3c13d119b9af235b15cc9c7864501",
       "group": "Claim",
       "name": "变应性鼻炎的流行病学特征存在地域差异",
       "content": "变应性鼻炎的流行病学特征在不同地区存在显著差异，例如南方地区尘螨的致敏率最高，而北方地区花粉是主要过敏原。此外，城市的患病率通常高于农村。",
@@ -764,7 +974,7 @@
       "val": 5
     },
     {
-      "id": "claim_f488d17b736e071230093c6ba0aa68b5",
+      "id": "claim_89b9b2694fdbbada5371dc957931ccee",
       "group": "Claim",
       "name": "儿童和青少年变应性鼻炎的研究较少",
       "content": "目前关于儿童和青少年变应性鼻炎的流行病学研究较少，多为单中心研究。已有数据显示，儿童和青少年的患病率可能较高。",
@@ -772,7 +982,7 @@
       "val": 5
     },
     {
-      "id": "claim_21192c30d2b66bbd3b6195b4aaa310d4",
+      "id": "claim_b251c976053176f3064e9e89f4ec77ff",
       "group": "Claim",
       "name": "变应性鼻炎的分类多样化",
       "content": "变应性鼻炎的分类包括按病程（间歇性和持续性）、过敏原种类（季节性和常年性）以及疾病严重程度（轻度和中重度）。这些分类有助于指导临床诊疗。",
@@ -780,13 +990,13 @@
       "val": 5
     },
     {
-      "id": "0d63e2b64fa1ac97cf6f8cb7e7ad9ba8",
+      "id": "bb7b5ecab345a1e4698de6ae7019f190",
       "group": "Article",
       "name": "儿童过敏性疾病诊断及治疗专家共识2019",
       "val": 20
     },
     {
-      "id": "claim_0cee0796d5719a549e6e732adbf1b720",
+      "id": "claim_2eab71133e33267b458db84cebf3189b",
       "group": "Claim",
       "name": "过敏性疾病已成为21世纪常见慢性非传染性疾病",
       "content": "过敏性疾病包括食物过敏、特应性皮炎、过敏性鼻炎和过敏性哮喘等，影响了全球约25%的人群。其不仅降低生活质量，还可能危及生命，并对社会造成沉重的经济负担。",
@@ -794,7 +1004,7 @@
       "val": 5
     },
     {
-      "id": "claim_716be06d41be665a777a8603501ad978",
+      "id": "claim_0238c00bcbc09acbb83e1c43b3f98a6d",
       "group": "Claim",
       "name": "中国儿童过敏性疾病的患病率逐渐接近西方国家",
       "content": "近年来，中国儿童过敏性疾病的患病率逐渐上升，例如重庆地区2岁以内儿童食物过敏检出率为3.5%-7.7%，特应性皮炎的患病率从2002年的3.07%上升到2015年的12.94%。",
@@ -802,7 +1012,7 @@
       "val": 5
     },
     {
-      "id": "claim_f665765950ac7fea5fa5fcea99ea46bc",
+      "id": "claim_84d6a1d2cd28db751ff6f180f9b9b221",
       "group": "Claim",
       "name": "过敏性疾病的诊治标准不统一导致诊疗问题",
       "content": "由于我国儿科过敏专科医生相对缺少，过敏性疾病的诊治标准不统一，导致漏诊、误诊、处理不当或诊断过度的情况并存。此外，各科医生对诊治规范的认识不足进一步加剧了这一问题。",
@@ -810,7 +1020,7 @@
       "val": 5
     },
     {
-      "id": "claim_602a6d4c7e7e86b5223ba9e5737daf2a",
+      "id": "claim_b0d86c940e044af42db138e8fb1261dc",
       "group": "Claim",
       "name": "IgE介导的过敏是最常见的免疫学机制",
       "content": "IgE介导的I型超敏反应是最常见的过敏机制，涉及致敏期和发敏期两个阶段。其主要表现为肥大细胞和嗜碱粒细胞释放组胺等介质，引发荨麻疹、血管性水肿、支气管哮喘等症状。",
@@ -818,7 +1028,7 @@
       "val": 5
     },
     {
-      "id": "claim_1e4797967385a8fab3ed8dcd55a9325c",
+      "id": "claim_fd751aaf3115debde8a42d8935e6d0a0",
       "group": "Claim",
       "name": "遗传和环境因素共同影响过敏性疾病的发生",
       "content": "过敏性疾病具有多基因遗传特性，并与环境因素交互作用。遗传因素如DOCK8基因缺陷与特应质直接相关，而环境因素如感染和内毒素暴露可通过调节免疫反应模式降低过敏风险。",
@@ -826,7 +1036,7 @@
       "val": 5
     },
     {
-      "id": "claim_be2128361738956530853ccc756112f3",
+      "id": "claim_64eed075f941e756e553ff01d5065fbc",
       "group": "Claim",
       "name": "特应性进程是儿童过敏性疾病的自然发展规律",
       "content": "特应性进程指婴儿或儿童早期出现的某种特应性疾病往往预示未来其他特应性疾病的发生。这一规律表明过敏性疾病具有阶段性和进展性特点。",
@@ -834,7 +1044,7 @@
       "val": 5
     },
     {
-      "id": "claim_4ea6f0e10f7063514dc491b053800f02",
+      "id": "claim_719002c6fe026ade484133b6b3de10f4",
       "group": "Claim",
       "name": "特异性免疫疗法对某些过敏性疾病有效",
       "content": "特异性免疫疗法适用于过敏性鼻炎或哮喘控制不理想且过敏原明确的儿童。目前国内仅有螨虫变应原免疫制剂可供使用，食物过敏的免疫疗法尚未普及。",
@@ -842,7 +1052,7 @@
       "val": 5
     },
     {
-      "id": "claim_6ffaa8e10cbc8a7ffd313050bee3e91f",
+      "id": "claim_24f3781700e5b2041254fca2ea9c231a",
       "group": "Claim",
       "name": "健康教育在过敏性疾病管理中至关重要",
       "content": "健康教育可以帮助患儿及家长了解过敏性疾病的病因、危险因素及治疗方法，从而提高治疗依从性。教育内容包括过敏原回避、药物使用指导及疾病长期管理的重要性。",
@@ -850,13 +1060,13 @@
       "val": 5
     },
     {
-      "id": "1d0a6d8d681fc5a3286ffa20aa2f264d",
+      "id": "115a8508811c063028901f124f276e62",
       "group": "Article",
       "name": "过敏原特异性IgE检测在特应性皮炎中的临床应用专家共识（2024版）",
       "val": 20
     },
     {
-      "id": "claim_bd26ff0ed50390989102c3d3958aedb8",
+      "id": "claim_3c8f50c17404ae90440405e7c06b0050",
       "group": "Claim",
       "name": "sIgE检测对特应性皮炎患者的长期管理具有重要价值",
       "content": "过敏原特异性IgE（sIgE）检测通过识别过敏原，可以指导特应性皮炎（AD）患者的长期管理。其能够帮助识别诱发因素，制定合理的规避措施，从而减少疾病复发或加重。",
@@ -864,7 +1074,7 @@
       "val": 5
     },
     {
-      "id": "claim_1d79067c0733c6f237e9a14cdefff2c3",
+      "id": "claim_08d2a5875247586f30ccc828d48f7af3",
       "group": "Claim",
       "name": "sIgE检测有助于指导过敏原规避和免疫治疗",
       "content": "sIgE检测能够帮助明确患者的过敏原，从而指导合理的过敏原规避和特异性免疫治疗（AIT）。研究表明，针对气源性过敏原的免疫治疗可以显著改善AD患者的病情严重度和生活质量。",
@@ -872,7 +1082,7 @@
       "val": 5
     },
     {
-      "id": "claim_91fa3ce513926770787443d541802bd8",
+      "id": "claim_02c59a222a83c07326334e9fad08bc6f",
       "group": "Claim",
       "name": "sIgE检测结果需结合临床病史解读",
       "content": "sIgE检测结果阳性仅表明患者对某种过敏原致敏，但不一定会出现临床症状。解读结果时需结合患者的病史、症状及暴露史，以明确过敏原与临床症状的关联性。",
@@ -880,7 +1090,7 @@
       "val": 5
     },
     {
-      "id": "claim_6c970707a07c6365ab0419f3183d6113",
+      "id": "claim_43349c933b07fc1b499f9816a6dcb016",
       "group": "Claim",
       "name": "低浓度sIgE水平在低龄儿童中具有临床意义",
       "content": "即使sIgE水平较低（0.1~0.35 kUA/L），在低龄儿童中仍可能与未来的临床过敏密切相关。定期监测低龄儿童的sIgE水平有助于早期识别和管理过敏风险。",
@@ -888,7 +1098,7 @@
       "val": 5
     },
     {
-      "id": "claim_7214eb6f0e20a3644bd630c4592369be",
+      "id": "claim_2269e8be636129fe333cdddd471c3434",
       "group": "Claim",
       "name": "过敏原检测应结合患者病史和流行病学特点",
       "content": "过敏原检测的种类选择应基于患者的病史、地域和流行病学数据，而非无差别地广泛筛查。无差别筛查可能增加诊断难度并导致误诊。",
@@ -896,7 +1106,7 @@
       "val": 5
     },
     {
-      "id": "claim_7a93c557654a6f310fd42717a23ccd42",
+      "id": "claim_0571ef36bc2bc7da753326dc87355c90",
       "group": "Claim",
       "name": "sIgE检测结果的解读需考虑患者年龄因素",
       "content": "sIgE水平与临床过敏症状的相关性与患者年龄密切相关。相同的sIgE水平在不同年龄段的发病风险不同，年龄越小，风险越大。",
@@ -904,7 +1114,7 @@
       "val": 5
     },
     {
-      "id": "claim_81c503fd8c00e1708e06dda701876b47",
+      "id": "claim_9f3f3e91893ab5ec9d87e1b150ad7c4c",
       "group": "Claim",
       "name": "sIgE检测方法和体系的选择影响检测结果",
       "content": "不同的sIgE检测方法和体系在灵敏度和特异性上存在差异。建议尽可能选择高灵敏度的定量检测方法，并在监测过程中保持同一平台，以确保结果的可比性。",
@@ -912,13 +1122,13 @@
       "val": 5
     },
     {
-      "id": "f31c208837429b054d83caf8f7e01a42",
+      "id": "e044682008f27b1dd190b0ba3cf42d78",
       "group": "Article",
       "name": "2023.02 幼儿园和小学过敏管理及防治共识",
       "val": 20
     },
     {
-      "id": "claim_4ee3e2bc5af31bd794ad9eec4a5872b6",
+      "id": "claim_9d8951343099b992f06b7ce268d3532e",
       "group": "Claim",
       "name": "儿童过敏性疾病的高发性与重要性",
       "content": "儿童是过敏性疾病的高风险群体，过敏性疾病在儿童中的发病率逐年上升，且从轻到重、从单一表现到多系统表现逐步发展。加强儿童过敏性疾病的防治不仅可以预防高风险状况发展为疾病，还能阻断过敏进程。",
@@ -926,7 +1136,7 @@
       "val": 5
     },
     {
-      "id": "claim_96fd0638510ff06e956383610022af51",
+      "id": "claim_d869349919188c159a42a9d976526b3a",
       "group": "Claim",
       "name": "幼儿园和小学过敏管理体系亟待完善",
       "content": "目前我国尚未建立完善的幼儿园和小学过敏管理及防治体系，缺乏相关的法律法规和制度支持。构建系统化的过敏管理框架对于儿童过敏的长期防治具有重要意义。",
@@ -934,7 +1144,7 @@
       "val": 5
     },
     {
-      "id": "claim_486f72589663c8702fba5574c64f7977",
+      "id": "claim_b8754c77adc33286288e6dc2007e41a1",
       "group": "Claim",
       "name": "食物过敏是儿童过敏进程的早期表现",
       "content": "食物过敏是儿童过敏进程的早期阶段，其皮肤及胃肠道症状是早期表现之一。通过抑制或减轻对食物过敏原的致敏作用，可以减少其他过敏性疾病的发生。",
@@ -942,7 +1152,7 @@
       "val": 5
     },
     {
-      "id": "claim_54be498733884005e41d35df5c65838c",
+      "id": "claim_88b139028e9f974c6091b450220ee352",
       "group": "Claim",
       "name": "环境和遗传因素共同影响过敏性疾病的发生",
       "content": "过敏性疾病的发生机制复杂，由环境因素和遗传因素共同作用。生命早期的环境危险因素控制是预防过敏性疾病的关键。",
@@ -950,7 +1160,7 @@
       "val": 5
     },
     {
-      "id": "claim_43d0df2c58d1dcc460f4f14e9d43248f",
+      "id": "claim_da7d1dd5ae6224f5e42777630f2412cd",
       "group": "Claim",
       "name": "过敏性疾病对儿童生活质量和社会经济带来负面影响",
       "content": "过敏性疾病不仅影响患儿的生活质量，还可能导致营养不良、学习能力下降等问题，同时给社会带来沉重的经济负担。",
@@ -958,7 +1168,7 @@
       "val": 5
     },
     {
-      "id": "claim_54f0bb9b1ee6b73eebc3d2abcb185cc5",
+      "id": "claim_2c920b4cc883f5a33da4ca6b95c437f9",
       "group": "Claim",
       "name": "学校过敏管理需要多方协作",
       "content": "学校过敏管理需要包括学校领导、校医、教师、家长等多方协作，明确分工以确保管理工作的有序和高效。",
@@ -966,7 +1176,7 @@
       "val": 5
     },
     {
-      "id": "claim_9a362b9798e885dd527b0c37bf7e5c7c",
+      "id": "claim_14bd7867a5a2bdb5fb8063ab5b13c7f8",
       "group": "Claim",
       "name": "食物过敏的管理是学校过敏管理的重要内容",
       "content": "食物过敏管理需要包括膳食定制、餐食制作、过敏原回避等措施，确保患儿的营养均衡和安全。严重过敏患儿需特别关注其膳食管理。",
@@ -974,7 +1184,7 @@
       "val": 5
     },
     {
-      "id": "claim_00510c376d4587580a4c5e049071ae6f",
+      "id": "claim_95580b359c304b9639841574fa75e848",
       "group": "Claim",
       "name": "过敏性疾病的预防需从早期干预开始",
       "content": "过敏性疾病的预防包括一级、二级和三级预防措施，从回避过敏原到对症治疗，再到过敏原免疫治疗，能够有效减少过敏性疾病的发生和进展。",
@@ -982,13 +1192,13 @@
       "val": 5
     },
     {
-      "id": "ce8af3824359ead659bd7a54790f5950",
+      "id": "6f9959f40b972d17e8e35cf19c010e53",
       "group": "Article",
       "name": "儿童变应性鼻炎诊断和治疗指南（2022年，修订版）",
       "val": 20
     },
     {
-      "id": "claim_f5f14940dbee5f8ffc8111e381325c90",
+      "id": "claim_133a39aa8d41220e59afa4b477162f10",
       "group": "Claim",
       "name": "儿童变应性鼻炎（AR）患病率显著上升",
       "content": "近年来，儿童变应性鼻炎的患病率在全球范围内显著上升，严重影响患儿的生活质量并增加疾病负担。我国部分地区的流行病学研究显示，儿童AR的自报患病率为18.10%~49.68%，确诊患病率为10.80%~21.09%。",
@@ -996,7 +1206,7 @@
       "val": 5
     },
     {
-      "id": "claim_64a20bf2d3355d1e5f219b162afa3bab",
+      "id": "claim_f79a0cbbc9bf3aad10319a2b681f8d32",
       "group": "Claim",
       "name": "儿童变应性鼻炎的发病与环境和遗传因素密切相关",
       "content": "儿童变应性鼻炎的发病与环境因素（如过敏原暴露、气候条件）和遗传特征密切相关。父母罹患变应性疾病会显著增加儿童AR的发病风险，不同地区的过敏原构成也存在显著差异。",
@@ -1004,7 +1214,7 @@
       "val": 5
     },
     {
-      "id": "claim_99a203b89abc3349f422cd998f5f420f",
+      "id": "claim_e05835d58e37b66e36490c7a09775442",
       "group": "Claim",
       "name": "儿童AR的发病机制涉及IgE介导的I型变态反应",
       "content": "儿童变应性鼻炎的发病机制主要是吸入过敏原后在鼻腔黏膜局部引发的IgE介导的I型变态反应。过敏原诱导免疫细胞释放炎性介质，导致鼻腔炎症和典型症状。",
@@ -1012,7 +1222,7 @@
       "val": 5
     },
     {
-      "id": "claim_b197d3a0ed7859b0d258ea9082314661",
+      "id": "claim_7292031be56d6fcbac701fd14288e3ff",
       "group": "Claim",
       "name": "儿童AR的治疗需综合考虑环境控制、药物治疗和免疫治疗",
       "content": "儿童变应性鼻炎的治疗策略包括环境控制、药物治疗、免疫治疗和健康教育。环境控制是基础措施，药物治疗以鼻用糖皮质激素和抗组胺药为主，免疫治疗可通过过敏原疫苗诱导免疫耐受。",
@@ -1020,7 +1230,7 @@
       "val": 5
     },
     {
-      "id": "claim_bebd18f856b0c83b3892f909a03f69d7",
+      "id": "claim_2208b3a00e823349f63dc1cf2d1ac4fc",
       "group": "Claim",
       "name": "儿童AR的诊断需结合病史、症状和过敏原检测",
       "content": "儿童变应性鼻炎的诊断需依据病史和临床表现，并结合过敏原检测结果。常用的检测方法包括皮肤点刺试验和血清特异性IgE检测。",
@@ -1028,7 +1238,7 @@
       "val": 5
     },
     {
-      "id": "claim_f5b051eb7488ecfc9b37facebbebbbc9",
+      "id": "claim_fe672cd46f83be4376b450d09c5ca9b2",
       "group": "Claim",
       "name": "儿童AR的发病机制与成人相似但存在特异性",
       "content": "儿童与成人变应性鼻炎的发病机制基本相同，但儿童因免疫系统尚未完全成熟，对过敏原的免疫反应具有更强的可塑性，且受遗传因素影响更大。",
@@ -1036,7 +1246,7 @@
       "val": 5
     },
     {
-      "id": "claim_63eb9f17ccbe6dc77cbc7f08c9b64a5f",
+      "id": "claim_f7e0d9360974e707f882d7d2b1243036",
       "group": "Claim",
       "name": "儿童AR的分类基于过敏原种类、症状发作时间和严重程度",
       "content": "儿童变应性鼻炎可按过敏原种类分为季节性和常年性，按症状发作时间分为间歇性和持续性，按严重程度分为轻度和中-重度。",
@@ -1044,13 +1254,13 @@
       "val": 5
     },
     {
-      "id": "c4bc8ab01ca9e6176bf112a05800d2d6",
+      "id": "b3304bbe42ae899867d22ec9f71144bb",
       "group": "Article",
       "name": "过敏性疾病诊治和预防专家共识（Ⅰ）",
       "val": 20
     },
     {
-      "id": "claim_299e2e24dea5ce72ba70621a6ecfbb8f",
+      "id": "claim_38b51e9c867e83321888b584b93b78af",
       "group": "Claim",
       "name": "过敏性疾病主要由IgE介导的Ⅰ型变态反应引起",
       "content": "过敏性疾病是由IgE介导的Ⅰ型变态反应，表现为慢性非感染性炎症反应，可累及全身多个器官和系统。其发病机制以Th2型炎症反应为主，同时固有免疫反应也发挥一定作用。",
@@ -1058,7 +1268,7 @@
       "val": 5
     },
     {
-      "id": "claim_1d2aa5dec3cef26485b6a92cbc28428a",
+      "id": "claim_8c4660fee89a3981479dfe11748ec181",
       "group": "Claim",
       "name": "过敏性疾病的全球患病率呈上升趋势",
       "content": "过敏性疾病影响了全球40%的人群，且患病率呈快速上升趋势。中国的过敏性鼻炎和哮喘患病率逐年增加，逐渐接近甚至超过西方发达国家。",
@@ -1066,7 +1276,7 @@
       "val": 5
     },
     {
-      "id": "claim_29e0554772a8c920a463a9b169e435bd",
+      "id": "claim_3f55cab1262e29d1b51a0c744d29ccfa",
       "group": "Claim",
       "name": "过敏性疾病的诊断依赖于过敏原检测",
       "content": "过敏性疾病的诊断需要结合病史、体格检查和过敏原检测。过敏原检测包括体内检测（如皮肤点刺试验）和体外检测（如sIgE检测），是明确过敏原的关键手段。",
@@ -1074,7 +1284,7 @@
       "val": 5
     },
     {
-      "id": "claim_105d349f8bf61c28d23b9ec292c0db87",
+      "id": "claim_e1519a60372be7109c7ce8c90d4daad9",
       "group": "Claim",
       "name": "过敏性疾病的发病机制涉及遗传和环境因素",
       "content": "过敏性疾病的发生是遗传易感性和环境因素共同作用的结果。遗传因素如11号和13号染色体的某些区域与过敏性疾病相关，而环境因素如空气污染和生活方式也会影响疾病的发生。",
@@ -1082,7 +1292,7 @@
       "val": 5
     },
     {
-      "id": "claim_ada9a10e2ade2acab9e586edca464e22",
+      "id": "claim_c1c260ddb0f868566f60292646ad36b7",
       "group": "Claim",
       "name": "过敏性疾病常伴随其他慢性疾病",
       "content": "过敏性疾病患者常伴随慢性鼻窦炎、分泌性中耳炎、腺样体肥大等慢性疾病。这些伴随疾病可能加重患者的症状，增加诊治的复杂性。",
@@ -1090,7 +1300,7 @@
       "val": 5
     },
     {
-      "id": "claim_1a034be8ec8bec36881fe892291b6c66",
+      "id": "claim_10471e455659aae525fe85e5c5a157eb",
       "group": "Claim",
       "name": "过敏性疾病的诊治在中国面临多学科协作挑战",
       "content": "由于中国大多数医院没有独立的过敏反应科，过敏性疾病的诊治分散在多个科室，导致诊断和治疗标准不统一，误诊和漏诊现象较为常见。",
@@ -1098,7 +1308,7 @@
       "val": 5
     },
     {
-      "id": "claim_dffa3826913f6399ad5d9713fe269b5f",
+      "id": "claim_b1c1396a6888ce55959d21f5ceae60a8",
       "group": "Claim",
       "name": "卫生假说解释过敏性疾病的发病机制",
       "content": "卫生假说认为，生命早期缺乏微生物暴露会增加过敏性疾病的风险。微生物暴露可以刺激调节性免疫细胞的形成，抑制过强的Th2体液免疫反应。",
@@ -1106,7 +1316,7 @@
       "val": 5
     },
     {
-      "id": "claim_1efd704b047cea921a91355a8a6a9f84",
+      "id": "claim_07d53fcb82903f0495073af65c5a46ed",
       "group": "Claim",
       "name": "过敏性疾病的区域性过敏原分布差异显著",
       "content": "中国南方以尘螨、霉菌、蟑螂等常年过敏原为主，北方则以春秋季的花粉过敏原为主。不同地区的过敏原分布差异显著，对诊断和治疗提出了区域化的要求。",
@@ -1114,13 +1324,13 @@
       "val": 5
     },
     {
-      "id": "423dfe35768f9731e9cb7b90508549c2",
+      "id": "7d8e7df2f1456e8a85ad65e8f082032b",
       "group": "Article",
       "name": "过敏性疾病诊治和预防专家共识（Ⅱ）",
       "val": 20
     },
     {
-      "id": "claim_8d234313fc00ee05eba8b8daec1776c2",
+      "id": "claim_c5384e433862ec5785780177c8359681",
       "group": "Claim",
       "name": "环境控制是过敏性疾病防治的首选措施",
       "content": "环境控制是过敏性疾病防治中最重要且有效的环节，通过隔绝过敏原和减少刺激物，可以显著降低过敏性疾病的发生和加重风险。尽管其有效性仍需更多高质量循证医学证据支持，但其在室内外过敏原防控和空气污染防控中的作用已被广泛认可。",
@@ -1128,7 +1338,7 @@
       "val": 5
     },
     {
-      "id": "claim_d9875a4e1e87629005d822e691e01519",
+      "id": "claim_cfd700abcdccadd446071d8210aa4b87",
       "group": "Claim",
       "name": "过敏原疫苗脱敏治疗是唯一能改变疾病进程的治疗方法",
       "content": "过敏原疫苗脱敏治疗（AIT）被认为是唯一能够改变过敏性疾病进程并实现免疫耐受的治疗方法。AIT不仅能减轻症状、提高生活质量，还可以预防新发致敏及过敏性鼻炎向哮喘的进展。",
@@ -1136,7 +1346,7 @@
       "val": 5
     },
     {
-      "id": "claim_638a9dcfa1046d810dd1f56d91371abf",
+      "id": "claim_4f664a5cc20d52ed0fa7a3c6d3a2b8c0",
       "group": "Claim",
       "name": "健康教育是过敏性疾病管理的重要组成部分",
       "content": "健康教育能够提高患者对过敏性疾病的认识，改善依从性并促进疾病管理效果。通过普及预防、诊疗和心理辅导等知识，患者可以更好地采取主动预防措施，减少疾病负担。",
@@ -1144,7 +1354,7 @@
       "val": 5
     },
     {
-      "id": "claim_109c811f1401a6ae93d4219f63c7da3c",
+      "id": "claim_f447e965d8d0d698953134e5ba6d0056",
       "group": "Claim",
       "name": "抗过敏药物是控制症状的常用对症治疗方法",
       "content": "抗过敏药物通过抑制炎症和阻断过敏反应，可有效控制过敏性疾病的症状。但其疗效仅限于对症治疗，停药后症状可能复发，因此需规范使用并结合其他治疗方法。",
@@ -1152,7 +1362,7 @@
       "val": 5
     },
     {
-      "id": "claim_21d2170dbef6301f93c6b4a000223aa7",
+      "id": "claim_e5c8a405b7302524947943ae286dc5fe",
       "group": "Claim",
       "name": "中医中药在过敏性疾病治疗中具有潜在优势",
       "content": "中医中药通过整体观念和辨证论治，强调从体质调理入手治疗过敏性疾病。经典中药方剂和针灸治疗在改善症状和提高生活质量方面显示出一定疗效，但仍需更多高质量研究验证其安全性和有效性。",
@@ -1160,7 +1370,7 @@
       "val": 5
     },
     {
-      "id": "claim_82f6ea08d3e231624dde9e5cc6216cd7",
+      "id": "claim_95a474a0ac23b78c9e9b605b573b2284",
       "group": "Claim",
       "name": "联合治疗可提高过敏性疾病疗效并减少不良反应",
       "content": "联合使用不同治疗方法，如抗过敏药物与脱敏治疗、生物制剂与免疫治疗等，可以显著提高疗效并减少单一治疗的不良反应。联合治疗还能够加速治疗进程，改善患者依从性。",
@@ -1168,13 +1378,13 @@
       "val": 5
     },
     {
-      "id": "e5f9974c96bfed019658a614d44471ab",
+      "id": "03ec9aea5495d61c2f579e0b3f239a3d",
       "group": "Article",
       "name": "过敏性疾病诊治和预防专家共识（Ⅲ）",
       "val": 20
     },
     {
-      "id": "claim_28b1c0047502c883bcb392df8763881d",
+      "id": "claim_45cf9181342073fadb015f291cdc0e9c",
       "group": "Claim",
       "name": "过敏性疾病的疗效评价方法多样化",
       "content": "过敏性疾病的疗效评价包括主观症状评分、生活质量评分和药物评分等多种方法。客观评价还涉及皮损程度、免疫球蛋白E（IgE）水平、肺功能等指标。",
@@ -1182,7 +1392,7 @@
       "val": 5
     },
     {
-      "id": "claim_0be640507fe2293330cafb9928ab1727",
+      "id": "claim_b889b6f004a9cd94a98a57c63184a66d",
       "group": "Claim",
       "name": "特殊人群的过敏性疾病特点需要特别关注",
       "content": "婴幼儿、儿童、青少年及老年人等特殊人群在过敏性疾病的临床表现和治疗上具有独特性。例如，婴幼儿多表现为特应性皮炎和食物过敏，而老年人因免疫功能减退，过敏性疾病的表现较为不典型。",
@@ -1190,7 +1400,7 @@
       "val": 5
     },
     {
-      "id": "claim_ad1824a6fa412ba17d3be26a75d98152",
+      "id": "claim_1a86ac45ee5412fc5dbef94ed5a13555",
       "group": "Claim",
       "name": "过敏性疾病带来的社会和经济负担日益加重",
       "content": "过敏性疾病的患病率高于许多慢性疾病，对社会和经济造成了巨大负担。直接费用包括诊治和药物花费，间接费用则涉及误工、误学等。",
@@ -1198,7 +1408,7 @@
       "val": 5
     },
     {
-      "id": "claim_8046439de25e178ff24ad2bad34e6053",
+      "id": "claim_43b62b48bf701ee6b0fa69967f6479ed",
       "group": "Claim",
       "name": "花粉症的三级预防更全面",
       "content": "花粉症的三级预防通过“五位一体”策略，包括植被调研、气传花粉监测、流行病学调查、基层医务人员培训和科普教育。这种方法比“四位一体”的治疗策略更完善。",
@@ -1206,7 +1416,7 @@
       "val": 5
     },
     {
-      "id": "claim_1fdcfa25b8ac5eb583efe93e956f1f82",
+      "id": "claim_d579094c8656137dfa321ce2a3bb7eb5",
       "group": "Claim",
       "name": "心理因素对过敏性疾病的影响显著",
       "content": "心理健康问题贯穿于过敏性疾病的发生、发展和预后。过敏性疾病患者更容易出现抑郁、焦虑等心理问题，这些问题可能进一步加重疾病症状。",
@@ -1214,7 +1424,7 @@
       "val": 5
     },
     {
-      "id": "claim_899cf2ee7fb4f6930fd1037567cb2aac",
+      "id": "claim_a3dd48130ce3deb0ad078b20916eec3b",
       "group": "Claim",
       "name": "妊娠期、哺乳期女性过敏性疾病管理需特别注意",
       "content": "妊娠期和哺乳期女性因激素水平变化更易诱发或加重过敏性疾病。药物使用需权衡利弊，避免对母婴造成不良影响。",
@@ -1222,13 +1432,13 @@
       "val": 5
     },
     {
-      "id": "699a82962511b0f11657fa11f8e66d7d",
+      "id": "b878af4a8ac48c73846cfd0f7696d568",
       "group": "Article",
       "name": "Pediatric Allergy Immunology - 2024 - Luo - Chinese expert consensus on allergen component resolved diagnosis（儿科过敏免疫学- 变应原组分解析诊断中国专家共识）",
       "val": 20
     },
     {
-      "id": "claim_20bac9c1a909f25fb8fdc4a35279648d",
+      "id": "claim_8393ca6d084a37251509d22d44ff5cb6",
       "group": "Claim",
       "name": "CRD provides more precise allergen diagnosis compared to traditional methods",
       "content": "Allergen Component Resolved Diagnosis (CRD) identifies specific protein molecules responsible for hypersensitivity, offering higher accuracy and specificity than traditional allergen extract-based methods. It is particularly effective in differentiating cross-reactivity and identifying major allergen components.",
@@ -1236,7 +1446,7 @@
       "val": 5
     },
     {
-      "id": "claim_42034466f7a6388d2051fc474151b3f3",
+      "id": "claim_073e2718f4767db124bed6b9634fbb7a",
       "group": "Claim",
       "name": "CRD is underutilized in China due to reagent shortages and lack of clinician awareness",
       "content": "Despite its potential, CRD is not widely used in clinical practice in China. This is due to the lack of high-quality allergen component reagents and insufficient understanding among clinicians regarding its application and interpretation.",
@@ -1244,7 +1454,7 @@
       "val": 5
     },
     {
-      "id": "claim_6c0ee9013828bfabb288caee903d5844",
+      "id": "claim_258bb0406b8fe1c8e5d8d3921bc6970e",
       "group": "Claim",
       "name": "CRD enhances diagnostic sensitivity and specificity for allergic diseases",
       "content": "CRD improves sensitivity by detecting allergen components at low concentrations that are difficult to identify with conventional methods. It also enhances specificity, as seen in studies where CRD outperformed traditional sIgE or skin prick tests in distinguishing specific allergies, such as peanut allergy.",
@@ -1252,7 +1462,7 @@
       "val": 5
     },
     {
-      "id": "claim_dba0d46d3b9412db092d50416760c117",
+      "id": "claim_ef3c5c9bb1d380f70cd758138ff51db8",
       "group": "Claim",
       "name": "CRD is recommended as a supplementary or alternative diagnostic tool by global organizations",
       "content": "The World Allergy Organization (WAO) recommends CRD as a supplement to clinical history and allergen extract testing. In some cases, it can even replace traditional crude extract tests for more precise diagnosis.",
@@ -1260,7 +1470,7 @@
       "val": 5
     },
     {
-      "id": "claim_bded8d04cbea05341c7bf8678dc0d5a9",
+      "id": "claim_3ec0fd4742162db8f161813dcde4a2bd",
       "group": "Claim",
       "name": "Expert consensus aims to standardize CRD application in China",
       "content": "The Allergy Prevention and Control Specialty Committee of the Chinese Preventive Medicine Association has developed an expert consensus to address the challenges in CRD adoption. This initiative aims to standardize diagnostic methods and improve clinical application by referencing successful practices in Europe and the United States.",
@@ -1268,7 +1478,7 @@
       "val": 5
     },
     {
-      "id": "claim_9116577da10ad5629140ba9e19fe069a",
+      "id": "claim_dbdea808b656a70e5d2bfe679f43011d",
       "group": "Claim",
       "name": "CRD can predict anaphylaxis risk and guide treatment decisions",
       "content": "CRD provides valuable insights for managing allergic diseases by predicting the risk of anaphylaxis and guiding dietary avoidance. It also aids in selecting allergen immunotherapy (AIT) or allergen avoidance strategies.",
@@ -1276,7 +1486,7 @@
       "val": 5
     },
     {
-      "id": "claim_c480ed4faca171e413edc6f4116c1f4e",
+      "id": "claim_982f8a803a68dcb0d39f4077ac10d1b3",
       "group": "Claim",
       "name": "Limited availability of CRD reagents hinders its clinical adoption in China",
       "content": "Currently, only a few allergen component sIgE products are available for clinical use in China, such as those for house dust mites, mugwort, milk, and egg. This limitation significantly restricts the progress of allergen component diagnostics in the country.",
@@ -1284,13 +1494,13 @@
       "val": 5
     },
     {
-      "id": "1ac117a6dc38ee7331b2164d3ed5a8d0",
+      "id": "60a729fed190d4d84b6329946b5e9950",
       "group": "Article",
       "name": "China Consensus Document on Allergy Diagnostics",
       "val": 20
     },
     {
-      "id": "claim_e650205aff161ecb7d2d2dd596a5d229",
+      "id": "claim_14f6851d8e599715248ae21716a41e32",
       "group": "Claim",
       "name": "The prevalence of allergic diseases in China has increased significantly.",
       "content": "The prevalence of allergic diseases in China has risen dramatically, affecting 40% of the population. Conditions like allergic rhinitis and asthma have shown significant growth in prevalence over the past decades, with asthma prevalence in children increasing by nearly 150% since 1990.",
@@ -1298,7 +1508,7 @@
       "val": 5
     },
     {
-      "id": "claim_4bb45d17bcf4291785651ffbbba24d8a",
+      "id": "claim_c99961cea55048e4038038684dd0c905",
       "group": "Claim",
       "name": "Allergic rhinitis is closely linked to asthma development.",
       "content": "Allergic rhinitis (AR) is strongly associated with asthma, with nearly 40% of AR patients also having asthma. In China, a significant proportion of patients with pollen-induced AR develop seasonal allergic asthma over time.",
@@ -1306,7 +1516,7 @@
       "val": 5
     },
     {
-      "id": "claim_1ce02f8a8ca0b3c7273d40545ba62a63",
+      "id": "claim_5f235ff7cb96da56acb3400811283ba7",
       "group": "Claim",
       "name": "Cross-sensitization complicates allergy diagnostics.",
       "content": "Cross-sensitization between allergens, such as pollen and certain foods or dust mites and shellfish, complicates the diagnosis of allergic diseases. This phenomenon makes it challenging to identify specific allergens responsible for allergic reactions.",
@@ -1314,7 +1524,7 @@
       "val": 5
     },
     {
-      "id": "claim_138b88ae68aaf0d4acdc81693ffa13f1",
+      "id": "claim_5020c65fa972969765cac4a750993c55",
       "group": "Claim",
       "name": "Standardization of allergy diagnostics is necessary in China.",
       "content": "Allergy diagnostic methods in China lack standardization, leading to confusion in clinical practice. A consensus document was developed to provide standardized diagnostic methods and serve as a reference for healthcare providers.",
@@ -1322,7 +1532,7 @@
       "val": 5
     },
     {
-      "id": "claim_e57dc707ea9e130ebedff3a149324a1e",
+      "id": "claim_dc3cb7a27f56b60d912feba9f2693d6b",
       "group": "Claim",
       "name": "IgE-mediated allergy involves a complex immune mechanism.",
       "content": "IgE-mediated allergic reactions involve sensitization and challenge phases, where allergens activate immune cells like mast cells and basophils. This leads to the release of inflammatory mediators, causing symptoms such as smooth muscle contraction and tissue damage.",
@@ -1330,7 +1540,7 @@
       "val": 5
     },
     {
-      "id": "claim_915e0d57ef634a360269a4bcdb08dbf1",
+      "id": "claim_4e2112034ff4a752f13bae5b764e1206",
       "group": "Claim",
       "name": "In vivo and in vitro allergen tests are essential for diagnosis.",
       "content": "Allergen testing methods include in vivo tests like skin prick tests and in vitro tests such as serum-specific IgE tests. Combining these tests with clinical history is crucial for accurate diagnosis and reducing unnecessary testing.",
@@ -1338,13 +1548,13 @@
       "val": 5
     },
     {
-      "id": "0f6528494349ca6cd3817323a6e77319",
+      "id": "5f1211e449596c38f0d7a144fa8aa878",
       "group": "Article",
       "name": "《过敏原诊断中国专家共识》解读2021",
       "val": 20
     },
     {
-      "id": "claim_d6e06ca20af14602cee09cc05e7a3d77",
+      "id": "claim_a98cedef5251768bc52021aebfb1229a",
       "group": "Claim",
       "name": "过敏原诊断是过敏性疾病诊疗的关键",
       "content": "过敏性疾病的患病率逐年上升，全球约40%的人口受到影响。过敏原的鉴定是诊断过敏性疾病的关键步骤，但目前我国的过敏原诊断方法尚未完全标准化。制定统一的诊断共识有助于规范诊断方法，提高诊疗水平。",
@@ -1352,7 +1562,7 @@
       "val": 5
     },
     {
-      "id": "claim_c52024f414c988e7725c6ba6a81f9fbc",
+      "id": "claim_2f0d50dd81843cebda8380d7d7e2b8f4",
       "group": "Claim",
       "name": "过敏原组分特异性IgE检测可提高诊断精准性",
       "content": "过敏原组分特异性IgE检测能够识别主要致敏组分，区分交叉致敏，并提示与严重过敏反应相关的组分。这种检测方法还能帮助筛选适合进行特异性免疫治疗的患者，提高治疗效果。",
@@ -1360,7 +1570,7 @@
       "val": 5
     },
     {
-      "id": "claim_59f5042bc92ccc50ee395cf7f3eae4c1",
+      "id": "claim_8be14899418a4d5ed99addb74b44d133",
       "group": "Claim",
       "name": "过敏原激发试验是诊断过敏性疾病的金标准",
       "content": "过敏原激发试验是诊断过敏性疾病的金标准，适用于高度怀疑过敏性疾病但其他检测方法阴性的患者。该试验可以明确诊断并评估患者对过敏原的耐受性。",
@@ -1368,7 +1578,7 @@
       "val": 5
     },
     {
-      "id": "claim_da6a07a5689e82446272c023b4044a67",
+      "id": "claim_4064fcea128bf39f684288711e0744d1",
       "group": "Claim",
       "name": "血清总IgE水平不能单独用于诊断过敏性疾病",
       "content": "血清总IgE水平增高提示Ⅰ型超敏反应的可能性，但不能用于确诊过敏性疾病。总IgE水平的高低与疾病严重程度不一定相关，需结合病史和临床表现综合评估。",
@@ -1376,7 +1586,7 @@
       "val": 5
     },
     {
-      "id": "claim_3226854a8f9e242f9b41e8e974f50c26",
+      "id": "claim_9747f3b7c8be623907a38e34531ffa5c",
       "group": "Claim",
       "name": "制定区域性过敏原筛查组合可提高诊断效率",
       "content": "我国不同地区的过敏原分布差异较大，制定针对性筛查组合能减少误诊和过度检测，提高诊断效率。这种方法还能降低患者经济负担，优化医疗资源使用。",
@@ -1384,7 +1594,7 @@
       "val": 5
     },
     {
-      "id": "claim_be75c40e91cc477d1aa6adeecbe31d96",
+      "id": "claim_0c0f6ea5fb571645e2d9aec6f4bda7d7",
       "group": "Claim",
       "name": "特异性IgG和IgG4检测在过敏性疾病诊断中的意义有限",
       "content": "特异性IgG和IgG4的检测结果可能仅反映正常免疫反应，其水平升高并不代表免疫治疗成功或过敏性疾病的诊断。国际上不建议使用特异性IgG和IgG4筛查诊断食物过敏或不耐受。",
@@ -1392,67 +1602,13 @@
       "val": 5
     },
     {
-      "id": "6362d29d26c9dd4dfd8215911ec1f594",
-      "group": "Article",
-      "name": "IgE-",
-      "val": 20
-    },
-    {
-      "id": "claim_61d4af7edffc6b24f5b361bb26267cdf",
-      "group": "Claim",
-      "name": "过敏原特异性IgE抗体检测对过敏性疾病诊断具有重要价值",
-      "content": "过敏原特异性IgE抗体检测在过敏性疾病的诊断、治疗和预防中具有重要作用。它可以通过检测患者血清中的特异性IgE抗体，结合病史和临床症状，帮助明确过敏原种类，并评估疾病的严重程度和治疗效果。",
-      "polarity": "支持",
-      "val": 5
-    },
-    {
-      "id": "claim_3022890dfb9c5a42389caa4fb41d4b79",
-      "group": "Claim",
-      "name": "过敏原特异性IgE抗体检测方法存在多样性和标准化不足",
-      "content": "目前，过敏原特异性IgE抗体检测方法多样，包括FEIA、ELISA、CLIA等，但各方法的敏感性、特异性和定量准确性存在差异。由于缺乏统一的标准化体系，不同实验室间的检测结果难以互认。",
-      "polarity": "支持",
-      "val": 5
-    },
-    {
-      "id": "claim_b13711942123b2963a75acfe480806fe",
-      "group": "Claim",
-      "name": "体外检测方法在安全性和适用性上优于体内试验",
-      "content": "体外检测方法如过敏原sIgE检测具有更高的安全性，可检测的过敏原范围更广，且不受药物治疗的干扰。相比之下，体内试验如皮肤点刺试验存在操作复杂、患者耐受性差和引发严重过敏反应的风险。",
-      "polarity": "支持",
-      "val": 5
-    },
-    {
-      "id": "claim_5f7e47c183b091172980901148ab5c01",
-      "group": "Claim",
-      "name": "过敏原sIgE检测存在假阴性和假阳性问题",
-      "content": "过敏原sIgE检测可能因生物学、标本或方法学因素导致假阴性或假阳性结果。这些问题可能导致过敏性疾病的误诊或漏诊，需要通过质量控制和标准化检测流程加以解决。",
-      "polarity": "支持",
-      "val": 5
-    },
-    {
-      "id": "claim_5e1244713a9612d61474cf1854f52eff",
-      "group": "Claim",
-      "name": "CRD技术有助于提高过敏原检测的准确性",
-      "content": "组分解析诊断（CRD）通过识别引起变态反应的特定致敏蛋白组分，可以避免过敏原粗提物中非致敏组分的干扰，从而提高检测的准确性。CRD技术还能够区分过敏原的交叉反应，减少假阳性结果。",
-      "polarity": "支持",
-      "val": 5
-    },
-    {
-      "id": "claim_30fe9ae52957fd305376a3bfec01fa71",
-      "group": "Claim",
-      "name": "过敏原sIgE检测亟需标准化和参考物质支持",
-      "content": "由于缺乏针对特定过敏原sIgE的参考物质，各检测方法和实验室间的检测结果缺乏可比性。研发可溯源的高质量参考物质是实现过敏原sIgE检测标准化的关键。",
-      "polarity": "支持",
-      "val": 5
-    },
-    {
-      "id": "4d0eff64e327f8a1f5db930aed228bfc",
+      "id": "f4ce5b01cd380b6970581bcdb24a41d4",
       "group": "Article",
       "name": "过敏原特异性IgE抗体检测及其临床规范化应用-韩彦熙",
       "val": 20
     },
     {
-      "id": "claim_f78f6ed5507e4b1586b8789caa9e13a9",
+      "id": "claim_4365ef16e5e75fff68a1176ed9249a55",
       "group": "Claim",
       "name": "过敏原特异性IgE抗体检测对过敏性疾病诊断具有重要价值",
       "content": "过敏原特异性IgE抗体检测是诊断、治疗和预防过敏性疾病的重要工具。结合患者病史和临床症状，sIgE检测可以进行病因诊断，并评估疾病严重程度和治疗效果。",
@@ -1460,7 +1616,7 @@
       "val": 5
     },
     {
-      "id": "claim_1d737a546616ee7b61da5772033835bd",
+      "id": "claim_5969ae015fcb84107ee1f23edffcca36",
       "group": "Claim",
       "name": "体外检测方法比体内试验更安全且适用范围更广",
       "content": "体外检测方法如sIgE检测具有更高的安全性，可检测的过敏原种类更广，且不受药物治疗的干扰。相比之下，体内试验操作复杂，患者耐受性差，存在引发严重过敏反应的风险。",
@@ -1468,7 +1624,7 @@
       "val": 5
     },
     {
-      "id": "claim_b30bdc5ba17b10a26a9fbff325ece345",
+      "id": "claim_4f1837bf25da5c100127628c79209100",
       "group": "Claim",
       "name": "过敏原sIgE抗体检测方法尚未标准化",
       "content": "目前，过敏原sIgE抗体检测方法多样，不同检测体系的敏感性、特异性和定量准确性存在差异，导致实验室间检测结果难以互认。这种现状限制了检测结果的可比性和应用价值。",
@@ -1476,7 +1632,7 @@
       "val": 5
     },
     {
-      "id": "claim_11402be475ffe6f2bb01bd52cb01cd8b",
+      "id": "claim_f6d043343ee95e2146aa609a50676acc",
       "group": "Claim",
       "name": "交叉反应和标本异常是sIgE检测假阳性和假阴性的重要原因",
       "content": "交叉反应性糖类决定簇（CCD）和标本异常（如溶血、脂血）等因素可能导致sIgE检测的假阳性或假阴性结果。这些干扰因素需要通过组分解析诊断（CRD）等方法加以解决。",
@@ -1484,7 +1640,7 @@
       "val": 5
     },
     {
-      "id": "claim_c3ed1aac9d0184ffea5959970376d900",
+      "id": "claim_83520b9d3ee62fe4ebfa46903b953146",
       "group": "Claim",
       "name": "过敏原sIgE抗体检测亟需标准化和参考物质支持",
       "content": "由于缺乏针对特定过敏原sIgE的参考物质，目前的检测结果在不同实验室间缺乏可比性。研发高质量的参考物质和标准化检测方法是未来发展的关键。",
@@ -1492,7 +1648,7 @@
       "val": 5
     },
     {
-      "id": "claim_bef12c21a28f9f1e03b6e0d6bc3037e6",
+      "id": "claim_ec5331b2042da615c422056aa890aeb1",
       "group": "Claim",
       "name": "CRD技术是过敏原检测的重要发展方向",
       "content": "组分解析诊断（CRD）通过识别特定致敏蛋白组分，能够避免交叉反应干扰，实现精准诊断。未来，CRD技术将在过敏性疾病的诊疗中发挥更大作用。",
@@ -1512,1842 +1668,1892 @@
       "type": "is_a"
     },
     {
-      "source": "043c086bdee579bbea96e406857b2100",
-      "target": "claim_c2fffb717805644a5dc57f86a5a1569d",
+      "source": "vitamin_d",
+      "target": "nutrient",
+      "type": "is_a"
+    },
+    {
+      "source": "vitamin_a",
+      "target": "nutrient",
+      "type": "is_a"
+    },
+    {
+      "source": "vitamin_c",
+      "target": "nutrient",
+      "type": "is_a"
+    },
+    {
+      "source": "omega_3",
+      "target": "nutrient",
+      "type": "is_a"
+    },
+    {
+      "source": "zinc",
+      "target": "nutrient",
+      "type": "is_a"
+    },
+    {
+      "source": "selenium",
+      "target": "nutrient",
+      "type": "is_a"
+    },
+    {
+      "source": "dietary_fiber",
+      "target": "nutrient",
+      "type": "is_a"
+    },
+    {
+      "source": "lactobacillus_rhamnosus",
+      "target": "lactobacillus",
+      "type": "is_a"
+    },
+    {
+      "source": "lactobacillus_paracasei",
+      "target": "lactobacillus",
+      "type": "is_a"
+    },
+    {
+      "source": "lactobacillus_reuteri",
+      "target": "lactobacillus",
+      "type": "is_a"
+    },
+    {
+      "source": "bifidobacterium_animalis_lactis",
+      "target": "bifidobacterium",
+      "type": "is_a"
+    },
+    {
+      "source": "bifidobacterium_breve",
+      "target": "bifidobacterium",
+      "type": "is_a"
+    },
+    {
+      "source": "bifidobacterium_longum",
+      "target": "bifidobacterium",
+      "type": "is_a"
+    },
+    {
+      "source": "bifidobacterium_infantis",
+      "target": "bifidobacterium_longum",
+      "type": "is_a"
+    },
+    {
+      "source": "lactobacillus",
+      "target": "probiotic",
+      "type": "is_a"
+    },
+    {
+      "source": "bifidobacterium",
+      "target": "probiotic",
+      "type": "is_a"
+    },
+    {
+      "source": "saccharomyces_boulardii",
+      "target": "probiotic",
+      "type": "is_a"
+    },
+    {
+      "source": "l_rhamnosus_lgg",
+      "target": "lactobacillus_rhamnosus",
+      "type": "is_a"
+    },
+    {
+      "source": "l_rhamnosus_hn001",
+      "target": "lactobacillus_rhamnosus",
+      "type": "is_a"
+    },
+    {
+      "source": "l_rhamnosus_hn019",
+      "target": "lactobacillus_rhamnosus",
+      "type": "is_a"
+    },
+    {
+      "source": "l_paracasei_lc_zhang",
+      "target": "lactobacillus_paracasei",
+      "type": "is_a"
+    },
+    {
+      "source": "b_animalis_lactis_probio_m8",
+      "target": "bifidobacterium_animalis_lactis",
+      "type": "is_a"
+    },
+    {
+      "source": "l_paracasei_probio_37",
+      "target": "lactobacillus_paracasei",
+      "type": "is_a"
+    },
+    {
+      "source": "l_rhamnosus_r7041",
+      "target": "lactobacillus_rhamnosus",
+      "type": "is_a"
+    },
+    {
+      "source": "l_rhamnosus_mp108",
+      "target": "lactobacillus_rhamnosus",
+      "type": "is_a"
+    },
+    {
+      "source": "b_breve_m16v",
+      "target": "bifidobacterium_breve",
+      "type": "is_a"
+    },
+    {
+      "source": "b_longum_bb536",
+      "target": "bifidobacterium_longum",
+      "type": "is_a"
+    },
+    {
+      "source": "b_infantis_m63",
+      "target": "bifidobacterium_infantis",
+      "type": "is_a"
+    },
+    {
+      "source": "0fabfe003f4ce27c8cab181d4289fec6",
+      "target": "claim_0d3d4d93d1d55a2e85497bd613deb51f",
       "type": "contains"
     },
     {
-      "source": "claim_c2fffb717805644a5dc57f86a5a1569d",
+      "source": "claim_0d3d4d93d1d55a2e85497bd613deb51f",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "043c086bdee579bbea96e406857b2100",
-      "target": "claim_26c640615ce343577205159a314d5121",
+      "source": "0fabfe003f4ce27c8cab181d4289fec6",
+      "target": "claim_fe5ada18fbb797e19b18a370afc8238c",
       "type": "contains"
     },
     {
-      "source": "claim_26c640615ce343577205159a314d5121",
+      "source": "claim_fe5ada18fbb797e19b18a370afc8238c",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "claim_26c640615ce343577205159a314d5121",
+      "source": "claim_fe5ada18fbb797e19b18a370afc8238c",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "043c086bdee579bbea96e406857b2100",
-      "target": "claim_958762c8305834f23059abb0752e93fc",
+      "source": "0fabfe003f4ce27c8cab181d4289fec6",
+      "target": "claim_4646bcdfde86a4c7431d4df5a1d91503",
       "type": "contains"
     },
     {
-      "source": "claim_958762c8305834f23059abb0752e93fc",
+      "source": "claim_4646bcdfde86a4c7431d4df5a1d91503",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "claim_958762c8305834f23059abb0752e93fc",
+      "source": "claim_4646bcdfde86a4c7431d4df5a1d91503",
       "target": "food_allergy",
       "type": "relates_to"
     },
     {
-      "source": "043c086bdee579bbea96e406857b2100",
-      "target": "claim_63db08179bf12b6f086b66d52f1d2565",
+      "source": "0fabfe003f4ce27c8cab181d4289fec6",
+      "target": "claim_61cad1c2f51c3ce4faf8ddda8475ea2d",
       "type": "contains"
     },
     {
-      "source": "claim_63db08179bf12b6f086b66d52f1d2565",
+      "source": "claim_61cad1c2f51c3ce4faf8ddda8475ea2d",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "claim_63db08179bf12b6f086b66d52f1d2565",
+      "source": "claim_61cad1c2f51c3ce4faf8ddda8475ea2d",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "043c086bdee579bbea96e406857b2100",
-      "target": "claim_cc2f5444b3d22c6dc455fac91a8089e3",
+      "source": "0fabfe003f4ce27c8cab181d4289fec6",
+      "target": "claim_c547a5a5205890cf8e3205713bd59e82",
       "type": "contains"
     },
     {
-      "source": "claim_cc2f5444b3d22c6dc455fac91a8089e3",
+      "source": "claim_c547a5a5205890cf8e3205713bd59e82",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "043c086bdee579bbea96e406857b2100",
-      "target": "claim_db07339cabd02ddfd00e61c6599a971c",
+      "source": "0fabfe003f4ce27c8cab181d4289fec6",
+      "target": "claim_496c8bb016edfb465182035a52065b7a",
       "type": "contains"
     },
     {
-      "source": "claim_db07339cabd02ddfd00e61c6599a971c",
+      "source": "claim_496c8bb016edfb465182035a52065b7a",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "claim_db07339cabd02ddfd00e61c6599a971c",
+      "source": "claim_496c8bb016edfb465182035a52065b7a",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "f665774b31373efa24904cfdd44fb136",
-      "target": "claim_cc17666e6476c551f7233014f44f36d3",
+      "source": "3e0d0bdf7e45b8584891d731df9a36ec",
+      "target": "claim_54fed2910ea808b8a068feeb94698d21",
       "type": "contains"
     },
     {
-      "source": "claim_cc17666e6476c551f7233014f44f36d3",
+      "source": "claim_54fed2910ea808b8a068feeb94698d21",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "claim_cc17666e6476c551f7233014f44f36d3",
+      "source": "claim_54fed2910ea808b8a068feeb94698d21",
       "target": "atopic_dermatitis",
       "type": "relates_to"
     },
     {
-      "source": "f665774b31373efa24904cfdd44fb136",
-      "target": "claim_028a019683ad982ffbff15f918fa3d20",
+      "source": "3e0d0bdf7e45b8584891d731df9a36ec",
+      "target": "claim_267989ef020f91e53ceb25f78cd2a9ce",
       "type": "contains"
     },
     {
-      "source": "claim_028a019683ad982ffbff15f918fa3d20",
+      "source": "claim_267989ef020f91e53ceb25f78cd2a9ce",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "claim_028a019683ad982ffbff15f918fa3d20",
+      "source": "claim_267989ef020f91e53ceb25f78cd2a9ce",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "f665774b31373efa24904cfdd44fb136",
-      "target": "claim_44cd315e58b6de41cc689b439cafd563",
+      "source": "3e0d0bdf7e45b8584891d731df9a36ec",
+      "target": "claim_dc3ab92a9b70c43d0437276fd5118021",
       "type": "contains"
     },
     {
-      "source": "claim_44cd315e58b6de41cc689b439cafd563",
+      "source": "claim_dc3ab92a9b70c43d0437276fd5118021",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "f665774b31373efa24904cfdd44fb136",
-      "target": "claim_84eda5ce8efd3be493612ebabd2d086b",
+      "source": "3e0d0bdf7e45b8584891d731df9a36ec",
+      "target": "claim_d35d1c3296000fa310bfa31bd84bb250",
       "type": "contains"
     },
     {
-      "source": "claim_84eda5ce8efd3be493612ebabd2d086b",
+      "source": "claim_d35d1c3296000fa310bfa31bd84bb250",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "f665774b31373efa24904cfdd44fb136",
-      "target": "claim_680614d53b1652d63fc440d295887a07",
+      "source": "3e0d0bdf7e45b8584891d731df9a36ec",
+      "target": "claim_c07ca9d8aeeb1f9ba7401c14aa56b25d",
       "type": "contains"
     },
     {
-      "source": "claim_680614d53b1652d63fc440d295887a07",
+      "source": "claim_c07ca9d8aeeb1f9ba7401c14aa56b25d",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "f665774b31373efa24904cfdd44fb136",
-      "target": "claim_0d013801f6e7ae51dafe0bc75dd2a2b3",
+      "source": "3e0d0bdf7e45b8584891d731df9a36ec",
+      "target": "claim_8ffae1da7e4b781fd855de28c5eff9a7",
       "type": "contains"
     },
     {
-      "source": "claim_0d013801f6e7ae51dafe0bc75dd2a2b3",
+      "source": "claim_8ffae1da7e4b781fd855de28c5eff9a7",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "claim_0d013801f6e7ae51dafe0bc75dd2a2b3",
+      "source": "claim_8ffae1da7e4b781fd855de28c5eff9a7",
       "target": "igg",
       "type": "relates_to"
     },
     {
-      "source": "claim_0d013801f6e7ae51dafe0bc75dd2a2b3",
+      "source": "claim_8ffae1da7e4b781fd855de28c5eff9a7",
       "target": "food_allergy",
       "type": "relates_to"
     },
     {
-      "source": "f665774b31373efa24904cfdd44fb136",
-      "target": "claim_a3f05fd7d21d7872c60f78bfcde8ce3f",
+      "source": "3e0d0bdf7e45b8584891d731df9a36ec",
+      "target": "claim_9541e0a06cfe7d6373b8c3720495d450",
       "type": "contains"
     },
     {
-      "source": "claim_a3f05fd7d21d7872c60f78bfcde8ce3f",
+      "source": "claim_9541e0a06cfe7d6373b8c3720495d450",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "bb14e7cde018d745b8add0943467b26c",
-      "target": "claim_65749545d38e12ec1f155a5b2a536250",
+      "source": "0634099e18f48f9602c9303612f6ed60",
+      "target": "claim_632a08f1bf3a085bc4947976e958acb9",
       "type": "contains"
     },
     {
-      "source": "claim_65749545d38e12ec1f155a5b2a536250",
+      "source": "claim_632a08f1bf3a085bc4947976e958acb9",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "bb14e7cde018d745b8add0943467b26c",
-      "target": "claim_0a559be49fdd5e48e079497e47edbbde",
+      "source": "0634099e18f48f9602c9303612f6ed60",
+      "target": "claim_7e71a36c050adcfdc922e804dc9308ce",
       "type": "contains"
     },
     {
-      "source": "claim_0a559be49fdd5e48e079497e47edbbde",
+      "source": "claim_7e71a36c050adcfdc922e804dc9308ce",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_0a559be49fdd5e48e079497e47edbbde",
+      "source": "claim_7e71a36c050adcfdc922e804dc9308ce",
       "target": "mast_cell",
       "type": "relates_to"
     },
     {
-      "source": "bb14e7cde018d745b8add0943467b26c",
-      "target": "claim_b705b18d5dc043c60e3b3f4c2862d85b",
+      "source": "0634099e18f48f9602c9303612f6ed60",
+      "target": "claim_1319b0362380cf57e034c18fd18d18c4",
       "type": "contains"
     },
     {
-      "source": "claim_b705b18d5dc043c60e3b3f4c2862d85b",
+      "source": "claim_1319b0362380cf57e034c18fd18d18c4",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_b705b18d5dc043c60e3b3f4c2862d85b",
+      "source": "claim_1319b0362380cf57e034c18fd18d18c4",
       "target": "histamine",
       "type": "relates_to"
     },
     {
-      "source": "claim_b705b18d5dc043c60e3b3f4c2862d85b",
+      "source": "claim_1319b0362380cf57e034c18fd18d18c4",
       "target": "mast_cell",
       "type": "relates_to"
     },
     {
-      "source": "bb14e7cde018d745b8add0943467b26c",
-      "target": "claim_31544c8c83bf417e5ea34f5b55ffcff9",
+      "source": "0634099e18f48f9602c9303612f6ed60",
+      "target": "claim_c985a7798955fc3d12b5134672e4c739",
       "type": "contains"
     },
     {
-      "source": "claim_31544c8c83bf417e5ea34f5b55ffcff9",
+      "source": "claim_c985a7798955fc3d12b5134672e4c739",
       "target": "histamine",
       "type": "relates_to"
     },
     {
-      "source": "claim_31544c8c83bf417e5ea34f5b55ffcff9",
+      "source": "claim_c985a7798955fc3d12b5134672e4c739",
       "target": "antihistamine",
       "type": "relates_to"
     },
     {
-      "source": "bb14e7cde018d745b8add0943467b26c",
-      "target": "claim_0e8466a0de803777550038e2457955bc",
+      "source": "0634099e18f48f9602c9303612f6ed60",
+      "target": "claim_3c6eeed652d8d65d0b7d5fa3477b8397",
       "type": "contains"
     },
     {
-      "source": "claim_0e8466a0de803777550038e2457955bc",
+      "source": "claim_3c6eeed652d8d65d0b7d5fa3477b8397",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "bb14e7cde018d745b8add0943467b26c",
-      "target": "claim_0d54b6bb5b462b87477a4f6518d56a79",
+      "source": "0634099e18f48f9602c9303612f6ed60",
+      "target": "claim_9938fe6ceb9c69443c13ce9438d1dcb1",
       "type": "contains"
     },
     {
-      "source": "claim_0d54b6bb5b462b87477a4f6518d56a79",
+      "source": "claim_9938fe6ceb9c69443c13ce9438d1dcb1",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "d178a38065f657d39ad80ea54a172d06",
-      "target": "claim_dc9862f7fa6e1acdbc5fd1daa817f972",
+      "source": "9b83c4ea210f6e1655abcbdc6e9a9eea",
+      "target": "claim_e4a8f0d11d37b5c11b44871bec62d594",
       "type": "contains"
     },
     {
-      "source": "claim_dc9862f7fa6e1acdbc5fd1daa817f972",
+      "source": "claim_e4a8f0d11d37b5c11b44871bec62d594",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_dc9862f7fa6e1acdbc5fd1daa817f972",
+      "source": "claim_e4a8f0d11d37b5c11b44871bec62d594",
       "target": "urticaria",
       "type": "relates_to"
     },
     {
-      "source": "claim_dc9862f7fa6e1acdbc5fd1daa817f972",
+      "source": "claim_e4a8f0d11d37b5c11b44871bec62d594",
       "target": "mast_cell",
       "type": "relates_to"
     },
     {
-      "source": "d178a38065f657d39ad80ea54a172d06",
-      "target": "claim_94ea6503ece6b4c3c6fb95864e21d0fb",
+      "source": "9b83c4ea210f6e1655abcbdc6e9a9eea",
+      "target": "claim_eb2383ba058a196e4b5440311625b35b",
       "type": "contains"
     },
     {
-      "source": "claim_94ea6503ece6b4c3c6fb95864e21d0fb",
+      "source": "claim_eb2383ba058a196e4b5440311625b35b",
       "target": "urticaria",
       "type": "relates_to"
     },
     {
-      "source": "d178a38065f657d39ad80ea54a172d06",
-      "target": "claim_8964ae842df08fda48a67abc81edd682",
+      "source": "9b83c4ea210f6e1655abcbdc6e9a9eea",
+      "target": "claim_2732966f9e7fef6a9f4ea6581f4a3266",
       "type": "contains"
     },
     {
-      "source": "claim_8964ae842df08fda48a67abc81edd682",
+      "source": "claim_2732966f9e7fef6a9f4ea6581f4a3266",
       "target": "urticaria",
       "type": "relates_to"
     },
     {
-      "source": "claim_8964ae842df08fda48a67abc81edd682",
+      "source": "claim_2732966f9e7fef6a9f4ea6581f4a3266",
       "target": "histamine",
       "type": "relates_to"
     },
     {
-      "source": "claim_8964ae842df08fda48a67abc81edd682",
+      "source": "claim_2732966f9e7fef6a9f4ea6581f4a3266",
       "target": "antihistamine",
       "type": "relates_to"
     },
     {
-      "source": "d178a38065f657d39ad80ea54a172d06",
-      "target": "claim_61af7dece0102260b7cd033d7050afa7",
+      "source": "9b83c4ea210f6e1655abcbdc6e9a9eea",
+      "target": "claim_fb744178d94be4cb42fb6d264446d261",
       "type": "contains"
     },
     {
-      "source": "claim_61af7dece0102260b7cd033d7050afa7",
+      "source": "claim_fb744178d94be4cb42fb6d264446d261",
       "target": "urticaria",
       "type": "relates_to"
     },
     {
-      "source": "d178a38065f657d39ad80ea54a172d06",
-      "target": "claim_e9a14c1b71e1596bccc1844af1dcd82f",
+      "source": "9b83c4ea210f6e1655abcbdc6e9a9eea",
+      "target": "claim_cd80f760c3548f6f19668c3f100bffd6",
       "type": "contains"
     },
     {
-      "source": "claim_e9a14c1b71e1596bccc1844af1dcd82f",
+      "source": "claim_cd80f760c3548f6f19668c3f100bffd6",
       "target": "urticaria",
       "type": "relates_to"
     },
     {
-      "source": "d178a38065f657d39ad80ea54a172d06",
-      "target": "claim_332fd35565524edda15c321a9011430a",
+      "source": "9b83c4ea210f6e1655abcbdc6e9a9eea",
+      "target": "claim_20effb84d8355a4196d5d0075514b72c",
       "type": "contains"
     },
     {
-      "source": "claim_332fd35565524edda15c321a9011430a",
+      "source": "claim_20effb84d8355a4196d5d0075514b72c",
       "target": "urticaria",
       "type": "relates_to"
     },
     {
-      "source": "d178a38065f657d39ad80ea54a172d06",
-      "target": "claim_96eb4c6771ef5f181482c64130440a33",
+      "source": "9b83c4ea210f6e1655abcbdc6e9a9eea",
+      "target": "claim_9013250c5ea868e5fdbdd468c392d792",
       "type": "contains"
     },
     {
-      "source": "claim_96eb4c6771ef5f181482c64130440a33",
+      "source": "claim_9013250c5ea868e5fdbdd468c392d792",
       "target": "urticaria",
       "type": "relates_to"
     },
     {
-      "source": "48108c2e4ca1f797ceea8fa750083455",
-      "target": "claim_ea55fa3eae67c5afe3478352d2f6d561",
+      "source": "da49f4c18c7fa13ef3ff9801403779b3",
+      "target": "claim_f0cd425a3014d79b0418cab28185770a",
       "type": "contains"
     },
     {
-      "source": "claim_ea55fa3eae67c5afe3478352d2f6d561",
+      "source": "claim_f0cd425a3014d79b0418cab28185770a",
       "target": "atopic_dermatitis",
       "type": "relates_to"
     },
     {
-      "source": "48108c2e4ca1f797ceea8fa750083455",
-      "target": "claim_9b8708a2d6baceff516cf60ea9da4145",
+      "source": "da49f4c18c7fa13ef3ff9801403779b3",
+      "target": "claim_d98d6001964916e844ebf9990165fbc5",
       "type": "contains"
     },
     {
-      "source": "claim_9b8708a2d6baceff516cf60ea9da4145",
+      "source": "claim_d98d6001964916e844ebf9990165fbc5",
       "target": "atopic_dermatitis",
       "type": "relates_to"
     },
     {
-      "source": "48108c2e4ca1f797ceea8fa750083455",
-      "target": "claim_1495a80582769b6abe8eb3fc912783aa",
+      "source": "da49f4c18c7fa13ef3ff9801403779b3",
+      "target": "claim_27b7256de64061d8548f7785c0c2b9ae",
       "type": "contains"
     },
     {
-      "source": "claim_1495a80582769b6abe8eb3fc912783aa",
+      "source": "claim_27b7256de64061d8548f7785c0c2b9ae",
       "target": "atopic_dermatitis",
       "type": "relates_to"
     },
     {
-      "source": "48108c2e4ca1f797ceea8fa750083455",
-      "target": "claim_e0cb62d2bd00eed987efb75727b3334b",
+      "source": "da49f4c18c7fa13ef3ff9801403779b3",
+      "target": "claim_4da10537d1ff7107bcf835aadde13b3a",
       "type": "contains"
     },
     {
-      "source": "claim_e0cb62d2bd00eed987efb75727b3334b",
+      "source": "claim_4da10537d1ff7107bcf835aadde13b3a",
       "target": "atopic_dermatitis",
       "type": "relates_to"
     },
     {
-      "source": "48108c2e4ca1f797ceea8fa750083455",
-      "target": "claim_a20c2a66e77048268c7ebe1e65bc7a6c",
+      "source": "da49f4c18c7fa13ef3ff9801403779b3",
+      "target": "claim_b2c968e1e6e241f930c758e38b01b226",
       "type": "contains"
     },
     {
-      "source": "claim_a20c2a66e77048268c7ebe1e65bc7a6c",
+      "source": "claim_b2c968e1e6e241f930c758e38b01b226",
       "target": "atopic_dermatitis",
       "type": "relates_to"
     },
     {
-      "source": "48108c2e4ca1f797ceea8fa750083455",
-      "target": "claim_9e9268867eef9528e5c153f376102642",
+      "source": "da49f4c18c7fa13ef3ff9801403779b3",
+      "target": "claim_6f41e69af135943c049bdde0d6ec8b1a",
       "type": "contains"
     },
     {
-      "source": "claim_9e9268867eef9528e5c153f376102642",
+      "source": "claim_6f41e69af135943c049bdde0d6ec8b1a",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "claim_9e9268867eef9528e5c153f376102642",
+      "source": "claim_6f41e69af135943c049bdde0d6ec8b1a",
       "target": "dust_mite",
       "type": "relates_to"
     },
     {
-      "source": "claim_9e9268867eef9528e5c153f376102642",
+      "source": "claim_6f41e69af135943c049bdde0d6ec8b1a",
       "target": "atopic_dermatitis",
       "type": "relates_to"
     },
     {
-      "source": "da131685291b5294691830597bfd681b",
-      "target": "claim_4165e25849a5d8740b2d17fce5bdc1f0",
+      "source": "ce1a41742e8539c84df504208b3b092d",
+      "target": "claim_11d5102c686c41cec799849d872ee629",
       "type": "contains"
     },
     {
-      "source": "claim_4165e25849a5d8740b2d17fce5bdc1f0",
+      "source": "claim_11d5102c686c41cec799849d872ee629",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_4165e25849a5d8740b2d17fce5bdc1f0",
+      "source": "claim_11d5102c686c41cec799849d872ee629",
       "target": "mold",
       "type": "relates_to"
     },
     {
-      "source": "claim_4165e25849a5d8740b2d17fce5bdc1f0",
+      "source": "claim_11d5102c686c41cec799849d872ee629",
       "target": "dust_mite",
       "type": "relates_to"
     },
     {
-      "source": "claim_4165e25849a5d8740b2d17fce5bdc1f0",
+      "source": "claim_11d5102c686c41cec799849d872ee629",
       "target": "pollen",
       "type": "relates_to"
     },
     {
-      "source": "claim_4165e25849a5d8740b2d17fce5bdc1f0",
+      "source": "claim_11d5102c686c41cec799849d872ee629",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "da131685291b5294691830597bfd681b",
-      "target": "claim_4f8eb56d703dcef0b511e93d0a7e78dc",
+      "source": "ce1a41742e8539c84df504208b3b092d",
+      "target": "claim_731d2f3974af482fd7b36b647eadb7ac",
       "type": "contains"
     },
     {
-      "source": "claim_4f8eb56d703dcef0b511e93d0a7e78dc",
+      "source": "claim_731d2f3974af482fd7b36b647eadb7ac",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_4f8eb56d703dcef0b511e93d0a7e78dc",
+      "source": "claim_731d2f3974af482fd7b36b647eadb7ac",
       "target": "dust_mite",
       "type": "relates_to"
     },
     {
-      "source": "da131685291b5294691830597bfd681b",
-      "target": "claim_50486cd1b94a6130f2d4e150b9ff525a",
+      "source": "ce1a41742e8539c84df504208b3b092d",
+      "target": "claim_5ed315bcf87dadbfd0b3e19583e7c036",
       "type": "contains"
     },
     {
-      "source": "claim_50486cd1b94a6130f2d4e150b9ff525a",
+      "source": "claim_5ed315bcf87dadbfd0b3e19583e7c036",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_50486cd1b94a6130f2d4e150b9ff525a",
+      "source": "claim_5ed315bcf87dadbfd0b3e19583e7c036",
       "target": "mold",
       "type": "relates_to"
     },
     {
-      "source": "claim_50486cd1b94a6130f2d4e150b9ff525a",
+      "source": "claim_5ed315bcf87dadbfd0b3e19583e7c036",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "da131685291b5294691830597bfd681b",
-      "target": "claim_1e74604afbac9a20db34769de6172a2b",
+      "source": "ce1a41742e8539c84df504208b3b092d",
+      "target": "claim_10d11499c1b2809091fcbaa65923505f",
       "type": "contains"
     },
     {
-      "source": "claim_1e74604afbac9a20db34769de6172a2b",
+      "source": "claim_10d11499c1b2809091fcbaa65923505f",
       "target": "pollen",
       "type": "relates_to"
     },
     {
-      "source": "da131685291b5294691830597bfd681b",
-      "target": "claim_8c3d7cb39061bf774fab3eb246c1b874",
+      "source": "ce1a41742e8539c84df504208b3b092d",
+      "target": "claim_7e9a21c5162c713289233dcd09988810",
       "type": "contains"
     },
     {
-      "source": "claim_8c3d7cb39061bf774fab3eb246c1b874",
+      "source": "claim_7e9a21c5162c713289233dcd09988810",
       "target": "mold",
       "type": "relates_to"
     },
     {
-      "source": "claim_8c3d7cb39061bf774fab3eb246c1b874",
+      "source": "claim_7e9a21c5162c713289233dcd09988810",
       "target": "dust_mite",
       "type": "relates_to"
     },
     {
-      "source": "claim_8c3d7cb39061bf774fab3eb246c1b874",
+      "source": "claim_7e9a21c5162c713289233dcd09988810",
       "target": "pollen",
       "type": "relates_to"
     },
     {
-      "source": "da131685291b5294691830597bfd681b",
-      "target": "claim_af6d3cb2129b9c5e7380273bb8d586ad",
+      "source": "ce1a41742e8539c84df504208b3b092d",
+      "target": "claim_c5c3382fce06e8a2868045c751b1b8ae",
       "type": "contains"
     },
     {
-      "source": "claim_af6d3cb2129b9c5e7380273bb8d586ad",
+      "source": "claim_c5c3382fce06e8a2868045c751b1b8ae",
       "target": "mold",
       "type": "relates_to"
     },
     {
-      "source": "claim_af6d3cb2129b9c5e7380273bb8d586ad",
+      "source": "claim_c5c3382fce06e8a2868045c751b1b8ae",
       "target": "dust_mite",
       "type": "relates_to"
     },
     {
-      "source": "claim_af6d3cb2129b9c5e7380273bb8d586ad",
+      "source": "claim_c5c3382fce06e8a2868045c751b1b8ae",
       "target": "pollen",
       "type": "relates_to"
     },
     {
-      "source": "da131685291b5294691830597bfd681b",
-      "target": "claim_d966fac5a0d554f1bc9ac0a797441f0c",
+      "source": "ce1a41742e8539c84df504208b3b092d",
+      "target": "claim_e81d11264242d50a7357a8626e9d40fb",
       "type": "contains"
     },
     {
-      "source": "claim_d966fac5a0d554f1bc9ac0a797441f0c",
+      "source": "claim_e81d11264242d50a7357a8626e9d40fb",
       "target": "pollen",
       "type": "relates_to"
     },
     {
-      "source": "dc751fcfdedc8349e0764bc0a0b1d975",
-      "target": "claim_39b2f1c97aa8091ea1178df17dee4d57",
+      "source": "5380cc86308c8f5b9a188c2fca6f9797",
+      "target": "claim_7b2cdc689f1b7c1e0ab8b2d0433651ad",
       "type": "contains"
     },
     {
-      "source": "claim_39b2f1c97aa8091ea1178df17dee4d57",
+      "source": "claim_7b2cdc689f1b7c1e0ab8b2d0433651ad",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_39b2f1c97aa8091ea1178df17dee4d57",
+      "source": "claim_7b2cdc689f1b7c1e0ab8b2d0433651ad",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "claim_39b2f1c97aa8091ea1178df17dee4d57",
+      "source": "claim_7b2cdc689f1b7c1e0ab8b2d0433651ad",
       "target": "atopic_dermatitis",
       "type": "relates_to"
     },
     {
-      "source": "dc751fcfdedc8349e0764bc0a0b1d975",
-      "target": "claim_8d26bc171072bc15dd95180d99b1a3e7",
+      "source": "5380cc86308c8f5b9a188c2fca6f9797",
+      "target": "claim_87fe1a41cde0dc310032d817d9dd28e0",
       "type": "contains"
     },
     {
-      "source": "claim_8d26bc171072bc15dd95180d99b1a3e7",
+      "source": "claim_87fe1a41cde0dc310032d817d9dd28e0",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_8d26bc171072bc15dd95180d99b1a3e7",
+      "source": "claim_87fe1a41cde0dc310032d817d9dd28e0",
       "target": "sige",
       "type": "relates_to"
     },
     {
-      "source": "claim_8d26bc171072bc15dd95180d99b1a3e7",
+      "source": "claim_87fe1a41cde0dc310032d817d9dd28e0",
       "target": "skin_prick_test",
       "type": "relates_to"
     },
     {
-      "source": "dc751fcfdedc8349e0764bc0a0b1d975",
-      "target": "claim_a4b22adeec3ceb75c02520f5937722c9",
+      "source": "5380cc86308c8f5b9a188c2fca6f9797",
+      "target": "claim_7c1cd3f130cabc9af938aa356d5854f4",
       "type": "contains"
     },
     {
-      "source": "dc751fcfdedc8349e0764bc0a0b1d975",
-      "target": "claim_c96d83085e0a8c7011acada05b5735e7",
+      "source": "5380cc86308c8f5b9a188c2fca6f9797",
+      "target": "claim_689cad71b38503ab248a0bb1d73bd380",
       "type": "contains"
     },
     {
-      "source": "claim_c96d83085e0a8c7011acada05b5735e7",
+      "source": "claim_689cad71b38503ab248a0bb1d73bd380",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "dc751fcfdedc8349e0764bc0a0b1d975",
-      "target": "claim_29756ae32a0315a92e36538e495f82f2",
+      "source": "5380cc86308c8f5b9a188c2fca6f9797",
+      "target": "claim_d9c5d1aef69ae99ba8e4a2f52138155b",
       "type": "contains"
     },
     {
-      "source": "claim_29756ae32a0315a92e36538e495f82f2",
+      "source": "claim_d9c5d1aef69ae99ba8e4a2f52138155b",
       "target": "egg",
       "type": "relates_to"
     },
     {
-      "source": "claim_29756ae32a0315a92e36538e495f82f2",
+      "source": "claim_d9c5d1aef69ae99ba8e4a2f52138155b",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "dc751fcfdedc8349e0764bc0a0b1d975",
-      "target": "claim_5b0b673d669bf3b94d3436e1879e0417",
+      "source": "5380cc86308c8f5b9a188c2fca6f9797",
+      "target": "claim_86641b19a4096f27e8df3a8fa8679aa8",
       "type": "contains"
     },
     {
-      "source": "claim_5b0b673d669bf3b94d3436e1879e0417",
+      "source": "claim_86641b19a4096f27e8df3a8fa8679aa8",
       "target": "atopic_dermatitis",
       "type": "relates_to"
     },
     {
-      "source": "dc751fcfdedc8349e0764bc0a0b1d975",
-      "target": "claim_c83e9430f6f786fa7b0cbd55c263ef0a",
+      "source": "5380cc86308c8f5b9a188c2fca6f9797",
+      "target": "claim_d73828c47f9af222698cb584ea5cc2db",
       "type": "contains"
     },
     {
-      "source": "claim_c83e9430f6f786fa7b0cbd55c263ef0a",
+      "source": "claim_d73828c47f9af222698cb584ea5cc2db",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_c83e9430f6f786fa7b0cbd55c263ef0a",
+      "source": "claim_d73828c47f9af222698cb584ea5cc2db",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "dc751fcfdedc8349e0764bc0a0b1d975",
-      "target": "claim_812b6d6bb3bd7b6b57159a7ea42b2e8f",
+      "source": "5380cc86308c8f5b9a188c2fca6f9797",
+      "target": "claim_e1d1521c3c67f8c1acd186827c89b33d",
       "type": "contains"
     },
     {
-      "source": "dc751fcfdedc8349e0764bc0a0b1d975",
-      "target": "claim_0631dda191623ebb3d302cc5d866ad3f",
+      "source": "5380cc86308c8f5b9a188c2fca6f9797",
+      "target": "claim_4311f2b606416627596ea47715d899c2",
       "type": "contains"
     },
     {
-      "source": "claim_0631dda191623ebb3d302cc5d866ad3f",
+      "source": "claim_4311f2b606416627596ea47715d899c2",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_0631dda191623ebb3d302cc5d866ad3f",
+      "source": "claim_4311f2b606416627596ea47715d899c2",
       "target": "skin_prick_test",
       "type": "relates_to"
     },
     {
-      "source": "dc751fcfdedc8349e0764bc0a0b1d975",
-      "target": "claim_c0ef49c044d759c66eedd170c9c994c5",
+      "source": "5380cc86308c8f5b9a188c2fca6f9797",
+      "target": "claim_9eace66491a578384822dfdc4631ff2a",
       "type": "contains"
     },
     {
-      "source": "db71acd63f2c3e05cd607338a4a49b04",
-      "target": "claim_8bdf180217067d0d9fe5160a824cb648",
+      "source": "61ff5e5880b6f4b2ed5ef74fd2fa8715",
+      "target": "claim_6cf1eb3451dc5df50be3f590cd8d3758",
       "type": "contains"
     },
     {
-      "source": "claim_8bdf180217067d0d9fe5160a824cb648",
+      "source": "claim_6cf1eb3451dc5df50be3f590cd8d3758",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_8bdf180217067d0d9fe5160a824cb648",
+      "source": "claim_6cf1eb3451dc5df50be3f590cd8d3758",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "claim_8bdf180217067d0d9fe5160a824cb648",
+      "source": "claim_6cf1eb3451dc5df50be3f590cd8d3758",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_8bdf180217067d0d9fe5160a824cb648",
+      "source": "claim_6cf1eb3451dc5df50be3f590cd8d3758",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "db71acd63f2c3e05cd607338a4a49b04",
-      "target": "claim_4e6eecefea1961e5cb2ab806da04cbfb",
+      "source": "61ff5e5880b6f4b2ed5ef74fd2fa8715",
+      "target": "claim_a431315b97cddb2bfc00951443b89b86",
       "type": "contains"
     },
     {
-      "source": "claim_4e6eecefea1961e5cb2ab806da04cbfb",
+      "source": "claim_a431315b97cddb2bfc00951443b89b86",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_4e6eecefea1961e5cb2ab806da04cbfb",
+      "source": "claim_a431315b97cddb2bfc00951443b89b86",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "claim_4e6eecefea1961e5cb2ab806da04cbfb",
+      "source": "claim_a431315b97cddb2bfc00951443b89b86",
       "target": "pollen",
       "type": "relates_to"
     },
     {
-      "source": "claim_4e6eecefea1961e5cb2ab806da04cbfb",
+      "source": "claim_a431315b97cddb2bfc00951443b89b86",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "db71acd63f2c3e05cd607338a4a49b04",
-      "target": "claim_b96f9a46f4e9cc8e31562ae8f43e2f6f",
+      "source": "61ff5e5880b6f4b2ed5ef74fd2fa8715",
+      "target": "claim_92036f7631f0dfadad5f42cf4e67448d",
       "type": "contains"
     },
     {
-      "source": "claim_b96f9a46f4e9cc8e31562ae8f43e2f6f",
+      "source": "claim_92036f7631f0dfadad5f42cf4e67448d",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_b96f9a46f4e9cc8e31562ae8f43e2f6f",
+      "source": "claim_92036f7631f0dfadad5f42cf4e67448d",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "db71acd63f2c3e05cd607338a4a49b04",
-      "target": "claim_208fa4b7e5764f34c66c96c828b0d810",
+      "source": "61ff5e5880b6f4b2ed5ef74fd2fa8715",
+      "target": "claim_a2dddbcb84e3f075be3c2781b7a360ba",
       "type": "contains"
     },
     {
-      "source": "claim_208fa4b7e5764f34c66c96c828b0d810",
+      "source": "claim_a2dddbcb84e3f075be3c2781b7a360ba",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "claim_208fa4b7e5764f34c66c96c828b0d810",
+      "source": "claim_a2dddbcb84e3f075be3c2781b7a360ba",
       "target": "dust_mite",
       "type": "relates_to"
     },
     {
-      "source": "claim_208fa4b7e5764f34c66c96c828b0d810",
+      "source": "claim_a2dddbcb84e3f075be3c2781b7a360ba",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "db71acd63f2c3e05cd607338a4a49b04",
-      "target": "claim_978ea35de131d0b9c410e506fbe28c8f",
+      "source": "61ff5e5880b6f4b2ed5ef74fd2fa8715",
+      "target": "claim_ac169188f0442304864d85b315b4594f",
       "type": "contains"
     },
     {
-      "source": "claim_978ea35de131d0b9c410e506fbe28c8f",
+      "source": "claim_ac169188f0442304864d85b315b4594f",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_978ea35de131d0b9c410e506fbe28c8f",
+      "source": "claim_ac169188f0442304864d85b315b4594f",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "db71acd63f2c3e05cd607338a4a49b04",
-      "target": "claim_27a988c25126b118f574d2153867c6d4",
+      "source": "61ff5e5880b6f4b2ed5ef74fd2fa8715",
+      "target": "claim_8b8bc70dfa0d29c0e99b733643102988",
       "type": "contains"
     },
     {
-      "source": "claim_27a988c25126b118f574d2153867c6d4",
+      "source": "claim_8b8bc70dfa0d29c0e99b733643102988",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "db71acd63f2c3e05cd607338a4a49b04",
-      "target": "claim_1585705c1a3f8fc281bba06ecec8a2ef",
+      "source": "61ff5e5880b6f4b2ed5ef74fd2fa8715",
+      "target": "claim_5af7184eb6efde11a7893d252af6a5f3",
       "type": "contains"
     },
     {
-      "source": "claim_1585705c1a3f8fc281bba06ecec8a2ef",
+      "source": "claim_5af7184eb6efde11a7893d252af6a5f3",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "6b657636ab2634447f84602fc3dd90d9",
-      "target": "claim_460a5032555d01fd35ac42c808714653",
+      "source": "43348c3aa93562c060bc81b1dc2b4bc4",
+      "target": "claim_f41bce942f1bd195cbb7318e8c6792b5",
       "type": "contains"
     },
     {
-      "source": "claim_460a5032555d01fd35ac42c808714653",
+      "source": "claim_f41bce942f1bd195cbb7318e8c6792b5",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "6b657636ab2634447f84602fc3dd90d9",
-      "target": "claim_ae14bd72878f8b9a0b703c625c3d6755",
+      "source": "43348c3aa93562c060bc81b1dc2b4bc4",
+      "target": "claim_03a0fb98944907dc2f4f28ab58ab6ea5",
       "type": "contains"
     },
     {
-      "source": "claim_ae14bd72878f8b9a0b703c625c3d6755",
+      "source": "claim_03a0fb98944907dc2f4f28ab58ab6ea5",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_ae14bd72878f8b9a0b703c625c3d6755",
+      "source": "claim_03a0fb98944907dc2f4f28ab58ab6ea5",
       "target": "mast_cell",
       "type": "relates_to"
     },
     {
-      "source": "6b657636ab2634447f84602fc3dd90d9",
-      "target": "claim_0d6940ee89824b48cf9f1065f4d8143f",
+      "source": "43348c3aa93562c060bc81b1dc2b4bc4",
+      "target": "claim_aa535a805d911700215bfd00f485a632",
       "type": "contains"
     },
     {
-      "source": "claim_0d6940ee89824b48cf9f1065f4d8143f",
+      "source": "claim_aa535a805d911700215bfd00f485a632",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_0d6940ee89824b48cf9f1065f4d8143f",
+      "source": "claim_aa535a805d911700215bfd00f485a632",
       "target": "sige",
       "type": "relates_to"
     },
     {
-      "source": "claim_0d6940ee89824b48cf9f1065f4d8143f",
+      "source": "claim_aa535a805d911700215bfd00f485a632",
       "target": "skin_prick_test",
       "type": "relates_to"
     },
     {
-      "source": "6b657636ab2634447f84602fc3dd90d9",
-      "target": "claim_91b51eea55b7b5be443aa2bc0ea191db",
+      "source": "43348c3aa93562c060bc81b1dc2b4bc4",
+      "target": "claim_993bfb4ac7dbf4bb2e95cf8ed469f77d",
       "type": "contains"
     },
     {
-      "source": "claim_91b51eea55b7b5be443aa2bc0ea191db",
+      "source": "claim_993bfb4ac7dbf4bb2e95cf8ed469f77d",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "6b657636ab2634447f84602fc3dd90d9",
-      "target": "claim_50f40c7d6304a7f1e6148215f0fcafa2",
+      "source": "43348c3aa93562c060bc81b1dc2b4bc4",
+      "target": "claim_56b8f01911fe962bbe7629c921c7cc3a",
       "type": "contains"
     },
     {
-      "source": "claim_50f40c7d6304a7f1e6148215f0fcafa2",
+      "source": "claim_56b8f01911fe962bbe7629c921c7cc3a",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_50f40c7d6304a7f1e6148215f0fcafa2",
+      "source": "claim_56b8f01911fe962bbe7629c921c7cc3a",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "6b657636ab2634447f84602fc3dd90d9",
-      "target": "claim_2dc722071917027f73e9855a30ad3f2c",
+      "source": "43348c3aa93562c060bc81b1dc2b4bc4",
+      "target": "claim_36d3c13d119b9af235b15cc9c7864501",
       "type": "contains"
     },
     {
-      "source": "claim_2dc722071917027f73e9855a30ad3f2c",
+      "source": "claim_36d3c13d119b9af235b15cc9c7864501",
       "target": "dust_mite",
       "type": "relates_to"
     },
     {
-      "source": "claim_2dc722071917027f73e9855a30ad3f2c",
+      "source": "claim_36d3c13d119b9af235b15cc9c7864501",
       "target": "pollen",
       "type": "relates_to"
     },
     {
-      "source": "6b657636ab2634447f84602fc3dd90d9",
-      "target": "claim_f488d17b736e071230093c6ba0aa68b5",
+      "source": "43348c3aa93562c060bc81b1dc2b4bc4",
+      "target": "claim_89b9b2694fdbbada5371dc957931ccee",
       "type": "contains"
     },
     {
-      "source": "6b657636ab2634447f84602fc3dd90d9",
-      "target": "claim_21192c30d2b66bbd3b6195b4aaa310d4",
+      "source": "43348c3aa93562c060bc81b1dc2b4bc4",
+      "target": "claim_b251c976053176f3064e9e89f4ec77ff",
       "type": "contains"
     },
     {
-      "source": "0d63e2b64fa1ac97cf6f8cb7e7ad9ba8",
-      "target": "claim_0cee0796d5719a549e6e732adbf1b720",
+      "source": "bb7b5ecab345a1e4698de6ae7019f190",
+      "target": "claim_2eab71133e33267b458db84cebf3189b",
       "type": "contains"
     },
     {
-      "source": "claim_0cee0796d5719a549e6e732adbf1b720",
+      "source": "claim_2eab71133e33267b458db84cebf3189b",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_0cee0796d5719a549e6e732adbf1b720",
+      "source": "claim_2eab71133e33267b458db84cebf3189b",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "claim_0cee0796d5719a549e6e732adbf1b720",
+      "source": "claim_2eab71133e33267b458db84cebf3189b",
       "target": "atopic_dermatitis",
       "type": "relates_to"
     },
     {
-      "source": "0d63e2b64fa1ac97cf6f8cb7e7ad9ba8",
-      "target": "claim_716be06d41be665a777a8603501ad978",
+      "source": "bb7b5ecab345a1e4698de6ae7019f190",
+      "target": "claim_0238c00bcbc09acbb83e1c43b3f98a6d",
       "type": "contains"
     },
     {
-      "source": "claim_716be06d41be665a777a8603501ad978",
+      "source": "claim_0238c00bcbc09acbb83e1c43b3f98a6d",
       "target": "atopic_dermatitis",
       "type": "relates_to"
     },
     {
-      "source": "claim_716be06d41be665a777a8603501ad978",
+      "source": "claim_0238c00bcbc09acbb83e1c43b3f98a6d",
       "target": "food_allergy",
       "type": "relates_to"
     },
     {
-      "source": "0d63e2b64fa1ac97cf6f8cb7e7ad9ba8",
-      "target": "claim_f665765950ac7fea5fa5fcea99ea46bc",
+      "source": "bb7b5ecab345a1e4698de6ae7019f190",
+      "target": "claim_84d6a1d2cd28db751ff6f180f9b9b221",
       "type": "contains"
     },
     {
-      "source": "0d63e2b64fa1ac97cf6f8cb7e7ad9ba8",
-      "target": "claim_602a6d4c7e7e86b5223ba9e5737daf2a",
+      "source": "bb7b5ecab345a1e4698de6ae7019f190",
+      "target": "claim_b0d86c940e044af42db138e8fb1261dc",
       "type": "contains"
     },
     {
-      "source": "claim_602a6d4c7e7e86b5223ba9e5737daf2a",
+      "source": "claim_b0d86c940e044af42db138e8fb1261dc",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_602a6d4c7e7e86b5223ba9e5737daf2a",
+      "source": "claim_b0d86c940e044af42db138e8fb1261dc",
       "target": "mast_cell",
       "type": "relates_to"
     },
     {
-      "source": "0d63e2b64fa1ac97cf6f8cb7e7ad9ba8",
-      "target": "claim_1e4797967385a8fab3ed8dcd55a9325c",
+      "source": "bb7b5ecab345a1e4698de6ae7019f190",
+      "target": "claim_fd751aaf3115debde8a42d8935e6d0a0",
       "type": "contains"
     },
     {
-      "source": "0d63e2b64fa1ac97cf6f8cb7e7ad9ba8",
-      "target": "claim_be2128361738956530853ccc756112f3",
+      "source": "bb7b5ecab345a1e4698de6ae7019f190",
+      "target": "claim_64eed075f941e756e553ff01d5065fbc",
       "type": "contains"
     },
     {
-      "source": "0d63e2b64fa1ac97cf6f8cb7e7ad9ba8",
-      "target": "claim_4ea6f0e10f7063514dc491b053800f02",
+      "source": "bb7b5ecab345a1e4698de6ae7019f190",
+      "target": "claim_719002c6fe026ade484133b6b3de10f4",
       "type": "contains"
     },
     {
-      "source": "claim_4ea6f0e10f7063514dc491b053800f02",
+      "source": "claim_719002c6fe026ade484133b6b3de10f4",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_4ea6f0e10f7063514dc491b053800f02",
+      "source": "claim_719002c6fe026ade484133b6b3de10f4",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "0d63e2b64fa1ac97cf6f8cb7e7ad9ba8",
-      "target": "claim_6ffaa8e10cbc8a7ffd313050bee3e91f",
+      "source": "bb7b5ecab345a1e4698de6ae7019f190",
+      "target": "claim_24f3781700e5b2041254fca2ea9c231a",
       "type": "contains"
     },
     {
-      "source": "1d0a6d8d681fc5a3286ffa20aa2f264d",
-      "target": "claim_bd26ff0ed50390989102c3d3958aedb8",
+      "source": "115a8508811c063028901f124f276e62",
+      "target": "claim_3c8f50c17404ae90440405e7c06b0050",
       "type": "contains"
     },
     {
-      "source": "claim_bd26ff0ed50390989102c3d3958aedb8",
+      "source": "claim_3c8f50c17404ae90440405e7c06b0050",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_bd26ff0ed50390989102c3d3958aedb8",
+      "source": "claim_3c8f50c17404ae90440405e7c06b0050",
       "target": "atopic_dermatitis",
       "type": "relates_to"
     },
     {
-      "source": "claim_bd26ff0ed50390989102c3d3958aedb8",
+      "source": "claim_3c8f50c17404ae90440405e7c06b0050",
       "target": "sige",
       "type": "relates_to"
     },
     {
-      "source": "1d0a6d8d681fc5a3286ffa20aa2f264d",
-      "target": "claim_1d79067c0733c6f237e9a14cdefff2c3",
+      "source": "115a8508811c063028901f124f276e62",
+      "target": "claim_08d2a5875247586f30ccc828d48f7af3",
       "type": "contains"
     },
     {
-      "source": "claim_1d79067c0733c6f237e9a14cdefff2c3",
+      "source": "claim_08d2a5875247586f30ccc828d48f7af3",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "claim_1d79067c0733c6f237e9a14cdefff2c3",
+      "source": "claim_08d2a5875247586f30ccc828d48f7af3",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_1d79067c0733c6f237e9a14cdefff2c3",
+      "source": "claim_08d2a5875247586f30ccc828d48f7af3",
       "target": "sige",
       "type": "relates_to"
     },
     {
-      "source": "1d0a6d8d681fc5a3286ffa20aa2f264d",
-      "target": "claim_91fa3ce513926770787443d541802bd8",
+      "source": "115a8508811c063028901f124f276e62",
+      "target": "claim_02c59a222a83c07326334e9fad08bc6f",
       "type": "contains"
     },
     {
-      "source": "claim_91fa3ce513926770787443d541802bd8",
+      "source": "claim_02c59a222a83c07326334e9fad08bc6f",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_91fa3ce513926770787443d541802bd8",
+      "source": "claim_02c59a222a83c07326334e9fad08bc6f",
       "target": "sige",
       "type": "relates_to"
     },
     {
-      "source": "1d0a6d8d681fc5a3286ffa20aa2f264d",
-      "target": "claim_6c970707a07c6365ab0419f3183d6113",
+      "source": "115a8508811c063028901f124f276e62",
+      "target": "claim_43349c933b07fc1b499f9816a6dcb016",
       "type": "contains"
     },
     {
-      "source": "claim_6c970707a07c6365ab0419f3183d6113",
+      "source": "claim_43349c933b07fc1b499f9816a6dcb016",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_6c970707a07c6365ab0419f3183d6113",
+      "source": "claim_43349c933b07fc1b499f9816a6dcb016",
       "target": "sige",
       "type": "relates_to"
     },
     {
-      "source": "1d0a6d8d681fc5a3286ffa20aa2f264d",
-      "target": "claim_7214eb6f0e20a3644bd630c4592369be",
+      "source": "115a8508811c063028901f124f276e62",
+      "target": "claim_2269e8be636129fe333cdddd471c3434",
       "type": "contains"
     },
     {
-      "source": "1d0a6d8d681fc5a3286ffa20aa2f264d",
-      "target": "claim_7a93c557654a6f310fd42717a23ccd42",
+      "source": "115a8508811c063028901f124f276e62",
+      "target": "claim_0571ef36bc2bc7da753326dc87355c90",
       "type": "contains"
     },
     {
-      "source": "claim_7a93c557654a6f310fd42717a23ccd42",
+      "source": "claim_0571ef36bc2bc7da753326dc87355c90",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_7a93c557654a6f310fd42717a23ccd42",
+      "source": "claim_0571ef36bc2bc7da753326dc87355c90",
       "target": "sige",
       "type": "relates_to"
     },
     {
-      "source": "1d0a6d8d681fc5a3286ffa20aa2f264d",
-      "target": "claim_81c503fd8c00e1708e06dda701876b47",
+      "source": "115a8508811c063028901f124f276e62",
+      "target": "claim_9f3f3e91893ab5ec9d87e1b150ad7c4c",
       "type": "contains"
     },
     {
-      "source": "claim_81c503fd8c00e1708e06dda701876b47",
+      "source": "claim_9f3f3e91893ab5ec9d87e1b150ad7c4c",
       "target": "serum_sige",
       "type": "relates_to"
     },
     {
-      "source": "claim_81c503fd8c00e1708e06dda701876b47",
+      "source": "claim_9f3f3e91893ab5ec9d87e1b150ad7c4c",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_81c503fd8c00e1708e06dda701876b47",
+      "source": "claim_9f3f3e91893ab5ec9d87e1b150ad7c4c",
       "target": "sige",
       "type": "relates_to"
     },
     {
-      "source": "f31c208837429b054d83caf8f7e01a42",
-      "target": "claim_4ee3e2bc5af31bd794ad9eec4a5872b6",
+      "source": "e044682008f27b1dd190b0ba3cf42d78",
+      "target": "claim_9d8951343099b992f06b7ce268d3532e",
       "type": "contains"
     },
     {
-      "source": "f31c208837429b054d83caf8f7e01a42",
-      "target": "claim_96fd0638510ff06e956383610022af51",
+      "source": "e044682008f27b1dd190b0ba3cf42d78",
+      "target": "claim_d869349919188c159a42a9d976526b3a",
       "type": "contains"
     },
     {
-      "source": "f31c208837429b054d83caf8f7e01a42",
-      "target": "claim_486f72589663c8702fba5574c64f7977",
+      "source": "e044682008f27b1dd190b0ba3cf42d78",
+      "target": "claim_b8754c77adc33286288e6dc2007e41a1",
       "type": "contains"
     },
     {
-      "source": "claim_486f72589663c8702fba5574c64f7977",
+      "source": "claim_b8754c77adc33286288e6dc2007e41a1",
       "target": "food_allergy",
       "type": "relates_to"
     },
     {
-      "source": "f31c208837429b054d83caf8f7e01a42",
-      "target": "claim_54be498733884005e41d35df5c65838c",
+      "source": "e044682008f27b1dd190b0ba3cf42d78",
+      "target": "claim_88b139028e9f974c6091b450220ee352",
       "type": "contains"
     },
     {
-      "source": "f31c208837429b054d83caf8f7e01a42",
-      "target": "claim_43d0df2c58d1dcc460f4f14e9d43248f",
+      "source": "e044682008f27b1dd190b0ba3cf42d78",
+      "target": "claim_da7d1dd5ae6224f5e42777630f2412cd",
       "type": "contains"
     },
     {
-      "source": "f31c208837429b054d83caf8f7e01a42",
-      "target": "claim_54f0bb9b1ee6b73eebc3d2abcb185cc5",
+      "source": "e044682008f27b1dd190b0ba3cf42d78",
+      "target": "claim_2c920b4cc883f5a33da4ca6b95c437f9",
       "type": "contains"
     },
     {
-      "source": "f31c208837429b054d83caf8f7e01a42",
-      "target": "claim_9a362b9798e885dd527b0c37bf7e5c7c",
+      "source": "e044682008f27b1dd190b0ba3cf42d78",
+      "target": "claim_14bd7867a5a2bdb5fb8063ab5b13c7f8",
       "type": "contains"
     },
     {
-      "source": "claim_9a362b9798e885dd527b0c37bf7e5c7c",
+      "source": "claim_14bd7867a5a2bdb5fb8063ab5b13c7f8",
       "target": "food_allergy",
       "type": "relates_to"
     },
     {
-      "source": "f31c208837429b054d83caf8f7e01a42",
-      "target": "claim_00510c376d4587580a4c5e049071ae6f",
+      "source": "e044682008f27b1dd190b0ba3cf42d78",
+      "target": "claim_95580b359c304b9639841574fa75e848",
       "type": "contains"
     },
     {
-      "source": "claim_00510c376d4587580a4c5e049071ae6f",
+      "source": "claim_95580b359c304b9639841574fa75e848",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "ce8af3824359ead659bd7a54790f5950",
-      "target": "claim_f5f14940dbee5f8ffc8111e381325c90",
+      "source": "6f9959f40b972d17e8e35cf19c010e53",
+      "target": "claim_133a39aa8d41220e59afa4b477162f10",
       "type": "contains"
     },
     {
-      "source": "claim_f5f14940dbee5f8ffc8111e381325c90",
+      "source": "claim_133a39aa8d41220e59afa4b477162f10",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "ce8af3824359ead659bd7a54790f5950",
-      "target": "claim_64a20bf2d3355d1e5f219b162afa3bab",
+      "source": "6f9959f40b972d17e8e35cf19c010e53",
+      "target": "claim_f79a0cbbc9bf3aad10319a2b681f8d32",
       "type": "contains"
     },
     {
-      "source": "claim_64a20bf2d3355d1e5f219b162afa3bab",
+      "source": "claim_f79a0cbbc9bf3aad10319a2b681f8d32",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "ce8af3824359ead659bd7a54790f5950",
-      "target": "claim_99a203b89abc3349f422cd998f5f420f",
+      "source": "6f9959f40b972d17e8e35cf19c010e53",
+      "target": "claim_e05835d58e37b66e36490c7a09775442",
       "type": "contains"
     },
     {
-      "source": "claim_99a203b89abc3349f422cd998f5f420f",
+      "source": "claim_e05835d58e37b66e36490c7a09775442",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "claim_99a203b89abc3349f422cd998f5f420f",
+      "source": "claim_e05835d58e37b66e36490c7a09775442",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "ce8af3824359ead659bd7a54790f5950",
-      "target": "claim_b197d3a0ed7859b0d258ea9082314661",
+      "source": "6f9959f40b972d17e8e35cf19c010e53",
+      "target": "claim_7292031be56d6fcbac701fd14288e3ff",
       "type": "contains"
     },
     {
-      "source": "claim_b197d3a0ed7859b0d258ea9082314661",
+      "source": "claim_7292031be56d6fcbac701fd14288e3ff",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "claim_b197d3a0ed7859b0d258ea9082314661",
+      "source": "claim_7292031be56d6fcbac701fd14288e3ff",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "ce8af3824359ead659bd7a54790f5950",
-      "target": "claim_bebd18f856b0c83b3892f909a03f69d7",
+      "source": "6f9959f40b972d17e8e35cf19c010e53",
+      "target": "claim_2208b3a00e823349f63dc1cf2d1ac4fc",
       "type": "contains"
     },
     {
-      "source": "claim_bebd18f856b0c83b3892f909a03f69d7",
+      "source": "claim_2208b3a00e823349f63dc1cf2d1ac4fc",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "claim_bebd18f856b0c83b3892f909a03f69d7",
+      "source": "claim_2208b3a00e823349f63dc1cf2d1ac4fc",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "ce8af3824359ead659bd7a54790f5950",
-      "target": "claim_f5b051eb7488ecfc9b37facebbebbbc9",
+      "source": "6f9959f40b972d17e8e35cf19c010e53",
+      "target": "claim_fe672cd46f83be4376b450d09c5ca9b2",
       "type": "contains"
     },
     {
-      "source": "claim_f5b051eb7488ecfc9b37facebbebbbc9",
+      "source": "claim_fe672cd46f83be4376b450d09c5ca9b2",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "ce8af3824359ead659bd7a54790f5950",
-      "target": "claim_63eb9f17ccbe6dc77cbc7f08c9b64a5f",
+      "source": "6f9959f40b972d17e8e35cf19c010e53",
+      "target": "claim_f7e0d9360974e707f882d7d2b1243036",
       "type": "contains"
     },
     {
-      "source": "claim_63eb9f17ccbe6dc77cbc7f08c9b64a5f",
+      "source": "claim_f7e0d9360974e707f882d7d2b1243036",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "c4bc8ab01ca9e6176bf112a05800d2d6",
-      "target": "claim_299e2e24dea5ce72ba70621a6ecfbb8f",
+      "source": "b3304bbe42ae899867d22ec9f71144bb",
+      "target": "claim_38b51e9c867e83321888b584b93b78af",
       "type": "contains"
     },
     {
-      "source": "claim_299e2e24dea5ce72ba70621a6ecfbb8f",
+      "source": "claim_38b51e9c867e83321888b584b93b78af",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "c4bc8ab01ca9e6176bf112a05800d2d6",
-      "target": "claim_1d2aa5dec3cef26485b6a92cbc28428a",
+      "source": "b3304bbe42ae899867d22ec9f71144bb",
+      "target": "claim_8c4660fee89a3981479dfe11748ec181",
       "type": "contains"
     },
     {
-      "source": "claim_1d2aa5dec3cef26485b6a92cbc28428a",
+      "source": "claim_8c4660fee89a3981479dfe11748ec181",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_1d2aa5dec3cef26485b6a92cbc28428a",
+      "source": "claim_8c4660fee89a3981479dfe11748ec181",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "c4bc8ab01ca9e6176bf112a05800d2d6",
-      "target": "claim_29e0554772a8c920a463a9b169e435bd",
+      "source": "b3304bbe42ae899867d22ec9f71144bb",
+      "target": "claim_3f55cab1262e29d1b51a0c744d29ccfa",
       "type": "contains"
     },
     {
-      "source": "claim_29e0554772a8c920a463a9b169e435bd",
+      "source": "claim_3f55cab1262e29d1b51a0c744d29ccfa",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_29e0554772a8c920a463a9b169e435bd",
+      "source": "claim_3f55cab1262e29d1b51a0c744d29ccfa",
       "target": "sige",
       "type": "relates_to"
     },
     {
-      "source": "claim_29e0554772a8c920a463a9b169e435bd",
+      "source": "claim_3f55cab1262e29d1b51a0c744d29ccfa",
       "target": "skin_prick_test",
       "type": "relates_to"
     },
     {
-      "source": "c4bc8ab01ca9e6176bf112a05800d2d6",
-      "target": "claim_105d349f8bf61c28d23b9ec292c0db87",
+      "source": "b3304bbe42ae899867d22ec9f71144bb",
+      "target": "claim_e1519a60372be7109c7ce8c90d4daad9",
       "type": "contains"
     },
     {
-      "source": "c4bc8ab01ca9e6176bf112a05800d2d6",
-      "target": "claim_ada9a10e2ade2acab9e586edca464e22",
+      "source": "b3304bbe42ae899867d22ec9f71144bb",
+      "target": "claim_c1c260ddb0f868566f60292646ad36b7",
       "type": "contains"
     },
     {
-      "source": "c4bc8ab01ca9e6176bf112a05800d2d6",
-      "target": "claim_1a034be8ec8bec36881fe892291b6c66",
+      "source": "b3304bbe42ae899867d22ec9f71144bb",
+      "target": "claim_10471e455659aae525fe85e5c5a157eb",
       "type": "contains"
     },
     {
-      "source": "claim_1a034be8ec8bec36881fe892291b6c66",
+      "source": "claim_10471e455659aae525fe85e5c5a157eb",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "c4bc8ab01ca9e6176bf112a05800d2d6",
-      "target": "claim_dffa3826913f6399ad5d9713fe269b5f",
+      "source": "b3304bbe42ae899867d22ec9f71144bb",
+      "target": "claim_b1c1396a6888ce55959d21f5ceae60a8",
       "type": "contains"
     },
     {
-      "source": "c4bc8ab01ca9e6176bf112a05800d2d6",
-      "target": "claim_1efd704b047cea921a91355a8a6a9f84",
+      "source": "b3304bbe42ae899867d22ec9f71144bb",
+      "target": "claim_07d53fcb82903f0495073af65c5a46ed",
       "type": "contains"
     },
     {
-      "source": "claim_1efd704b047cea921a91355a8a6a9f84",
+      "source": "claim_07d53fcb82903f0495073af65c5a46ed",
       "target": "dust_mite",
       "type": "relates_to"
     },
     {
-      "source": "claim_1efd704b047cea921a91355a8a6a9f84",
+      "source": "claim_07d53fcb82903f0495073af65c5a46ed",
       "target": "pollen",
       "type": "relates_to"
     },
     {
-      "source": "423dfe35768f9731e9cb7b90508549c2",
-      "target": "claim_8d234313fc00ee05eba8b8daec1776c2",
+      "source": "7d8e7df2f1456e8a85ad65e8f082032b",
+      "target": "claim_c5384e433862ec5785780177c8359681",
       "type": "contains"
     },
     {
-      "source": "claim_8d234313fc00ee05eba8b8daec1776c2",
+      "source": "claim_c5384e433862ec5785780177c8359681",
       "target": "dust_mite",
       "type": "relates_to"
     },
     {
-      "source": "423dfe35768f9731e9cb7b90508549c2",
-      "target": "claim_d9875a4e1e87629005d822e691e01519",
+      "source": "7d8e7df2f1456e8a85ad65e8f082032b",
+      "target": "claim_cfd700abcdccadd446071d8210aa4b87",
       "type": "contains"
     },
     {
-      "source": "claim_d9875a4e1e87629005d822e691e01519",
+      "source": "claim_cfd700abcdccadd446071d8210aa4b87",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_d9875a4e1e87629005d822e691e01519",
+      "source": "claim_cfd700abcdccadd446071d8210aa4b87",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "claim_d9875a4e1e87629005d822e691e01519",
+      "source": "claim_cfd700abcdccadd446071d8210aa4b87",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "423dfe35768f9731e9cb7b90508549c2",
-      "target": "claim_638a9dcfa1046d810dd1f56d91371abf",
+      "source": "7d8e7df2f1456e8a85ad65e8f082032b",
+      "target": "claim_4f664a5cc20d52ed0fa7a3c6d3a2b8c0",
       "type": "contains"
     },
     {
-      "source": "423dfe35768f9731e9cb7b90508549c2",
-      "target": "claim_109c811f1401a6ae93d4219f63c7da3c",
+      "source": "7d8e7df2f1456e8a85ad65e8f082032b",
+      "target": "claim_f447e965d8d0d698953134e5ba6d0056",
       "type": "contains"
     },
     {
-      "source": "claim_109c811f1401a6ae93d4219f63c7da3c",
+      "source": "claim_f447e965d8d0d698953134e5ba6d0056",
       "target": "histamine",
       "type": "relates_to"
     },
     {
-      "source": "claim_109c811f1401a6ae93d4219f63c7da3c",
+      "source": "claim_f447e965d8d0d698953134e5ba6d0056",
       "target": "antihistamine",
       "type": "relates_to"
     },
     {
-      "source": "423dfe35768f9731e9cb7b90508549c2",
-      "target": "claim_21d2170dbef6301f93c6b4a000223aa7",
+      "source": "7d8e7df2f1456e8a85ad65e8f082032b",
+      "target": "claim_e5c8a405b7302524947943ae286dc5fe",
       "type": "contains"
     },
     {
-      "source": "423dfe35768f9731e9cb7b90508549c2",
-      "target": "claim_82f6ea08d3e231624dde9e5cc6216cd7",
+      "source": "7d8e7df2f1456e8a85ad65e8f082032b",
+      "target": "claim_95a474a0ac23b78c9e9b605b573b2284",
       "type": "contains"
     },
     {
-      "source": "claim_82f6ea08d3e231624dde9e5cc6216cd7",
+      "source": "claim_95a474a0ac23b78c9e9b605b573b2284",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "claim_82f6ea08d3e231624dde9e5cc6216cd7",
+      "source": "claim_95a474a0ac23b78c9e9b605b573b2284",
       "target": "antihistamine",
       "type": "relates_to"
     },
     {
-      "source": "e5f9974c96bfed019658a614d44471ab",
-      "target": "claim_28b1c0047502c883bcb392df8763881d",
+      "source": "03ec9aea5495d61c2f579e0b3f239a3d",
+      "target": "claim_45cf9181342073fadb015f291cdc0e9c",
       "type": "contains"
     },
     {
-      "source": "claim_28b1c0047502c883bcb392df8763881d",
+      "source": "claim_45cf9181342073fadb015f291cdc0e9c",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "e5f9974c96bfed019658a614d44471ab",
-      "target": "claim_0be640507fe2293330cafb9928ab1727",
+      "source": "03ec9aea5495d61c2f579e0b3f239a3d",
+      "target": "claim_b889b6f004a9cd94a98a57c63184a66d",
       "type": "contains"
     },
     {
-      "source": "claim_0be640507fe2293330cafb9928ab1727",
+      "source": "claim_b889b6f004a9cd94a98a57c63184a66d",
       "target": "atopic_dermatitis",
       "type": "relates_to"
     },
     {
-      "source": "claim_0be640507fe2293330cafb9928ab1727",
+      "source": "claim_b889b6f004a9cd94a98a57c63184a66d",
       "target": "food_allergy",
       "type": "relates_to"
     },
     {
-      "source": "e5f9974c96bfed019658a614d44471ab",
-      "target": "claim_ad1824a6fa412ba17d3be26a75d98152",
+      "source": "03ec9aea5495d61c2f579e0b3f239a3d",
+      "target": "claim_1a86ac45ee5412fc5dbef94ed5a13555",
       "type": "contains"
     },
     {
-      "source": "e5f9974c96bfed019658a614d44471ab",
-      "target": "claim_8046439de25e178ff24ad2bad34e6053",
+      "source": "03ec9aea5495d61c2f579e0b3f239a3d",
+      "target": "claim_43b62b48bf701ee6b0fa69967f6479ed",
       "type": "contains"
     },
     {
-      "source": "claim_8046439de25e178ff24ad2bad34e6053",
+      "source": "claim_43b62b48bf701ee6b0fa69967f6479ed",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "claim_8046439de25e178ff24ad2bad34e6053",
+      "source": "claim_43b62b48bf701ee6b0fa69967f6479ed",
       "target": "pollen",
       "type": "relates_to"
     },
     {
-      "source": "e5f9974c96bfed019658a614d44471ab",
-      "target": "claim_1fdcfa25b8ac5eb583efe93e956f1f82",
+      "source": "03ec9aea5495d61c2f579e0b3f239a3d",
+      "target": "claim_d579094c8656137dfa321ce2a3bb7eb5",
       "type": "contains"
     },
     {
-      "source": "e5f9974c96bfed019658a614d44471ab",
-      "target": "claim_899cf2ee7fb4f6930fd1037567cb2aac",
+      "source": "03ec9aea5495d61c2f579e0b3f239a3d",
+      "target": "claim_a3dd48130ce3deb0ad078b20916eec3b",
       "type": "contains"
     },
     {
-      "source": "699a82962511b0f11657fa11f8e66d7d",
-      "target": "claim_20bac9c1a909f25fb8fdc4a35279648d",
+      "source": "b878af4a8ac48c73846cfd0f7696d568",
+      "target": "claim_8393ca6d084a37251509d22d44ff5cb6",
       "type": "contains"
     },
     {
-      "source": "claim_20bac9c1a909f25fb8fdc4a35279648d",
+      "source": "claim_8393ca6d084a37251509d22d44ff5cb6",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_20bac9c1a909f25fb8fdc4a35279648d",
+      "source": "claim_8393ca6d084a37251509d22d44ff5cb6",
       "target": "component_resolved_diagnosis",
       "type": "relates_to"
     },
     {
-      "source": "699a82962511b0f11657fa11f8e66d7d",
-      "target": "claim_42034466f7a6388d2051fc474151b3f3",
+      "source": "b878af4a8ac48c73846cfd0f7696d568",
+      "target": "claim_073e2718f4767db124bed6b9634fbb7a",
       "type": "contains"
     },
     {
-      "source": "claim_42034466f7a6388d2051fc474151b3f3",
+      "source": "claim_073e2718f4767db124bed6b9634fbb7a",
       "target": "component_resolved_diagnosis",
       "type": "relates_to"
     },
     {
-      "source": "699a82962511b0f11657fa11f8e66d7d",
-      "target": "claim_6c0ee9013828bfabb288caee903d5844",
+      "source": "b878af4a8ac48c73846cfd0f7696d568",
+      "target": "claim_258bb0406b8fe1c8e5d8d3921bc6970e",
       "type": "contains"
     },
     {
-      "source": "claim_6c0ee9013828bfabb288caee903d5844",
+      "source": "claim_258bb0406b8fe1c8e5d8d3921bc6970e",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_6c0ee9013828bfabb288caee903d5844",
+      "source": "claim_258bb0406b8fe1c8e5d8d3921bc6970e",
       "target": "component_resolved_diagnosis",
       "type": "relates_to"
     },
     {
-      "source": "claim_6c0ee9013828bfabb288caee903d5844",
+      "source": "claim_258bb0406b8fe1c8e5d8d3921bc6970e",
       "target": "peanut",
       "type": "relates_to"
     },
     {
-      "source": "699a82962511b0f11657fa11f8e66d7d",
-      "target": "claim_dba0d46d3b9412db092d50416760c117",
+      "source": "b878af4a8ac48c73846cfd0f7696d568",
+      "target": "claim_ef3c5c9bb1d380f70cd758138ff51db8",
       "type": "contains"
     },
     {
-      "source": "claim_dba0d46d3b9412db092d50416760c117",
+      "source": "claim_ef3c5c9bb1d380f70cd758138ff51db8",
       "target": "component_resolved_diagnosis",
       "type": "relates_to"
     },
     {
-      "source": "699a82962511b0f11657fa11f8e66d7d",
-      "target": "claim_bded8d04cbea05341c7bf8678dc0d5a9",
+      "source": "b878af4a8ac48c73846cfd0f7696d568",
+      "target": "claim_3ec0fd4742162db8f161813dcde4a2bd",
       "type": "contains"
     },
     {
-      "source": "claim_bded8d04cbea05341c7bf8678dc0d5a9",
+      "source": "claim_3ec0fd4742162db8f161813dcde4a2bd",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "claim_bded8d04cbea05341c7bf8678dc0d5a9",
+      "source": "claim_3ec0fd4742162db8f161813dcde4a2bd",
       "target": "component_resolved_diagnosis",
       "type": "relates_to"
     },
     {
-      "source": "699a82962511b0f11657fa11f8e66d7d",
-      "target": "claim_9116577da10ad5629140ba9e19fe069a",
+      "source": "b878af4a8ac48c73846cfd0f7696d568",
+      "target": "claim_dbdea808b656a70e5d2bfe679f43011d",
       "type": "contains"
     },
     {
-      "source": "claim_9116577da10ad5629140ba9e19fe069a",
+      "source": "claim_dbdea808b656a70e5d2bfe679f43011d",
       "target": "anaphylaxis",
       "type": "relates_to"
     },
     {
-      "source": "claim_9116577da10ad5629140ba9e19fe069a",
+      "source": "claim_dbdea808b656a70e5d2bfe679f43011d",
       "target": "component_resolved_diagnosis",
       "type": "relates_to"
     },
     {
-      "source": "claim_9116577da10ad5629140ba9e19fe069a",
+      "source": "claim_dbdea808b656a70e5d2bfe679f43011d",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "699a82962511b0f11657fa11f8e66d7d",
-      "target": "claim_c480ed4faca171e413edc6f4116c1f4e",
+      "source": "b878af4a8ac48c73846cfd0f7696d568",
+      "target": "claim_982f8a803a68dcb0d39f4077ac10d1b3",
       "type": "contains"
     },
     {
-      "source": "claim_c480ed4faca171e413edc6f4116c1f4e",
+      "source": "claim_982f8a803a68dcb0d39f4077ac10d1b3",
       "target": "component_resolved_diagnosis",
       "type": "relates_to"
     },
     {
-      "source": "1ac117a6dc38ee7331b2164d3ed5a8d0",
-      "target": "claim_e650205aff161ecb7d2d2dd596a5d229",
+      "source": "60a729fed190d4d84b6329946b5e9950",
+      "target": "claim_14f6851d8e599715248ae21716a41e32",
       "type": "contains"
     },
     {
-      "source": "claim_e650205aff161ecb7d2d2dd596a5d229",
+      "source": "claim_14f6851d8e599715248ae21716a41e32",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_e650205aff161ecb7d2d2dd596a5d229",
+      "source": "claim_14f6851d8e599715248ae21716a41e32",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "1ac117a6dc38ee7331b2164d3ed5a8d0",
-      "target": "claim_4bb45d17bcf4291785651ffbbba24d8a",
+      "source": "60a729fed190d4d84b6329946b5e9950",
+      "target": "claim_c99961cea55048e4038038684dd0c905",
       "type": "contains"
     },
     {
-      "source": "claim_4bb45d17bcf4291785651ffbbba24d8a",
+      "source": "claim_c99961cea55048e4038038684dd0c905",
       "target": "asthma",
       "type": "relates_to"
     },
     {
-      "source": "claim_4bb45d17bcf4291785651ffbbba24d8a",
+      "source": "claim_c99961cea55048e4038038684dd0c905",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "claim_4bb45d17bcf4291785651ffbbba24d8a",
+      "source": "claim_c99961cea55048e4038038684dd0c905",
       "target": "pollen",
       "type": "relates_to"
     },
     {
-      "source": "1ac117a6dc38ee7331b2164d3ed5a8d0",
-      "target": "claim_1ce02f8a8ca0b3c7273d40545ba62a63",
+      "source": "60a729fed190d4d84b6329946b5e9950",
+      "target": "claim_5f235ff7cb96da56acb3400811283ba7",
       "type": "contains"
     },
     {
-      "source": "claim_1ce02f8a8ca0b3c7273d40545ba62a63",
+      "source": "claim_5f235ff7cb96da56acb3400811283ba7",
       "target": "dust_mite",
       "type": "relates_to"
     },
     {
-      "source": "claim_1ce02f8a8ca0b3c7273d40545ba62a63",
+      "source": "claim_5f235ff7cb96da56acb3400811283ba7",
       "target": "pollen",
       "type": "relates_to"
     },
     {
-      "source": "claim_1ce02f8a8ca0b3c7273d40545ba62a63",
+      "source": "claim_5f235ff7cb96da56acb3400811283ba7",
       "target": "food_allergy",
       "type": "relates_to"
     },
     {
-      "source": "1ac117a6dc38ee7331b2164d3ed5a8d0",
-      "target": "claim_138b88ae68aaf0d4acdc81693ffa13f1",
+      "source": "60a729fed190d4d84b6329946b5e9950",
+      "target": "claim_5020c65fa972969765cac4a750993c55",
       "type": "contains"
     },
     {
-      "source": "claim_138b88ae68aaf0d4acdc81693ffa13f1",
+      "source": "claim_5020c65fa972969765cac4a750993c55",
       "target": "allergic_rhinitis",
       "type": "relates_to"
     },
     {
-      "source": "1ac117a6dc38ee7331b2164d3ed5a8d0",
-      "target": "claim_e57dc707ea9e130ebedff3a149324a1e",
+      "source": "60a729fed190d4d84b6329946b5e9950",
+      "target": "claim_dc3cb7a27f56b60d912feba9f2693d6b",
       "type": "contains"
     },
     {
-      "source": "claim_e57dc707ea9e130ebedff3a149324a1e",
+      "source": "claim_dc3cb7a27f56b60d912feba9f2693d6b",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_e57dc707ea9e130ebedff3a149324a1e",
+      "source": "claim_dc3cb7a27f56b60d912feba9f2693d6b",
       "target": "mast_cell",
       "type": "relates_to"
     },
     {
-      "source": "1ac117a6dc38ee7331b2164d3ed5a8d0",
-      "target": "claim_915e0d57ef634a360269a4bcdb08dbf1",
+      "source": "60a729fed190d4d84b6329946b5e9950",
+      "target": "claim_4e2112034ff4a752f13bae5b764e1206",
       "type": "contains"
     },
     {
-      "source": "claim_915e0d57ef634a360269a4bcdb08dbf1",
+      "source": "claim_4e2112034ff4a752f13bae5b764e1206",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_915e0d57ef634a360269a4bcdb08dbf1",
+      "source": "claim_4e2112034ff4a752f13bae5b764e1206",
       "target": "sige",
       "type": "relates_to"
     },
     {
-      "source": "claim_915e0d57ef634a360269a4bcdb08dbf1",
+      "source": "claim_4e2112034ff4a752f13bae5b764e1206",
       "target": "skin_prick_test",
       "type": "relates_to"
     },
     {
-      "source": "0f6528494349ca6cd3817323a6e77319",
-      "target": "claim_d6e06ca20af14602cee09cc05e7a3d77",
+      "source": "5f1211e449596c38f0d7a144fa8aa878",
+      "target": "claim_a98cedef5251768bc52021aebfb1229a",
       "type": "contains"
     },
     {
-      "source": "0f6528494349ca6cd3817323a6e77319",
-      "target": "claim_c52024f414c988e7725c6ba6a81f9fbc",
+      "source": "5f1211e449596c38f0d7a144fa8aa878",
+      "target": "claim_2f0d50dd81843cebda8380d7d7e2b8f4",
       "type": "contains"
     },
     {
-      "source": "claim_c52024f414c988e7725c6ba6a81f9fbc",
+      "source": "claim_2f0d50dd81843cebda8380d7d7e2b8f4",
       "target": "immunotherapy",
       "type": "relates_to"
     },
     {
-      "source": "claim_c52024f414c988e7725c6ba6a81f9fbc",
+      "source": "claim_2f0d50dd81843cebda8380d7d7e2b8f4",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_c52024f414c988e7725c6ba6a81f9fbc",
+      "source": "claim_2f0d50dd81843cebda8380d7d7e2b8f4",
       "target": "sige",
       "type": "relates_to"
     },
     {
-      "source": "0f6528494349ca6cd3817323a6e77319",
-      "target": "claim_59f5042bc92ccc50ee395cf7f3eae4c1",
+      "source": "5f1211e449596c38f0d7a144fa8aa878",
+      "target": "claim_8be14899418a4d5ed99addb74b44d133",
       "type": "contains"
     },
     {
-      "source": "0f6528494349ca6cd3817323a6e77319",
-      "target": "claim_da6a07a5689e82446272c023b4044a67",
+      "source": "5f1211e449596c38f0d7a144fa8aa878",
+      "target": "claim_4064fcea128bf39f684288711e0744d1",
       "type": "contains"
     },
     {
-      "source": "claim_da6a07a5689e82446272c023b4044a67",
+      "source": "claim_4064fcea128bf39f684288711e0744d1",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "0f6528494349ca6cd3817323a6e77319",
-      "target": "claim_3226854a8f9e242f9b41e8e974f50c26",
+      "source": "5f1211e449596c38f0d7a144fa8aa878",
+      "target": "claim_9747f3b7c8be623907a38e34531ffa5c",
       "type": "contains"
     },
     {
-      "source": "0f6528494349ca6cd3817323a6e77319",
-      "target": "claim_be75c40e91cc477d1aa6adeecbe31d96",
+      "source": "5f1211e449596c38f0d7a144fa8aa878",
+      "target": "claim_0c0f6ea5fb571645e2d9aec6f4bda7d7",
       "type": "contains"
     },
     {
-      "source": "claim_be75c40e91cc477d1aa6adeecbe31d96",
+      "source": "claim_0c0f6ea5fb571645e2d9aec6f4bda7d7",
       "target": "igg4",
       "type": "relates_to"
     },
     {
-      "source": "claim_be75c40e91cc477d1aa6adeecbe31d96",
+      "source": "claim_0c0f6ea5fb571645e2d9aec6f4bda7d7",
       "target": "igg",
       "type": "relates_to"
     },
     {
-      "source": "6362d29d26c9dd4dfd8215911ec1f594",
-      "target": "claim_61d4af7edffc6b24f5b361bb26267cdf",
+      "source": "f4ce5b01cd380b6970581bcdb24a41d4",
+      "target": "claim_4365ef16e5e75fff68a1176ed9249a55",
       "type": "contains"
     },
     {
-      "source": "claim_61d4af7edffc6b24f5b361bb26267cdf",
+      "source": "claim_4365ef16e5e75fff68a1176ed9249a55",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_61d4af7edffc6b24f5b361bb26267cdf",
+      "source": "claim_4365ef16e5e75fff68a1176ed9249a55",
       "target": "sige",
       "type": "relates_to"
     },
     {
-      "source": "6362d29d26c9dd4dfd8215911ec1f594",
-      "target": "claim_3022890dfb9c5a42389caa4fb41d4b79",
+      "source": "f4ce5b01cd380b6970581bcdb24a41d4",
+      "target": "claim_5969ae015fcb84107ee1f23edffcca36",
       "type": "contains"
     },
     {
-      "source": "claim_3022890dfb9c5a42389caa4fb41d4b79",
-      "target": "ige",
-      "type": "relates_to"
-    },
-    {
-      "source": "claim_3022890dfb9c5a42389caa4fb41d4b79",
-      "target": "sige",
-      "type": "relates_to"
-    },
-    {
-      "source": "6362d29d26c9dd4dfd8215911ec1f594",
-      "target": "claim_b13711942123b2963a75acfe480806fe",
-      "type": "contains"
-    },
-    {
-      "source": "claim_b13711942123b2963a75acfe480806fe",
+      "source": "claim_5969ae015fcb84107ee1f23edffcca36",
       "target": "serum_sige",
       "type": "relates_to"
     },
     {
-      "source": "6362d29d26c9dd4dfd8215911ec1f594",
-      "target": "claim_5f7e47c183b091172980901148ab5c01",
+      "source": "f4ce5b01cd380b6970581bcdb24a41d4",
+      "target": "claim_4f1837bf25da5c100127628c79209100",
       "type": "contains"
     },
     {
-      "source": "claim_5f7e47c183b091172980901148ab5c01",
+      "source": "claim_4f1837bf25da5c100127628c79209100",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_5f7e47c183b091172980901148ab5c01",
-      "target": "serum_sige",
-      "type": "relates_to"
-    },
-    {
-      "source": "claim_5f7e47c183b091172980901148ab5c01",
+      "source": "claim_4f1837bf25da5c100127628c79209100",
       "target": "sige",
       "type": "relates_to"
     },
     {
-      "source": "6362d29d26c9dd4dfd8215911ec1f594",
-      "target": "claim_5e1244713a9612d61474cf1854f52eff",
+      "source": "f4ce5b01cd380b6970581bcdb24a41d4",
+      "target": "claim_f6d043343ee95e2146aa609a50676acc",
       "type": "contains"
     },
     {
-      "source": "claim_5e1244713a9612d61474cf1854f52eff",
+      "source": "claim_f6d043343ee95e2146aa609a50676acc",
       "target": "component_resolved_diagnosis",
       "type": "relates_to"
     },
     {
-      "source": "6362d29d26c9dd4dfd8215911ec1f594",
-      "target": "claim_30fe9ae52957fd305376a3bfec01fa71",
+      "source": "f4ce5b01cd380b6970581bcdb24a41d4",
+      "target": "claim_83520b9d3ee62fe4ebfa46903b953146",
       "type": "contains"
     },
     {
-      "source": "claim_30fe9ae52957fd305376a3bfec01fa71",
+      "source": "claim_83520b9d3ee62fe4ebfa46903b953146",
       "target": "ige",
       "type": "relates_to"
     },
     {
-      "source": "claim_30fe9ae52957fd305376a3bfec01fa71",
-      "target": "serum_sige",
-      "type": "relates_to"
-    },
-    {
-      "source": "claim_30fe9ae52957fd305376a3bfec01fa71",
+      "source": "claim_83520b9d3ee62fe4ebfa46903b953146",
       "target": "sige",
       "type": "relates_to"
     },
     {
-      "source": "4d0eff64e327f8a1f5db930aed228bfc",
-      "target": "claim_f78f6ed5507e4b1586b8789caa9e13a9",
+      "source": "f4ce5b01cd380b6970581bcdb24a41d4",
+      "target": "claim_ec5331b2042da615c422056aa890aeb1",
       "type": "contains"
     },
     {
-      "source": "claim_f78f6ed5507e4b1586b8789caa9e13a9",
-      "target": "ige",
-      "type": "relates_to"
-    },
-    {
-      "source": "claim_f78f6ed5507e4b1586b8789caa9e13a9",
-      "target": "sige",
-      "type": "relates_to"
-    },
-    {
-      "source": "4d0eff64e327f8a1f5db930aed228bfc",
-      "target": "claim_1d737a546616ee7b61da5772033835bd",
-      "type": "contains"
-    },
-    {
-      "source": "claim_1d737a546616ee7b61da5772033835bd",
-      "target": "serum_sige",
-      "type": "relates_to"
-    },
-    {
-      "source": "4d0eff64e327f8a1f5db930aed228bfc",
-      "target": "claim_b30bdc5ba17b10a26a9fbff325ece345",
-      "type": "contains"
-    },
-    {
-      "source": "claim_b30bdc5ba17b10a26a9fbff325ece345",
-      "target": "ige",
-      "type": "relates_to"
-    },
-    {
-      "source": "claim_b30bdc5ba17b10a26a9fbff325ece345",
-      "target": "sige",
-      "type": "relates_to"
-    },
-    {
-      "source": "4d0eff64e327f8a1f5db930aed228bfc",
-      "target": "claim_11402be475ffe6f2bb01bd52cb01cd8b",
-      "type": "contains"
-    },
-    {
-      "source": "claim_11402be475ffe6f2bb01bd52cb01cd8b",
-      "target": "component_resolved_diagnosis",
-      "type": "relates_to"
-    },
-    {
-      "source": "4d0eff64e327f8a1f5db930aed228bfc",
-      "target": "claim_c3ed1aac9d0184ffea5959970376d900",
-      "type": "contains"
-    },
-    {
-      "source": "claim_c3ed1aac9d0184ffea5959970376d900",
-      "target": "ige",
-      "type": "relates_to"
-    },
-    {
-      "source": "claim_c3ed1aac9d0184ffea5959970376d900",
-      "target": "sige",
-      "type": "relates_to"
-    },
-    {
-      "source": "4d0eff64e327f8a1f5db930aed228bfc",
-      "target": "claim_bef12c21a28f9f1e03b6e0d6bc3037e6",
-      "type": "contains"
-    },
-    {
-      "source": "claim_bef12c21a28f9f1e03b6e0d6bc3037e6",
+      "source": "claim_ec5331b2042da615c422056aa890aeb1",
       "target": "component_resolved_diagnosis",
       "type": "relates_to"
     }
