@@ -22,15 +22,11 @@ PROJECT_ROOT = Path(__file__).parent.parent
 RESULTS_FILE = PROJECT_ROOT / "results.json"
 TRACKER_FILE = PROJECT_ROOT / ".processed_files.json"
 
-# 加载图谱数据
+# 加载图谱数据（支持热加载）
 GRAPH_DATA = {"nodes": [], "links": []}
-if os.path.exists(DATA_FILE):
-    with open(DATA_FILE, 'r', encoding='utf-8') as f:
-        GRAPH_DATA = json.load(f)
-
-# Build quick lookup indexes for graph data
-NODES_BY_ID = {node.get("id"): node for node in GRAPH_DATA.get("nodes", []) if node.get("id")}
-ARTICLE_IDS = {node_id for node_id, node in NODES_BY_ID.items() if node.get("group") == "Article"}
+GRAPH_DATA_MTIME = None
+NODES_BY_ID = {}
+ARTICLE_IDS = set()
 LINKS_BY_SOURCE = {}
 LINKS_BY_TARGET = {}
 
@@ -39,13 +35,40 @@ def _normalize_link_id(value):
         return value.get("id")
     return value
 
-for link in GRAPH_DATA.get("links", []):
-    source_id = _normalize_link_id(link.get("source"))
-    target_id = _normalize_link_id(link.get("target"))
-    if not source_id or not target_id:
-        continue
-    LINKS_BY_SOURCE.setdefault(source_id, []).append(target_id)
-    LINKS_BY_TARGET.setdefault(target_id, []).append(source_id)
+def _rebuild_graph_indexes():
+    global NODES_BY_ID, ARTICLE_IDS, LINKS_BY_SOURCE, LINKS_BY_TARGET
+    NODES_BY_ID = {node.get("id"): node for node in GRAPH_DATA.get("nodes", []) if node.get("id")}
+    ARTICLE_IDS = {node_id for node_id, node in NODES_BY_ID.items() if node.get("group") == "Article"}
+    LINKS_BY_SOURCE = {}
+    LINKS_BY_TARGET = {}
+    for link in GRAPH_DATA.get("links", []):
+        source_id = _normalize_link_id(link.get("source"))
+        target_id = _normalize_link_id(link.get("target"))
+        if not source_id or not target_id:
+            continue
+        LINKS_BY_SOURCE.setdefault(source_id, []).append(target_id)
+        LINKS_BY_TARGET.setdefault(target_id, []).append(source_id)
+
+def _load_graph_data():
+    global GRAPH_DATA, GRAPH_DATA_MTIME
+    if not os.path.exists(DATA_FILE):
+        GRAPH_DATA = {"nodes": [], "links": []}
+        GRAPH_DATA_MTIME = None
+        _rebuild_graph_indexes()
+        return
+    with open(DATA_FILE, 'r', encoding='utf-8') as f:
+        GRAPH_DATA = json.load(f)
+    GRAPH_DATA_MTIME = os.path.getmtime(DATA_FILE)
+    _rebuild_graph_indexes()
+
+def _reload_graph_if_changed():
+    if not os.path.exists(DATA_FILE):
+        return
+    mtime = os.path.getmtime(DATA_FILE)
+    if GRAPH_DATA_MTIME is None or mtime != GRAPH_DATA_MTIME:
+        _load_graph_data()
+
+_load_graph_data()
 
 def _build_article_file_index():
     index = {}
@@ -82,7 +105,26 @@ def _build_article_file_index():
         index[md5] = file_path
     return index
 
-ARTICLE_FILE_INDEX = _build_article_file_index()
+ARTICLE_FILE_INDEX = {}
+ARTICLE_INDEX_MTIME = None
+RESULTS_MTIME = None
+TRACKER_MTIME = None
+
+def _load_article_file_index():
+    global ARTICLE_FILE_INDEX, ARTICLE_INDEX_MTIME, RESULTS_MTIME, TRACKER_MTIME
+    ARTICLE_FILE_INDEX = _build_article_file_index()
+    RESULTS_MTIME = os.path.getmtime(RESULTS_FILE) if RESULTS_FILE.exists() else None
+    TRACKER_MTIME = os.path.getmtime(TRACKER_FILE) if TRACKER_FILE.exists() else None
+    ARTICLE_INDEX_MTIME = max(v for v in [RESULTS_MTIME, TRACKER_MTIME] if v is not None) if (RESULTS_MTIME or TRACKER_MTIME) else None
+
+def _reload_article_index_if_changed():
+    current_results = os.path.getmtime(RESULTS_FILE) if RESULTS_FILE.exists() else None
+    current_tracker = os.path.getmtime(TRACKER_FILE) if TRACKER_FILE.exists() else None
+    current = max(v for v in [current_results, current_tracker] if v is not None) if (current_results or current_tracker) else None
+    if ARTICLE_INDEX_MTIME is None or current != ARTICLE_INDEX_MTIME:
+        _load_article_file_index()
+
+_load_article_file_index()
 PROJECT_ROOT_RESOLVED = PROJECT_ROOT.resolve()
 
 def _is_within_root(path: Path) -> bool:
@@ -112,6 +154,20 @@ if config.OPENAI_API_KEY:
         base_url=config.OPENAI_BASE_URL
     )
 
+_SEARCH_STOPWORDS = [
+    "相关", "有关", "的", "及", "与", "和", "或", "等", "及其", "以及"
+]
+_SEARCH_CLEAN_RE = re.compile(r"[\\s\\-_/\\\\()（）\\[\\]{}【】,，。.;；:：'\"“”‘’!?！？·•]")
+
+def _normalize_search_text(text: str) -> str:
+    if not text:
+        return ""
+    text = text.lower()
+    text = _SEARCH_CLEAN_RE.sub("", text)
+    for token in _SEARCH_STOPWORDS:
+        text = text.replace(token, "")
+    return text
+
 def _article_url(node_id):
     if not node_id:
         return None
@@ -128,6 +184,24 @@ def _with_article_url(node):
     enriched = dict(node)
     enriched["url"] = url
     return enriched
+
+_GROUP_WEIGHT = {
+    "Article": 0,
+    "Claim": 1,
+    "Evidence": 2,
+    "Ontology": 3,
+}
+
+def _prioritize_nodes(nodes):
+    seen = set()
+    unique = []
+    for node in nodes:
+        node_id = node.get("id")
+        if not node_id or node_id in seen:
+            continue
+        seen.add(node_id)
+        unique.append(node)
+    return sorted(unique, key=lambda n: _GROUP_WEIGHT.get(n.get("group"), 9))
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
@@ -151,8 +225,12 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def handle_search(self):
         """处理搜索请求"""
         try:
+            _reload_graph_if_changed()
+            _reload_article_index_if_changed()
             query_components = parse_qs(urlparse(self.path).query)
-            keyword = query_components.get('q', [''])[0].lower().strip()
+            keyword_raw = query_components.get('q', [''])[0].strip()
+            keyword = keyword_raw.lower()
+            keyword_norm = _normalize_search_text(keyword_raw)
             
             if not keyword:
                 self.send_json({"error": "Empty query"})
@@ -168,7 +246,14 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 content = (node.get("content") or "").lower()
                 desc = (node.get("description") or "").lower()
                 
-                if keyword in name or keyword in content or keyword in desc:
+                matched = keyword in name or keyword in content or keyword in desc
+                if not matched and keyword_norm:
+                    name_norm = _normalize_search_text(name)
+                    content_norm = _normalize_search_text(content)
+                    desc_norm = _normalize_search_text(desc)
+                    matched = keyword_norm in name_norm or keyword_norm in content_norm or keyword_norm in desc_norm
+
+                if matched:
                     matched_nodes.append(node)
 
             # 2. 判断是否需要 AI 介入
@@ -245,11 +330,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                     if article_node:
                         related_article_nodes.append(article_node)
 
-                response_data["nodes"] = [
-                    _with_article_url(node) for node in matched_nodes
-                ] + [
-                    _with_article_url(node) for node in related_article_nodes
+                combined_nodes = [
+                    _with_article_url(node) for node in (related_article_nodes + matched_nodes)
                 ]
+                response_data["nodes"] = _prioritize_nodes(combined_nodes)
 
                 top_claim = next((n for n in matched_nodes if n.get("group") == "Claim"), None)
                 if top_claim:
@@ -264,6 +348,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self.send_json({"error": str(e)}, status=500)
 
     def handle_file_preview(self):
+        _reload_article_index_if_changed()
         article_id = self.path.split("/files/", 1)[-1].strip().split("?")[0]
         if not article_id:
             self.send_error(404, "File not found")

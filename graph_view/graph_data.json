@@ -1654,6 +1654,92 @@
       "content": "组分解析诊断（CRD）通过识别特定致敏蛋白组分，能够避免交叉反应干扰，实现精准诊断。未来，CRD技术将在过敏性疾病的诊疗中发挥更大作用。",
       "polarity": "支持",
       "val": 5
+    },
+    {
+      "id": "ee39b8014ae9dec8f38a835c452631fb",
+      "group": "Article",
+      "name": "过敏相关菌株",
+      "val": 20
+    },
+    {
+      "id": "claim_85fced1604b93ee5a21f4a781fe4f870",
+      "group": "Claim",
+      "name": "HN001益生菌增强免疫力并缓解婴幼儿过敏",
+      "content": "鼠李糖乳酪杆菌HN001能够增强孕妇和新生儿的免疫力，显著提高脐带血中IFN-γ水平及母乳中TGF-β和IgA含量。较高的IFN-γ水平与哮喘、喘息和致敏等过敏性疾病的保护作用相关，显示HN001在缓解婴幼儿过敏方面的突出效果。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_e199268172a24aad2da904a855c5ea44",
+      "group": "Claim",
+      "name": "LC-Zhang益生菌降低血清IgE水平并缓解过敏症状",
+      "content": "付干酪乳杆菌Zhang通过显著降低过敏人群血清IgE水平，调节肠道微生物群，抑制异亮氨酸产生，从而缓解过敏症状并维持肠道上皮屏障完整性。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_1c46028b92fc401bc2e7e1058ab6ce2d",
+      "group": "Claim",
+      "name": "Probio-M8益生菌通过免疫调节缓解食物过敏",
+      "content": "动物双歧杆菌乳亚种Probio-M8能够维护肠道上皮屏障完整性，调节免疫并改善肠道菌群结构。其活菌形式显著提升IL-10、TGF-β1、IFN-γ水平，通过Treg途径抑制致敏性Th2免疫应答，从而缓解过敏反应。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_e9c1052bd301d6490f0678001b28f883",
+      "group": "Claim",
+      "name": "Probio-37益生菌缓解过敏性鼻炎",
+      "content": "副干酪乳杆菌Probio-37能够通过免疫调节作用促进Th1/Th2免疫平衡向Th1方向滑动，从而有效缓解过敏性鼻炎。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_03ed5f05aab4e72bc0a50202a0cb04e0",
+      "group": "Claim",
+      "name": "R7041益生菌缓解皮肤过敏并增强免疫",
+      "content": "鼠李糖乳酪杆菌R7041通过调节皮肤过敏相关炎症细胞因子（如降低IgE、IL-5等），促进免疫细胞发育，调节肠道菌群，降低肠上皮细胞损伤，从而显著缓解皮肤过敏症状。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_6738bddf0b75dbac73f24a2977346827",
+      "group": "Claim",
+      "name": "MP108益生菌有效缓解儿童皮肤炎症和过敏症状",
+      "content": "鼠李糖乳酪杆菌MP108能够显著缓解婴儿特应性皮炎的面积和强度，并改善6-13岁儿童的鼻部及非鼻部过敏症状，降低鼻道阻力。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_a8d0d2515c547ee17b07ca81b6431866",
+      "group": "Claim",
+      "name": "罗伊氏乳杆菌缓解过敏性腹泻并调节免疫",
+      "content": "罗伊氏乳杆菌通过调节肠道菌群和增强耐受性免疫反应，显著减轻过敏性腹泻，同时下调GATA3表达，增加TGF-β和IL-10水平以缓解过敏反应。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_fda369271d92d2b15201ef5b32226e86",
+      "group": "Claim",
+      "name": "M-16V益生菌降低婴幼儿过敏风险并改善特应性皮炎",
+      "content": "短双歧杆菌M-16V通过早期干预调整肠道微生态平衡，显著增加双歧杆菌比例，降低有害菌比例，从而改善婴幼儿特应性皮炎症状并降低过敏发展的风险。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_cab1cc5da0589a228a4e82f9ad1afe99",
+      "group": "Claim",
+      "name": "BB536益生菌缓解花粉过敏及免疫失调症状",
+      "content": "长双歧杆菌BB536能够显著降低花粉过敏发生率，并通过调节Th1/Th2平衡缓解过敏性鼻炎等免疫失调症状，改善鼻塞、流鼻涕和眼痒等症状。",
+      "polarity": "支持",
+      "val": 5
+    },
+    {
+      "id": "claim_5a632445a0ad82d193bb45c6f5d1c116",
+      "group": "Claim",
+      "name": "M-63益生菌缓解婴幼儿过敏性鼻炎和肠道炎症",
+      "content": "婴儿双歧杆菌M-63通过提升肠道双歧杆菌丰度，优化菌群结构，显著降低促炎细胞因子水平及炎症标志物，从而缓解婴幼儿过敏性鼻炎和肠道炎症。",
+      "polarity": "支持",
+      "val": 5
     }
   ],
   "links": [
@@ -3555,6 +3641,156 @@
     {
       "source": "claim_ec5331b2042da615c422056aa890aeb1",
       "target": "component_resolved_diagnosis",
+      "type": "relates_to"
+    },
+    {
+      "source": "ee39b8014ae9dec8f38a835c452631fb",
+      "target": "claim_85fced1604b93ee5a21f4a781fe4f870",
+      "type": "contains"
+    },
+    {
+      "source": "claim_85fced1604b93ee5a21f4a781fe4f870",
+      "target": "l_rhamnosus_hn001",
+      "type": "relates_to"
+    },
+    {
+      "source": "ee39b8014ae9dec8f38a835c452631fb",
+      "target": "claim_e199268172a24aad2da904a855c5ea44",
+      "type": "contains"
+    },
+    {
+      "source": "claim_e199268172a24aad2da904a855c5ea44",
+      "target": "l_paracasei_lc_zhang",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_e199268172a24aad2da904a855c5ea44",
+      "target": "ige",
+      "type": "relates_to"
+    },
+    {
+      "source": "ee39b8014ae9dec8f38a835c452631fb",
+      "target": "claim_1c46028b92fc401bc2e7e1058ab6ce2d",
+      "type": "contains"
+    },
+    {
+      "source": "claim_1c46028b92fc401bc2e7e1058ab6ce2d",
+      "target": "b_animalis_lactis_probio_m8",
+      "type": "relates_to"
+    },
+    {
+      "source": "ee39b8014ae9dec8f38a835c452631fb",
+      "target": "claim_e9c1052bd301d6490f0678001b28f883",
+      "type": "contains"
+    },
+    {
+      "source": "claim_e9c1052bd301d6490f0678001b28f883",
+      "target": "l_paracasei_probio_37",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_e9c1052bd301d6490f0678001b28f883",
+      "target": "allergic_rhinitis",
+      "type": "relates_to"
+    },
+    {
+      "source": "ee39b8014ae9dec8f38a835c452631fb",
+      "target": "claim_03ed5f05aab4e72bc0a50202a0cb04e0",
+      "type": "contains"
+    },
+    {
+      "source": "claim_03ed5f05aab4e72bc0a50202a0cb04e0",
+      "target": "l_rhamnosus_r7041",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_03ed5f05aab4e72bc0a50202a0cb04e0",
+      "target": "ige",
+      "type": "relates_to"
+    },
+    {
+      "source": "ee39b8014ae9dec8f38a835c452631fb",
+      "target": "claim_6738bddf0b75dbac73f24a2977346827",
+      "type": "contains"
+    },
+    {
+      "source": "claim_6738bddf0b75dbac73f24a2977346827",
+      "target": "atopic_dermatitis",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_6738bddf0b75dbac73f24a2977346827",
+      "target": "l_rhamnosus_mp108",
+      "type": "relates_to"
+    },
+    {
+      "source": "ee39b8014ae9dec8f38a835c452631fb",
+      "target": "claim_a8d0d2515c547ee17b07ca81b6431866",
+      "type": "contains"
+    },
+    {
+      "source": "claim_a8d0d2515c547ee17b07ca81b6431866",
+      "target": "lactobacillus_reuteri",
+      "type": "relates_to"
+    },
+    {
+      "source": "ee39b8014ae9dec8f38a835c452631fb",
+      "target": "claim_fda369271d92d2b15201ef5b32226e86",
+      "type": "contains"
+    },
+    {
+      "source": "claim_fda369271d92d2b15201ef5b32226e86",
+      "target": "atopic_dermatitis",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_fda369271d92d2b15201ef5b32226e86",
+      "target": "b_breve_m16v",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_fda369271d92d2b15201ef5b32226e86",
+      "target": "bifidobacterium",
+      "type": "relates_to"
+    },
+    {
+      "source": "ee39b8014ae9dec8f38a835c452631fb",
+      "target": "claim_cab1cc5da0589a228a4e82f9ad1afe99",
+      "type": "contains"
+    },
+    {
+      "source": "claim_cab1cc5da0589a228a4e82f9ad1afe99",
+      "target": "allergic_rhinitis",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_cab1cc5da0589a228a4e82f9ad1afe99",
+      "target": "pollen",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_cab1cc5da0589a228a4e82f9ad1afe99",
+      "target": "b_longum_bb536",
+      "type": "relates_to"
+    },
+    {
+      "source": "ee39b8014ae9dec8f38a835c452631fb",
+      "target": "claim_5a632445a0ad82d193bb45c6f5d1c116",
+      "type": "contains"
+    },
+    {
+      "source": "claim_5a632445a0ad82d193bb45c6f5d1c116",
+      "target": "b_infantis_m63",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_5a632445a0ad82d193bb45c6f5d1c116",
+      "target": "bifidobacterium",
+      "type": "relates_to"
+    },
+    {
+      "source": "claim_5a632445a0ad82d193bb45c6f5d1c116",
+      "target": "allergic_rhinitis",
       "type": "relates_to"
     }
   ]
