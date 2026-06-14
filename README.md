@@ -31,64 +31,168 @@ Article (原文) → Claims (观点) ← Evidence (证据)
 
 ---
 
-## 🚀 快速开始
+## 🛠️ 部署与启动
 
-### 1. 安装依赖
+> 本节为完整部署流程。如果只想快速跑起来，至少需要完成 **步骤 0~3**（环境 + 依赖 + `.env`），
+> 再按 **步骤 6** 启动你需要的服务。
+
+### 步骤 0：前置要求
+
+| 工具 | 版本 | 说明 |
+|------|------|------|
+| Python | 3.11+ | 推荐用 `pyenv` 管理多版本 |
+| uv | 最新 | 依赖与虚拟环境管理（推荐） |
+| OpenAI API Key | — | 文本分析、观点提取 |
+| Notion 集成 Token | — | 知识库存储（免费版即可） |
+
+安装 `uv`（若未安装）：
 
 ```bash
-pip install -r requirements.txt
-# 或使用 uv（推荐）
-uv pip install -r requirements.txt
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-### 2. 配置环境
+用 `pyenv` 准备 Python（可选）：
 
-复制配置模板：
+```bash
+pyenv install 3.11.13
+pyenv local 3.11.13
+```
+
+### 步骤 1：获取代码并创建虚拟环境
+
+```bash
+git clone <仓库地址> alergy
+cd alergy
+
+# 创建并使用本地虚拟环境（uv 会自动识别 .venv）
+uv venv
+```
+
+### 步骤 2：安装依赖
+
+```bash
+uv pip install -r requirements.txt
+# 不用 uv 时可退回：
+# pip install -r requirements.txt
+```
+
+### 步骤 3：配置环境变量
+
 ```bash
 cp env.example.txt .env
 ```
 
-编辑 `.env` 文件，填入：
-- `NOTION_TOKEN`: Notion API Token
-- `NOTION_*_DB_ID`: 各数据库 ID
-- `OPENAI_API_KEY`: OpenAI API Key
-
-### 3. 创建 Notion 数据库
+编辑 `.env`，填入真实值（字段含义见底部「🔧 配置说明」）：
 
 ```bash
-# 在 Notion 中创建一个页面，获取页面 ID
-# 然后运行：
-uv run python tools/create_notion_databases.py YOUR_PAGE_ID
-uv run python tools/create_articles_database.py YOUR_PAGE_ID
+NOTION_TOKEN=secret_xxx...           # 必填
+NOTION_CLAIMS_DB_ID=xxx...           # 必填
+NOTION_EVIDENCE_DB_ID=xxx...
+NOTION_ONTOLOGY_DB_ID=xxx...
+NOTION_ARTICLES_DB_ID=xxx...
+OPENAI_API_KEY=sk-xxx...             # 必填
+OPENAI_MODEL=gpt-4o                  # 可选，默认 gpt-4o
+# OPENAI_BASE_URL=https://api.openai.com/v1   # 可选，自定义/兼容端点
 ```
 
-### 4. 3D 知识图谱可视化
+校验配置是否就绪（最少需要 `NOTION_TOKEN`、`NOTION_CLAIMS_DB_ID`、`OPENAI_API_KEY`）：
 
 ```bash
-# 生成图谱数据（使用本地 results.json）
+uv run python main.py config
+```
+
+### 步骤 4：初始化 Notion 数据库
+
+在 Notion 中新建一个页面，并把你的集成（integration）共享给该页面，复制页面 ID，然后：
+
+```bash
+# YOUR_PAGE_ID 为目标页面 ID
+uv run python tools/create_notion_databases.py YOUR_PAGE_ID   # Ontology / Claims / Evidence
+uv run python tools/create_articles_database.py YOUR_PAGE_ID  # Articles
+```
+
+把生成的各数据库 ID 回填到 `.env` 的 `NOTION_*_DB_ID`。
+免费版用户的逐列设置请参考 `docs/免费版用户指南.md`。
+
+### 步骤 5：同步本体（首次必做）
+
+```bash
+uv run python main.py ontology sync
+```
+
+### 步骤 6：启动服务
+
+本项目包含 **三个相互独立的服务**，按需启动：
+
+#### 6.1 后台管理系统（Flask，端口 5001）
+
+文章上传、AI 分析、观点/本体管理的 Web 后台。
+
+```bash
+# 方式一：一键脚本（自动检测 5001~5010 可用端口）
+./start_admin.sh
+
+# 方式二：手动启动，可用 FLASK_PORT 指定端口
+FLASK_PORT=5001 uv run python admin/app.py
+```
+
+访问：`http://localhost:5001`
+
+#### 6.2 知识图谱可视化前台（端口 8000）
+
+问答式 2D/3D 图谱浏览与文献预览。**启动前需先生成图谱数据**：
+
+```bash
+# 1) 从本地 results.json 生成图谱数据
 uv run python scripts/export_graph_data.py --mode local
 
-# 启动可视化服务器
+# 2) 启动可视化服务器
 uv run python graph_view/server.py
-# 浏览器访问 http://localhost:8000
 ```
 
-### 5. 手动添加数据库列
+访问：`http://localhost:8000`（启动后会自动打开浏览器）
 
-按照文档说明在 Notion 中为每个数据库添加必要的列：
-- 参考：`docs/免费版用户指南.md`
+#### 6.3 视频播放器（端口 8000，可选）
 
-### 5. 开始使用
+教学视频播放，附加功能。
 
 ```bash
-# 同步本体
-uv run python main.py ontology sync
+cd video_player && python server.py
+```
 
-# 处理 PDF 文件（带去重）
+访问：`http://localhost:8000`
+
+> ⚠️ **端口冲突提示**：`graph_view` 与 `video_player` 默认都用 **8000**，不要同时启动；
+> 后台管理系统用 5001，与前者互不影响。
+
+### 步骤 7：处理文献（日常使用）
+
+```bash
+# 智能上传单个 PDF（带 MD5 去重）
 uv run python scripts/upload_auto.py your_file.pdf
 
-# 查看统计
+# 查看处理统计
 uv run python scripts/upload_complete.py --stats
+```
+
+### 步骤 8：运行测试（开发者）
+
+```bash
+# 项目自带 pytest；用项目环境运行：
+uv run --with pytest python -m pytest tests/ -q
+```
+
+> 注意：直接 `uv run pytest` 会进入隔离环境而缺少项目依赖（如 `dotenv`），
+> 请用上面的 `uv run --with pytest python -m pytest`，或先 `uv pip install pytest`
+> 后用 `uv run python -m pytest tests/ -q`。
+
+### 后台常驻运行（可选）
+
+开发用 `debug=True` 自带自动重载，**生产环境请勿开 debug**。需要常驻时可用 `nohup`：
+
+```bash
+nohup uv run python admin/app.py > admin.log 2>&1 &
+nohup uv run python graph_view/server.py > graph.log 2>&1 &
 ```
 
 ---
