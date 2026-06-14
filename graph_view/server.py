@@ -157,7 +157,7 @@ if config.OPENAI_API_KEY:
 _SEARCH_STOPWORDS = [
     "相关", "有关", "的", "及", "与", "和", "或", "等", "及其", "以及"
 ]
-_SEARCH_CLEAN_RE = re.compile(r"[\\s\\-_/\\\\()（）\\[\\]{}【】,，。.;；:：'\"“”‘’!?！？·•]")
+_SEARCH_CLEAN_RE = re.compile(r"[\s\-_/\\()（）\[\]{}【】,，。.;；:：'\"“”‘’!?！？·•]")
 
 def _normalize_search_text(text: str) -> str:
     if not text:
@@ -397,14 +397,19 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(json.dumps(data).encode('utf-8'))
 
-# 允许地址复用
-socketserver.TCPServer.allow_reuse_address = True
+def main():
+    # 允许地址复用
+    socketserver.TCPServer.allow_reuse_address = True
 
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print(f"Serving at http://localhost:{PORT}")
-    print(f"Mode: API + Static Server")
-    webbrowser.open(f"http://localhost:{PORT}")
-    try:
-        httpd.serve_forever()
-    except KeyboardInterrupt:
-        print("\nServer stopped.")
+    with socketserver.TCPServer(("", PORT), Handler) as httpd:
+        print(f"Serving at http://localhost:{PORT}")
+        print(f"Mode: API + Static Server")
+        webbrowser.open(f"http://localhost:{PORT}")
+        try:
+            httpd.serve_forever()
+        except KeyboardInterrupt:
+            print("\nServer stopped.")
+
+
+if __name__ == "__main__":
+    main()
