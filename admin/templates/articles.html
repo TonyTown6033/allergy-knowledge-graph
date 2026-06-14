@@ -78,9 +78,9 @@ function uploadArticle() {
     input.onchange = async (e) => {
         const file = e.target.files[0];
         if (!file) return;
-        const maxFilenameBytes = 255;
+        const maxFilenameBytes = {{ max_filename_bytes }};
         const encoder = new TextEncoder();
-        if (file.name !== file.name.split('/').pop()) {
+        if (file.name !== file.name.split('/').pop() || file.name.includes('\\') || file.name.startsWith('.')) {
             showToast('文件名不合法，请重新选择文件', 'error');
             return;
         }

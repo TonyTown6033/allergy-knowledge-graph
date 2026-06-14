@@ -32,6 +32,29 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 PROJECT_ROOT = Path(__file__).parent.parent
 
 
+def validate_pdf_filename(filename):
+    """校验上传文件名是否安全。返回 (ok: bool, error: str|None)。
+
+    不自动改写文件名（保留原名以便 MD5/预览匹配），仅做拒绝式校验。
+    """
+    if not filename:
+        return False, '文件名为空'
+    if not filename.lower().endswith('.pdf'):
+        return False, '只支持 PDF 文件'
+    # 拒绝任何路径分隔符 / 空字节，避免目录穿越
+    if any(sep in filename for sep in ('/', '\\', '\x00')):
+        return False, '文件名不合法'
+    # basename 兜底（处理平台相关的分隔符）
+    if filename != os.path.basename(filename):
+        return False, '文件名不合法'
+    # 拒绝隐藏文件与 . / .. 之类的相对名
+    if filename.startswith('.'):
+        return False, '文件名不合法'
+    if len(filename.encode('utf-8')) > app.config['MAX_FILENAME_BYTES']:
+        return False, '文件名过长，请缩短后再上传'
+    return True, None
+
+
 # ==================== 路由 ====================
 
 @app.route('/')
@@ -43,7 +66,8 @@ def index():
 @app.route('/articles')
 def articles():
     """文章管理页面"""
-    return render_template('articles.html')
+    return render_template('articles.html',
+                           max_filename_bytes=app.config['MAX_FILENAME_BYTES'])
 
 
 @app.route('/claims')
@@ -162,19 +186,12 @@ def api_articles_upload():
             return jsonify({'success': False, 'error': '没有文件'}), 400
         
         file = request.files['file']
-        if file.filename == '':
-            return jsonify({'success': False, 'error': '文件名为空'}), 400
-        
-        if not file.filename.lower().endswith('.pdf'):
-            return jsonify({'success': False, 'error': '只支持 PDF 文件'}), 400
-        
-        # 1. 保存文件到 download 目录（与主系统保持一致）
         filename = file.filename
-        # 不自动处理长文件名：直接校验并报错
-        if filename != os.path.basename(filename):
-            return jsonify({'success': False, 'error': '文件名不合法'}), 400
-        if len(filename.encode('utf-8')) > app.config['MAX_FILENAME_BYTES']:
-            return jsonify({'success': False, 'error': '文件名过长，请缩短后再上传'}), 400
+        ok, error = validate_pdf_filename(filename)
+        if not ok:
+            return jsonify({'success': False, 'error': error}), 400
+
+        # 1. 保存文件到 download 目录（与主系统保持一致）
         download_dir = PROJECT_ROOT / 'download' / 'uploads'
         os.makedirs(download_dir, exist_ok=True)
         file_path = download_dir / filename

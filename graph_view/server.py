@@ -70,6 +70,23 @@ def _reload_graph_if_changed():
 
 _load_graph_data()
 
+# 缓存逐文件的内容 MD5，避免每次重建索引都全量读盘：
+# key = 文件路径, value = (mtime, size, md5)
+_FILE_MD5_CACHE = {}
+
+def _file_md5(file_path):
+    """计算文件内容 MD5，按 (mtime, size) 命中缓存；失败则回退路径字符串哈希。"""
+    try:
+        stat = os.stat(file_path)
+        cached = _FILE_MD5_CACHE.get(file_path)
+        if cached and cached[0] == stat.st_mtime and cached[1] == stat.st_size:
+            return cached[2]
+        md5 = hashlib.md5(Path(file_path).read_bytes()).hexdigest()
+        _FILE_MD5_CACHE[file_path] = (stat.st_mtime, stat.st_size, md5)
+        return md5
+    except Exception:
+        return hashlib.md5(str(file_path).encode("utf-8")).hexdigest()
+
 def _build_article_file_index():
     index = {}
 
@@ -98,11 +115,7 @@ def _build_article_file_index():
         file_path = entry.get("file")
         if not file_path:
             continue
-        try:
-            md5 = hashlib.md5(Path(file_path).read_bytes()).hexdigest()
-        except Exception:
-            md5 = hashlib.md5(str(file_path).encode("utf-8")).hexdigest()
-        index[md5] = file_path
+        index[_file_md5(file_path)] = file_path
     return index
 
 ARTICLE_FILE_INDEX = {}
